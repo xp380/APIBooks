@@ -3,11 +3,20 @@ import { Layout, Menu, Affix } from 'antd';
 // import { DesktopOutlined, PieChartOutlined, FileOutlined, GiftOutlined } from '@ant-design/icons';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
+//Header
+import DarkTheme from '../Header/DarkTheme'
+import Login from '../Header/Login'
+import Register from '../Header/Register'
+//Footer
+
+import Weather from '../Footer/Weather';
+import LegalMentions from '../Footer/LegalMentions'
+import Contact from '../Footer/Contact'
 import Time from '../Footer/Time';
 
-const { Header, Content, Footer, Sider } = Layout;
 
 function DashBoard() {
+    const { Header, Content, Footer, Sider } = Layout;
     const [top] = useState();
     const [collapsed, setCollapsed] = useState(false)
 
@@ -24,7 +33,9 @@ function DashBoard() {
                 <Layout className="site-layout">
                     <Affix offsetTop={top}>
                         <Header className="site-layout-background" style={{ padding: 0, textAlign: 'right', color: "white" }}>
-
+                            <DarkTheme />
+                            <Login />
+                            <Register />
                         </Header>
                     </Affix>
                     <Content style={{ margin: '0 16px' }}>
@@ -37,11 +48,11 @@ function DashBoard() {
                     <Footer style={{ textAlign: 'center', fontWeight: 'bold' }}>
                         <Time />
                         <br />
-                        Mentions Légales
+                        <Weather />
                         <br />
-                        Contact
+                        <Contact />
                         <br />
-                        Réseaux sociaux
+                        <LegalMentions />
                     </Footer>
                 </Layout>
             </Layout>
@@ -51,6 +62,6 @@ function DashBoard() {
 }
 
 
-export default function App() {
+export default function HomePage() {
     return <DashBoard />
 }

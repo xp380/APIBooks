@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function DarkTheme() {
+export default function Login() {
     return (
         <>
-            Join the Dark Side
+            Se connecter
         </>
     )
 }
