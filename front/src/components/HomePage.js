@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { Layout, Menu, Affix } from 'antd';
-// import { DesktopOutlined, PieChartOutlined, FileOutlined, GiftOutlined } from '@ant-design/icons';
+import { PieChartOutlined } from '@ant-design/icons';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 //Header
+
 import DarkTheme from '../Header/DarkTheme'
 import Login from '../Header/Login'
 import Register from '../Header/Register'
@@ -14,9 +15,18 @@ import LegalMentions from '../Footer/LegalMentions'
 import Contact from '../Footer/Contact'
 import Time from '../Footer/Time';
 
+//API
 
-function DashBoard() {
-    const { Header, Content, Footer, Sider } = Layout;
+import Covid from '../API/Covid'
+import Crypto from '../API/Crypto'
+import Game from '../API/Game'
+import Manga from '../API/Manga'
+import Movie from '../API/Movie'
+
+const { Header, Content, Footer, Sider } = Layout;
+
+
+export default function HomePage() {
     const [top] = useState();
     const [collapsed, setCollapsed] = useState(false)
 
@@ -26,9 +36,26 @@ function DashBoard() {
                 <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed}>
 
                     <div className="logo" />
-                    <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-
-                    </Menu>
+                    {/* <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+                        <Menu.Item key="1" icon={<PieChartOutlined />}>
+                            <Link to="/"> HomePage </Link>
+                        </Menu.Item>
+                        <Menu.Item key="2" icon={<PieChartOutlined />}>
+                            <Link to="/covid"> Covid </Link>
+                        </Menu.Item>
+                        <Menu.Item key="3" icon={<PieChartOutlined />}>
+                            <Link to="/crypto"> Crypto </Link>
+                        </Menu.Item>
+                        <Menu.Item key="4" icon={<PieChartOutlined />}>
+                            <Link to="/game"> Game </Link>
+                        </Menu.Item>
+                        <Menu.Item key="5" icon={<PieChartOutlined />}>
+                            <Link to="/manga"> Manga </Link>
+                        </Menu.Item>
+                        <Menu.Item key="6" icon={<PieChartOutlined />}>
+                            <Link to="/movie"> Movie </Link>
+                        </Menu.Item>
+                    </Menu> */}
                 </Sider>
                 <Layout className="site-layout">
                     <Affix offsetTop={top}>
@@ -41,6 +68,12 @@ function DashBoard() {
                     <Content style={{ margin: '0 16px' }}>
                         <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
                             <Switch>
+                                {/* <Route exact path="/" component={HomePage} />
+                                <Route path="/covid" component={Covid} />
+                                <Route path="/crypto" component={Crypto} />
+                                <Route path="/game" component={Game} />
+                                <Route path="/manga" component={Manga} />
+                                <Route path="/movie" component={Movie} /> */}
 
                             </Switch>
                         </div>
@@ -59,9 +92,4 @@ function DashBoard() {
         </Router>
 
     );
-}
-
-
-export default function HomePage() {
-    return <DashBoard />
 }
