@@ -5,23 +5,23 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 //Header
 
-import DarkTheme from '../Header/DarkTheme'
-import Login from '../Header/Login'
-import Register from '../Header/Register'
+import DarkTheme from './Header/DarkTheme'
+import Login from './Header/Login'
+import Register from './Header/Register'
 //Footer
 
-import Weather from '../Footer/Weather';
-import LegalMentions from '../Footer/LegalMentions'
-import Contact from '../Footer/Contact'
-import Time from '../Footer/Time';
+import Weather from './Footer/Weather';
+import LegalMentions from './Footer/LegalMentions'
+import Contact from './Footer/Contact'
+import Time from './Footer/Time';
 
 //API
 
-import Covid from '../API/Covid'
-import Crypto from '../API/Crypto'
-import Game from '../API/Game'
-import Manga from '../API/Manga'
-import Movie from '../API/Movie'
+import Covid from './Pages/Covid/index'
+import Crypto from './Pages/Crypto/index'
+import Game from './Pages/Game/index'
+import Manga from './Pages/Manga/index'
+import Movie from './Pages/Movie/index'
 
 const { Header, Content, Footer, Sider } = Layout;
 
