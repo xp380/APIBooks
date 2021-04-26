@@ -1,44 +1,38 @@
-import React, { useState, useEffect } from 'react'
-import axios from "axios"
-import { Card } from 'antd';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-export default function Film() {
-    const [data, setData] = useState({ Search: [] });
-    // const api_key = "cdb56670";
+const api_key = "30582d63e1f78f53711360b533a5d861";
+const BASE_URL = "https://api.themoviedb.org/3";
+// const getImage = (path) => `https://image.tmdb.org/t/p/w300/${path}`;
 
+export default function Index() {
+  const [data, setData] = useState([]);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const result = await axios("https://www.omdbapi.com/?s=all&apikey=cdb56670");
-            setData(result.data);
-        };
-        fetchData();
-    }, [data]);
+  const api = axios.create({ baseURL: BASE_URL });
+    
+  const getUpcoming = api.get("movie/upcoming", { params: { api_key } });
 
+  useEffect(() => {
+    getUpcoming.then((res) => {
+      setData(res.data.results);
+    });
+  }, []);
 
-    return (
-        <div className="site-card-border-less-wrapper">
-            {data.Search.map(item => (
-        <Card title="Card title" bordered={false} style={{ width: 300 }}>
-                    <div>{item.Year}</div>
-                    <div>{item.Title}</div>
-                    <div>{item.Type}</div>
-                    {/* <img src=""/> */}
-        </Card>
-            ))}
-      </div>
-        // <>
-        //     {data.Search.map(item => (
-        //         <ul style={{ marginTop: 100 }}>
-        //             <li key={item.Title}>
-                        
-        //                 <div>{item.Year}</div>
-        //                 <div>{item.Title}</div>
-        //                 <div>{item.Type}</div>
-        //                 <img width="200" height="200" alt={`the movie titled: ${item.Title}`} src={item.Poster} />
-        //             </li>
-        //         </ul>
-        //     ))}
-        // </>
-    );
+  return (
+    <div className="App">
+      <header className="App-header">
+        <div className="grid">
+          {data.map((movie) => (
+            <div className="item">
+              {/* <img src={getImage(movie.poster_path)} /> */}
+              <h3>{movie.original_title}</h3>
+              <p>{movie.overview}</p>
+              <p>{movie.original_language}</p>
+            </div>
+          ))}
+        </div>
+      </header>
+    </div>
+  );
 }
+

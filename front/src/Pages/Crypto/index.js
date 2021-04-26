@@ -1,43 +1,46 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export default class App extends Component {
-    constructor(props) {
-        super(props);
+export default function Index() {
+  const [moedas, setMoedas] = useState([]);
 
-        this.state = {
-            isLoaded: false,
-            error: null,
-            users: []
-        };
-    }
+  useEffect(() => {
+    axios
+      .get(
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur"
+      )
+      .then((res) => {
+        setMoedas(res.data);
+        console.log(res.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
-    componentDidMount() {
-        axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur").then(
-            results => this.setState({ isLoaded: true, users: results.data }),
-            error => {
-                this.setState({ isLoaded: false, error });
-            }
-        );
-    }
+  return (
+    <div className="container">
+                <h1 className="header">Liste des crypto monnaies</h1>
 
-    render() {
-        const { isLoaded, error, users } = this.state;
-
-        if (error) {
-            return <p>Error: {error.message}</p>;
-        } else if (!isLoaded) {
-            return <p>Loading...</p>;
-        } else {
-            return (
-                <table>
-                    {users.map(user => (
-                        <tr key={user.id}>
-                            <td>Name: {user.symbol}</td>
+                <table id='tblUser' className="Users">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prix Actuel</th>
+                            <th>Symbole</th>
+                            <th>Changement de prix</th>
                         </tr>
-                    ))}
+                    </thead>
+                    <tbody>
+
+                        {moedas.map((user) => (
+                            <tr key={user.id}>
+                                <td>{user.name}</td>
+                                <td>{user.current_price}</td>
+                                <td>{user.symbol}</td>
+                                <td>{user.price_change_percentage_24h.toFixed(2)}</td>
+                            </tr>
+                        ))}
+                    </tbody>
                 </table>
-            );
-        }
-    }
+            </div>
+  );
 }

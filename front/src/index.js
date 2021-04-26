@@ -15,9 +15,9 @@ ReactDOM.render(
   <React.StrictMode>
     {/* <Covid /> */}
     {/* <Crypto /> */}
-    {/* <Game />  */}
+    <Game /> 
     {/* <Manga />  */}
-    <Movie />
+    {/* <Movie /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

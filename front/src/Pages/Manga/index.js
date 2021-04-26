@@ -1,10 +1,9 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 function UserList() {
     const [UserData, SetUserData] = useState([])
-    const [UserName, SetUserName] = useState('')
-    const [UserRole, SetUserRole] = useState('')
+    
 
     function GetAllUSers() {
         axios.get('https://api.jikan.moe/v3/top/anime/1/upcoming')
@@ -22,26 +21,8 @@ function UserList() {
         GetAllUSers();
     }, [])
 
-
-    function onUserNameChange(event) {
-        SetUserName(event.target.value);
-    }
-
-    function onUserRoleChange(event) {
-        SetUserRole(event.target.value);
-    }
-
-    const AddUser = async (event) => {
-        event.preventDefault();
-        await (res => {
-            console.log(res.data);
-        }).catch(error => {
-            console.log(error);
-        });
-    }
-
     return (
-        <Fragment>
+        <>
             <div className="container">
                 <h1 className="header">User List</h1>
 
@@ -65,7 +46,7 @@ function UserList() {
                     </tbody>
                 </table>
             </div>
-        </Fragment>
+        </>
     )
 
 
