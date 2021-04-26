@@ -1,14 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
+import Covid from './Pages/Covid/index'
+import Crypto from './Pages/Crypto/index'
+import Game from './Pages/Game/index'
+import Manga from './Pages/Manga/index'
+import Movie from './Pages/Movie/index'
 import 'antd/dist/antd.css';
 
 // import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <Covid /> */}
+    {/* <Crypto /> */}
+    {/* <Game />  */}
+    {/* <Manga />  */}
+    <Movie />
   </React.StrictMode>,
   document.getElementById('root')
 );
