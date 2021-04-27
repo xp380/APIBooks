@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Tabs} from 'antd'
+
+import Display from './Display'
 
 const api_key = "30582d63e1f78f53711360b533a5d861";
 const BASE_URL = "https://api.themoviedb.org/3";
 // const getImage = (path) => `https://image.tmdb.org/t/p/w300/${path}`;
 
 export default function Index() {
+
+  const { TabPane } = Tabs;
+ 
   const [data, setData] = useState([]);
 
   const api = axios.create({ baseURL: BASE_URL });
@@ -14,6 +20,7 @@ export default function Index() {
 
   useEffect(() => {
     getUpcoming.then((res) => {
+      console.log(res.data)
       setData(res.data.results);
     });
   }, []);
@@ -21,7 +28,9 @@ export default function Index() {
   return (
     <div className="App">
       <header className="App-header">
-        <div className="grid">
+      <Tabs defaultActiveKey="1" >
+                <TabPane tab="Accueil" key="1">
+                  <p>Liste des Films</p>
           {data.map((movie) => (
             <div className="item">
               {/* <img src={getImage(movie.poster_path)} /> */}
@@ -30,7 +39,13 @@ export default function Index() {
               <p>{movie.original_language}</p>
             </div>
           ))}
-        </div>
+                </TabPane>
+                <TabPane tab="Card" key="2">
+                  <Display />
+                </TabPane>
+                
+            </Tabs>
+       
       </header>
     </div>
   );

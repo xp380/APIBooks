@@ -1,7 +1,10 @@
 import React, { useState, useEffect} from 'react'
-
+import { Tabs, Descriptions } from 'antd'
+ 
 export default function Index(){
-    
+
+    const { TabPane } = Tabs;
+
     const [games, setGames] = useState([])
 
     const fetchGames = () => {
@@ -15,16 +18,28 @@ export default function Index(){
     
     return (
         <div>
-          <ul>
+            <Tabs defaultActiveKey="1" >
+                <TabPane tab="Accueil" key="1">
+                <ul>
           {
             games.map(game => (
-              <li key={game.id}>
-                <h3>{game.name}</h3>
-                <img src={game.background_image} alt="game"/>
-              </li>
+              <Descriptions title={game.id}>
+                  <Descriptions.Item label="Nom">{game.name}</Descriptions.Item>
+                  <Descriptions.Item label="Date">{game.released}</Descriptions.Item>
+                  <Descriptions.Item label="Notes">{game.rating}</Descriptions.Item>
+                  <Descriptions.Item label="Compteur">{game.ratings_count}</Descriptions.Item>
+                  <Descriptions.Item label="Image"><img src={game.background_image} alt="game" style= {{width: 100, height: 100 }}/> </Descriptions.Item>
+              </Descriptions>
             ))
           }
           </ul>
+                </TabPane>
+                <TabPane tab="Card" key="2">
+                    Card
+                </TabPane>
+               
+            </Tabs>
+         
         </div>
       )
 }

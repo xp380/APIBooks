@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Tabs } from "antd"
 
 export default function Index() {
-  const [moedas, setMoedas] = useState([]);
+  const { TabPane } = Tabs;
+
+  const [crypto, setCrypto] = useState([]);
 
   useEffect(() => {
     axios
@@ -10,7 +13,7 @@ export default function Index() {
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur"
       )
       .then((res) => {
-        setMoedas(res.data);
+        setCrypto(res.data);
         console.log(res.data);
       })
       .catch((error) => console.log(error));
@@ -19,7 +22,8 @@ export default function Index() {
   return (
     <div className="container">
                 <h1 className="header">Liste des crypto monnaies</h1>
-
+                <Tabs defaultActiveKey="1" >
+                <TabPane tab="Accueil" key="1">
                 <table id='tblUser' className="Users">
                     <thead>
                         <tr>
@@ -31,7 +35,7 @@ export default function Index() {
                     </thead>
                     <tbody>
 
-                        {moedas.map((user) => (
+                        {crypto.map((user) => (
                             <tr key={user.id}>
                                 <td>{user.name}</td>
                                 <td>{user.current_price}</td>
@@ -41,6 +45,12 @@ export default function Index() {
                         ))}
                     </tbody>
                 </table>
+                </TabPane>
+                <TabPane tab="Liste" key="2">
+                </TabPane>
+               
+            </Tabs>
+                
             </div>
   );
 }
