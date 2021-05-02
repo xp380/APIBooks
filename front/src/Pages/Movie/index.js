@@ -1,53 +1,62 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+// import React, { useContext } from 'react'
+// import { Tabs} from 'antd'
+
+// import Movie from './components/Movie'
+// import { MovieContext } from './Context';
+
+// export default function Streaming(){
+//     const movieContext = useContext(MovieContext)
+//     const { TabPane } = Tabs;
+//     return(
+//         <>
+//         <div className="App">
+//             <Tabs defaultActiveKey="1" >
+//                     <TabPane tab="Accueil" key="1">
+//                         <h3>Liste des Films</h3>
+//                         {movieContext.movies.length ? (
+//                          movieContext.movies.map((lol) => <Movie ovie={lol} key={lol.id} />)
+//                          ) : (
+//                            <h2>No Movies Found</h2>
+//                          )}
+//                         {/* <Movie /> */}
+//                         {/* {movieContext.movies.map((lol) => <Movie movie={lol} key={lol.id}/>)} */}
+//                     </TabPane>
+//                     <TabPane tab="Card" key="2">
+//                         <h3>Liste des films</h3>
+//                     </TabPane>
+//             </Tabs>
+//         </div>
+//         </>
+//     )
+// }
+
+import React, { useContext } from "react";
+import { User } from "./components/Movie";
+import { UserContext } from "./Context";
 import { Tabs} from 'antd'
 
-import Display from './Display'
-
-const api_key = "30582d63e1f78f53711360b533a5d861";
-const BASE_URL = "https://api.themoviedb.org/3";
-// const getImage = (path) => `https://image.tmdb.org/t/p/w300/${path}`;
-
-export default function Index() {
-
+export default function App() {
   const { TabPane } = Tabs;
- 
-  const [data, setData] = useState([]);
-
-  const api = axios.create({ baseURL: BASE_URL });
-    
-  const getUpcoming = api.get("movie/upcoming", { params: { api_key } });
-
-  useEffect(() => {
-    getUpcoming.then((res) => {
-      console.log(res.data)
-      setData(res.data.results);
-    });
-  }, []);
+  const userContext = useContext(UserContext);
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="App" >
+      <div>
       <Tabs defaultActiveKey="1" >
-                <TabPane tab="Accueil" key="1">
-                  <p>Liste des Films</p>
-          {data.map((movie) => (
-            <div className="item">
-              {/* <img src={getImage(movie.poster_path)} /> */}
-              <h3>{movie.original_title}</h3>
-              <p>{movie.overview}</p>
-              <p>{movie.original_language}</p>
-            </div>
-          ))}
-                </TabPane>
-                <TabPane tab="Card" key="2">
-                  <Display />
-                </TabPane>
-                
+                    <TabPane tab="Accueil" key="1">
+                        <h3>Liste des Films</h3>
+                        {userContext.users.length ? (
+          userContext.users.map(user => <User user={user} key={user.id} />)
+        ) : (
+          <h2>No Users Found</h2>
+        )}
+                    </TabPane>
+                    <TabPane tab="Card" key="2">
+                        <h3>Liste des films</h3>
+                    </TabPane>
             </Tabs>
-       
-      </header>
+        
+      </div>
     </div>
   );
 }
-
