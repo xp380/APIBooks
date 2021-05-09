@@ -6,14 +6,6 @@ export const CovidContext = createContext()
 export const CovidProvider = ({ children }) => {
     const [covids, setCovids ] = useState([])
 
-    // useEffect(() => {
-    //     axios
-    //     .get("https://api.covid19api.com/total/dayone/country/france")
-    //     .then(({ data }) => {
-    //         setCovids(data)
-    //         console.log(data)
-    //     })
-    // }, [])
     useEffect(() => {
         const fetchData = async () => {
             const result = await axios("https://api.covid19api.com/total/dayone/country/france")

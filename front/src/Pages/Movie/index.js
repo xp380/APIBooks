@@ -31,13 +31,13 @@
 // }
 
 import React, { useContext } from "react";
-import { User } from "./components/Movie";
-import { UserContext } from "./Context";
+import { Movie } from "./components/Movie";
+import { MovieContext } from "./Context";
 import { Tabs} from 'antd'
 
 export default function App() {
   const { TabPane } = Tabs;
-  const userContext = useContext(UserContext);
+  const movieContext = useContext(MovieContext);
 
   return (
     <div className="App" >
@@ -45,10 +45,10 @@ export default function App() {
       <Tabs defaultActiveKey="1" >
                     <TabPane tab="Accueil" key="1">
                         <h3>Liste des Films</h3>
-                        {userContext.users.length ? (
-          userContext.users.map(user => <User user={user} key={user.id} />)
+                        {movieContext.results.length ? (
+          movieContext.results.map(movie => <Movie movie={movie} key={movie.id} />)
         ) : (
-          <h2>No Users Found</h2>
+          <h2>No Movies Found</h2>
         )}
                     </TabPane>
                     <TabPane tab="Card" key="2">

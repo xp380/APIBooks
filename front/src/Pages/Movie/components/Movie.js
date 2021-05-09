@@ -15,21 +15,16 @@
 
 import React from "react";
 
-export const User = ({ user }) => {
-  const { name, email, company, phone, address } = user;
-  const { name: companyName } = company;
-  const { zipcode: postal } = address;
+export const Movie = ({ movie }) => {
+  const { original_language, title, overview, release_date } = movie;
+  
 
   return (
     <>
-      <h3>{name}</h3>
-      <div>{email}</div>
-      <div>{companyName}</div>
-      <div>{phone}</div>
-      <div>{postal}</div>
-      {/* <pre>
-        <code>{JSON.stringify(user, null, 2)}</code>
-      </pre> */}
+      <h3>{title}</h3>
+      <div>{original_language}</div>
+      <div>{overview}</div>
+      <div>{release_date}</div>
     </>
   );
 };

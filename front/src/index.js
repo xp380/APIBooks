@@ -4,7 +4,7 @@ import './index.css';
 import { CovidProvider } from './Pages/Covid/Context'
 import { CryptoProvider } from './Pages/Crypto/Context'
 import { MangaProvider } from './Pages/Manga/Context'
-import { UserProvider } from './Pages/Movie/Context'
+import { MovieProvider } from './Pages/Movie/Context'
 import { GameProvider } from './Pages/Game/Context'
 // import App from './App';
 import Covid from './Pages/Covid/index'
@@ -30,9 +30,9 @@ ReactDOM.render(
     {/* <MangaProvider>
     <Manga /> 
     </MangaProvider> */}
-    <UserProvider>
+    <MovieProvider>
     <Movie />
-    </UserProvider>
+    </MovieProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -5,14 +5,6 @@ export const CryptoContext = createContext();
 
 export const CryptoProvider = ({ children }) => {
   const [cryptos, setCryptos] = useState([]);
-  // useEffect(() => {
-  //   axios
-  //   .get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur")
-  //   .then(({ data }) => {
-  //     setCryptos(data);
-  //     console.log(data)
-  //   });
-  // }, []);
 
   useEffect(() => {
     const fetchData = async () => {

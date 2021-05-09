@@ -63,13 +63,13 @@ export default function MangaAnime(){
           <TabPane tab="Accueil" key="1">
             <h3>liste des mangas</h3>
             {
-              mangaContext.mangas.length !== 0
-              ? mangaContext.mangas.map(manga => <Manga manga={manga} key={manga.mal_id} />)
+              mangaContext.top.length !== 0
+              ? mangaContext.top.map(manga => <Manga manga={manga} key={manga.mal_id} />)
               : <h2>No Mangas Found</h2>
             }
           </TabPane>
           <TabPane tab="Card" key="2">
-            <h3>Représentation Graphique du bilan de Covid</h3>
+            <h3>Liste des mangas en carte</h3>
           </TabPane>
         </Tabs>
         </>

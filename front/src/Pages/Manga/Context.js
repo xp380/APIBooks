@@ -43,21 +43,23 @@ import React, {useState, useEffect, createContext} from 'react'
 import axios from 'axios'
 
 export const MangaContext = createContext()
+
 export const MangaProvider = ({ children }) => {
-    const [mangas, setMangas ] = useState({ top: []})
+    const [top, setTop ] = useState([])
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await axios('https://api.jikan.moe/v3/top/anime')
-            setMangas(result.data)
+            const result = await axios('https://api.covid19api.com/total/dayone/country/france')
+            setTop(result.data)
+            console.log(result.data)
         }
         fetchData()
     }, [])
     
     const contextValues = {
-        mangas,
-        setMangas
+        top,
+        setTop
     }
 
-    return <MangaContext value={contextValues}>{children}</MangaContext>
+    return <MangaContext.Provider value={contextValues}>{children}</MangaContext.Provider>
 }

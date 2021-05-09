@@ -33,22 +33,24 @@
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
 
-export const UserContext = createContext();
+export const MovieContext = createContext();
 
-export const UserProvider = ({ children }) => {
-  const [users, setUsers] = useState([]);
+export const MovieProvider = ({ children }) => {
+  const [results, setResults] = useState([]);
 
   useEffect(() => {
-    axios.get("https://jsonplaceholder.typicode.com/users").then((resp) => {
-      setUsers(resp.data);
-      console.log(resp.data)
-    });
-  }, []);
+    const fetchData = async () => {
+        const result = await axios("https://api.themoviedb.org/3/movie/upcoming?api_key=30582d63e1f78f53711360b533a5d861")
+        setResults(result.data)
+        console.log(result.data.results)
+    }
+    fetchData()
+}, [])
 
-  const state = {
-    users,
-    setUsers
+  const contextValues = {
+    results,
+    setResults
   };
 
-  return <UserContext.Provider value={state}>{children}</UserContext.Provider>;
+  return <MovieContext.Provider value={contextValues}>{children}</MovieContext.Provider>;
 };
