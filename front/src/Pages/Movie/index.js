@@ -38,7 +38,7 @@ import { Tabs} from 'antd'
 export default function App() {
   const { TabPane } = Tabs;
   const movieContext = useContext(MovieContext);
-
+  
   return (
     <div className="App" >
       <div>

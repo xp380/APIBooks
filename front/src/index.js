@@ -18,9 +18,9 @@ import 'antd/dist/antd.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <CovidProvider>
+    <CovidProvider>
     <Covid />
-    </CovidProvider> */}
+    </CovidProvider>
     {/* <CryptoProvider>
     <Crypto />
     </CryptoProvider> */}
@@ -30,9 +30,9 @@ ReactDOM.render(
     {/* <MangaProvider>
     <Manga /> 
     </MangaProvider> */}
-    <MovieProvider>
+    {/* <MovieProvider>
     <Movie />
-    </MovieProvider>
+    </MovieProvider> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

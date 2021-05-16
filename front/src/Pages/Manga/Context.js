@@ -49,7 +49,7 @@ export const MangaProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await axios('https://api.covid19api.com/total/dayone/country/france')
+            const result = await axios('https://api.jikan.moe/v3/top/anime')
             setTop(result.data)
             console.log(result.data)
         }

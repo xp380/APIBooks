@@ -10,7 +10,7 @@ export const GameProvider = ({ children }) => {
       const fetchData = async () => {
           const result = await axios("https://api.rawg.io/api/games?key=9b12083a67134bbdad6628f19da1e91a")
           setResults(result.data)
-          console.log(result.data)
+          console.log(result.data.results)
       }
       fetchData()
     }, [])
