@@ -12,7 +12,7 @@ export default function Bitcoin() {
       <div>
         <Tabs defaultActiveKey="1" >
           <TabPane tab="Accueil" key="1">
-            <h3>Liste des Films</h3>
+            <h3>Liste des Cryptos</h3>
             {
               cryptoContext.cryptos.length !== 0
               ? cryptoContext.cryptos.map(crypto => <Crypto crypto={crypto} key={crypto.id} />)

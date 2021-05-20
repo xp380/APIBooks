@@ -1,25 +1,21 @@
 import React, { createContext, useState, useEffect } from "react";
-import axios from 'axios'
+import { getAxios } from '../Function/index'
+const GameContext = createContext();
 
-export const GameContext = createContext();
-
-export const GameProvider = ({ children }) => {
-    const [results, setResults] = useState([])
-
-    useEffect(() => {
-      const fetchData = async () => {
-          const result = await axios("https://api.rawg.io/api/games?key=9b12083a67134bbdad6628f19da1e91a")
-          setResults(result.data)
-          console.log(result.data.results)
-      }
-      fetchData()
-    }, [])
-    
-
-  const state = {
-    results,
-    setResults
+const GameProvider = ({ children }) => {
+  const [datas, setDatas] = useState([]);
+  const getGame = async () => {
+    const data = await getAxios(
+      "https://api.rawg.io/api/games?key=9b12083a67134bbdad6628f19da1e91a"
+    );
+    setDatas(data.results);
   };
-
-  return <GameContext.Provider value={state}>{children}</GameContext.Provider>;
+  useEffect(() => {
+    getGame();
+  }, []);
+  return (
+    <GameContext.Provider value={{ datas }}>{children}</GameContext.Provider>
+  );
 };
+
+export { GameContext, GameProvider }

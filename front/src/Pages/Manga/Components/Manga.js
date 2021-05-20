@@ -1,14 +1,26 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { MangaContext } from '../Context'
 
-export const Manga = ({ manga }) => {
-    const { rank, title, image_url, start_date, end_date } = manga
-    return(
+import { Card, Col, Row } from 'antd'
+
+const Main = () => {
+    const { datas } = useContext(MangaContext)
+    return (
         <>
-        <h3>{title}</h3>
-        <p>{rank}</p>
-        <p><img src={image_url} alt="manga" style= {{width: 100, height: 100 }}/></p>
-        <p>{start_date}</p>
-        <p>{end_date}</p>
+            <Row gutter={16}>
+                <Col span={6} >
+                    {datas.map((item, mal_id) => (
+                        <Card key={mal_id} style={{ width: 300 }} bordered={true} hoverable >
+                            <p>Titre: {item.title}</p>
+                            <p>Note: {item.score}</p>
+                            <p><img src={item.image_url} alt="#" width="200" height="200" /></p>
+                            <p>Date Début: {item.start_date}</p>
+                        </Card>
+                    ))}
+                </Col>
+            </Row>
         </>
     )
 }
+
+export default Main

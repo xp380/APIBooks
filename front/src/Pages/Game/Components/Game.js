@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
+import { GameContext } from "../Context"
 
-export const MyGame = ({ game }) => {
-  const {slug, released, ratings, background_image, count, next, previous } = game
+import { Card, Col, Row } from 'antd'
+
+const Main = () => {
+  const { datas } = useContext(GameContext)
 
   return (
     <>
-      <h3> Nom du jeu: {slug}</h3>
-      <p>Date de publication: {released}</p>
-      <p>Critiques: {ratings}</p>
-      <p><img src={background_image} alt="game" style= {{width: 100, height: 100 }}/></p>
-      <h3>{count}</h3>
-      <p>{next}</p>
-      <p>{previous}</p>
+      <Row gutter={16}>
+        <Col span={6} >
+          {datas.map((item, id) => (
+            <Card key={id} style={{ width: 300 }} bordered={true} hoverable >
+              <p>Titre: {item.slug}</p>
+              <p>Notes: {item.rating}</p>
+              <img src={item.background_image} alt="#" width="200" height="200" />
+              <p>Date de sortie: {item.released}</p>
+            </Card>
+          ))}
+        </Col>
+      </Row>
     </>
   );
 };
+
+export default Main

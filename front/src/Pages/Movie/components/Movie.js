@@ -1,31 +1,26 @@
-// import React from 'react'
+import React, { useContext } from "react";
+import { MovieContext } from '../Context'
 
-// export const Movie = ({ movie }) => {
-//   const { original_title, overview, release_date } = movie
+import { Card, Col, Row } from 'antd'
 
-
-//   return(
-//     <>
-//     <h3>{original_title}</h3>
-//     <p>{overview}</p>
-//     <p>{release_date}</p>
-//     </>
-//   )
-// }
-
-import React from "react";
-
-export const Movie = ({ movie }) => {
-  const { original_language, title, overview, release_date } = movie;
-  
-
+const Main = () => {
+  const { datas } = useContext(MovieContext)
   return (
     <>
-      <h3>{title}</h3>
-      <div>{original_language}</div>
-      <div>{overview}</div>
-      <div>{release_date}</div>
+      <Row gutter={16}>
+        <Col span={6} >
+          {datas.map((item, id) => (
+            <Card key={id} style={{ width: 300 }} bordered={true} hoverable >
+              <p>Titre: {item.title}</p>
+              <p>résumé: {item.overview}</p>
+              <img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="#" width="200" height="200" />
+              <p>Date: {item.release_date}</p>
+            </Card>
+          ))}
+        </Col>
+      </Row>
     </>
   );
 };
 
+export default Main;
