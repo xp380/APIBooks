@@ -1,113 +1,100 @@
-import React, {useState, useEffect} from 'react'
-import {Line} from 'react-chartjs-2'
-import axios from "axios"
+import React, { useState, useEffect } from "react";
+import { Line } from "react-chartjs-2";
+import axios from "axios";
 
+export default function Graph() {
 
-const Graph = () => {
-    const [chartData, setChartData]  = useState({});
+    const [data, setData] = useState([]);
+    const [posts, setPosts] = useState([]);
 
- const Chart = () => {
-        let empSal = [];
-        let empAge = [];
-
-        axios.get("http://dummy.restapiexample.com/api/v1/employees")
-        .then(res => {
-            console.log(res);
-            for(const dataObj of res.data.data){
-                empSal.push(parseInt(dataObj.employee_salary));
-                empAge.push(parseInt(dataObj.employee_age ));
-
-            }
-            setChartData({
-                labels: empAge,
-                datasets: [{
-                                             label: 'level of thicceness',
-                                             data: empSal,
-                                             backgroundColor: [
-                                                 'rgba(255, 99, 132, 0.2)',
-                                                 'rgba(54, 162, 235, 0.2)',
-                                                 'rgba(255, 206, 86, 0.2)',
-                                                 'rgba(75, 192, 192, 0.2)',
-                                                 'rgba(153, 102, 255, 0.2)',
-                                                 'rgba(255, 159, 64, 0.2)',
-                                                 'rgba(255, 99, 132, 0.2)',
-                                                 'rgba(54, 162, 235, 0.2)',
-                                                 'rgba(255, 206, 86, 0.2)',
-                                                 'rgba(75, 192, 192, 0.2)',
-                                                 'rgba(153, 102, 255, 0.2)',
-                                                 'rgba(255, 159, 64, 0.2)',
-                                                 'rgba(255, 99, 132, 0.2)',
-                                                 'rgba(54, 162, 235, 0.2)',
-                                                 'rgba(255, 206, 86, 0.2)',
-                                                 'rgba(75, 192, 192, 0.2)',
-                                                 'rgba(153, 102, 255, 0.2)',
-                                                 'rgba(255, 159, 64, 0.2)',
-                                                 'rgba(255, 99, 132, 0.2)',
-                                                 'rgba(54, 162, 235, 0.2)',
-                                                 'rgba(255, 206, 86, 0.2)',
-                                                 'rgba(75, 192, 192, 0.2)',
-                                                 'rgba(153, 102, 255, 0.2)',
-                                                 'rgba(255, 159, 64, 0.2)',
-                                             ],
-                                             borderColor: [
-                                                 'rgba(255, 99, 132, 1)',
-                                                 'rgba(54, 162, 235, 1)',
-                                                 'rgba(255, 206, 86, 1)',
-                                                 'rgba(75, 192, 192, 1)',
-                                                 'rgba(153, 102, 255, 1)',
-                                                 'rgba(255, 159, 64, 1)',
-                                                 'rgba(255, 99, 132, 1)',
-                                                 'rgba(54, 162, 235, 1)',
-                                                 'rgba(255, 206, 86, 1)',
-                                                 'rgba(75, 192, 192, 1)',
-                                                 'rgba(153, 102, 255, 1)',
-                                                 'rgba(255, 159, 64, 1)',
-                                                 'rgba(255, 99, 132, 1)',
-                                                 'rgba(54, 162, 235, 1)',
-                                                 'rgba(255, 206, 86, 1)',
-                                                 'rgba(75, 192, 192, 1)',
-                                                 'rgba(153, 102, 255, 1)',
-                                                 'rgba(255, 159, 64, 1)',
-                                                 'rgba(255, 99, 132, 1)',
-                                                 'rgba(54, 162, 235, 1)',
-                                                 'rgba(255, 206, 86, 1)',
-                                                 'rgba(75, 192, 192, 1)',
-                                                 'rgba(153, 102, 255, 1)',
-                                                 'rgba(255, 159, 64, 1)',
-                                             ],
-                                             borderWidth: 1
-                                         }]
-            });
-        })
-        .catch(err =>{
-            console.log(err);
-        })
-        
-    }
+    let date = [];
+    let confirmed = [];
+    let deaths = [];
+    let recovered = [];
     useEffect(() => {
-        Chart();
-      }, []);
-      return(
-          <div className="App">
-              <h1>Bar Chart</h1>
-              <div>
-                  <Line
-                    data={chartData}
-                    options={{
-                        responsive:true,
-                        title: { text: "THICCNESS SCALE", display: true },
-                        scales:{
-                            yAxes:{
-                                ticks:{
-                                    beginAtZero: true
-                                }
-                            }
+
+        axios.get("https://api.covid19api.com/total/dayone/country/france").then(res => {
+            const ipl = res.data;
+            setPosts(ipl);
+
+            ipl.forEach(record => {
+                date.push(record.Date);
+                confirmed.push(record.Confirmed);
+                deaths.push(record.Deaths)
+                recovered.push(record.Recovered)
+            });
+
+            setData({
+                Data: {
+                    labels: date,
+                    datasets: [
+                        {
+                            label: "Nombre de confirmés",
+                            data: confirmed,
+                            backgroundColor: [
+                                "Blue",
+                            ]
+                        },
+                        {
+                            label: "Nombre de morts",
+                            data: deaths,
+                            backgroundColor: [
+                                "Red",
+                            ]
+                        },
+                        {
+                            label: "Nombre de Rétablis",
+                            data: recovered,
+                            backgroundColor: [
+                                "Green",
+                            ]
                         }
-                    }}
-                  />
-              </div>
-          </div>
-      )
+                    ],
+                }
+            });
+        });
+    });
+
+    return (
+        <div>
+            <Line data={data.Data}></Line>
+        </div>
+    );
 }
 
-export default Graph;
+
+// import React, { useContext } from 'react'
+// import { Line } from 'react-chartjs-2'
+// import { CovidContext } from '../Context'
+
+// const Main = () => {
+//     const { covids, setCovids } = useContext(CovidContext)
+//     console.log(covids)
+//     const data = {
+
+//         labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+//         datasets: [
+//             {
+//                 label: "First dataset",
+//                 data: [],
+//                 fill: true,
+//                 backgroundColor: "rgba(75,192,192,0.2)",
+//                 borderColor: "rgba(75,192,192,1)"
+//             },
+//             {
+//                 label: "Second dataset",
+//                 data: [],
+//                 fill: false,
+//                 borderColor: "#742774"
+//             }
+//         ]
+//     };
+
+//     return (
+//         <>
+//             <Line data={data.covids} />
+//         </>
+//     )
+// }
+
+// export default Main

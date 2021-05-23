@@ -8,16 +8,15 @@ const Main = () => {
     return (
         <>
             <Row gutter={16}>
-                <Col span={6} >
-                    {datas.map((item, mal_id) => (
-                        <Card key={mal_id} style={{ width: 300 }} bordered={true} hoverable >
-                            <p>Titre: {item.title}</p>
-                            <p>Note: {item.score}</p>
-                            <p><img src={item.image_url} alt="#" width="200" height="200" /></p>
-                            <p>Date Début: {item.start_date}</p>
-                        </Card>
-                    ))}
-                </Col>
+                {datas.map((item, mal_id) => (
+                    <Card key={mal_id} style={{ width: 300 }} bordered={true} hoverable >
+                        <p><img src={item.image_url} alt="#" width="200" height="200" /></p>
+                        <p>Titre: {item.title}</p>
+                        <p>Note: {item.score}</p>
+                        <p>Date Début: {item.start_date}</p>
+                        <p>Date Fin: {item.end_date}</p>
+                    </Card>
+                ))}
             </Row>
         </>
     )
