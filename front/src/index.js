@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
+import { MovieProvider } from './Pages/Movie/Context'
+import { MangaProvider } from './Pages/Manga/Context'
+import { GameProvider } from './Pages/Game/Context'
 import Covid from './Pages/Covid/index'
 import Crypto from './Pages/Crypto/index'
 import Game from './Pages/Game/index'
@@ -13,11 +16,17 @@ import 'antd/dist/antd.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Covid />
+    {/* <Covid /> */}
     {/* <Crypto /> */}
-    {/* <Game /> */}
-    {/* <Manga /> */}
-    {/* <Movie /> */}
+    <GameProvider>
+      <Game />
+    </GameProvider>
+    {/* <MangaProvider>
+      <Manga />
+    </MangaProvider> */}
+    {/* <MovieProvider>
+      <Movie />
+    </MovieProvider> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

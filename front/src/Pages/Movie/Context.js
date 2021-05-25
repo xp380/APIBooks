@@ -1,34 +1,39 @@
 import React, { useState, useEffect, createContext } from "react";
 import { getAxios } from "../Function/index";
+import axios from "axios"
 const MovieContext = createContext();
 
 const MovieProvider = ({ children }) => {
   const [datas, setDatas] = useState([]);
-  const [testdatas, testsetDatas] = useState([]);
+  const [movies, setMovies] = useState([])
+  const [searchMovie, setSearchMovie] = useState("")
 
   const getMovie = async () => {
-    const data = await getAxios(
+    const response = await axios.get(
       "https://api.themoviedb.org/3/movie/upcoming?api_key=30582d63e1f78f53711360b533a5d861"
     );
-    setDatas(data.results);
+    setDatas(response.data.results);
   };
   useEffect(() => {
     getMovie();
   }, []);
 
-  // const testMovie = async () => {
-  //   const data = await getAxios(
-  //     "https://api.themoviedb.org/3/movie/578701?api_key=30582d63e1f78f53711360b533a5d861&language=en-US"
-  //     // "https://api.themoviedb.org/3/movie/578701?api_key=30582d63e1f78f53711360b533a5d861&language=en-US"
-  //   );
-  //   testsetDatas(data.genres);
-  // };
-  // useEffect(() => {
-  //   testMovie();
-  // }, []);
+  useEffect(() => {
+    const getMovies = async () => {
+      try {
+        const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=30582d63e1f78f53711360b533a5d861&query=${searchMovie}`);
+        setMovies(response.data.results);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getMovies();
+  }, [searchMovie]);
 
   return (
-    <MovieContext.Provider value={{ datas, testdatas }}>{children}</MovieContext.Provider>
+    <MovieContext.Provider value={{ datas, setSearchMovie, movies }}>
+      {children}
+    </MovieContext.Provider>
   );
 };
 

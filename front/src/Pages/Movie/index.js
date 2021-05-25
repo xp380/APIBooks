@@ -1,30 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Tabs } from 'antd'
 
 import MovieList from "./components/Movie";
-import List from './components/List'
+import Movies from './components/Movies'
 import Search from './components/SearchForm'
-import { MovieProvider } from './Context'
+import { MovieContext } from './Context'
 
-export default function Index() {
+const Home = React.memo(() => {
+  const { movies } = useContext(MovieContext)
   const { TabPane } = Tabs
 
+  if (!movies) {
+    return (
+      'error'
+    );
+  }
   return (
-    <MovieProvider>
-      <>
-        <Tabs defaultActiveKey="1" >
-          <TabPane tab="Accueil" key="1">
-            <Search />
-
-            <MovieList />
-          </TabPane>
-          <TabPane tab="Card" key="2">
+    <>
+      <Tabs defaultActiveKey="1" >
+        <TabPane tab="Accueil" key="1">
+          <MovieList />
+        </TabPane>
+        <TabPane tab="Card" key="2">
+          <Search />
+          {movies.slice(0, 1).map((moviesTest) => {
             <h3>Représentation des Films</h3>
-            <List />
-          </TabPane>
-
-        </Tabs>
-      </>
-    </MovieProvider>
+            return <Movies key={moviesTest.id} moviesTest={moviesTest} />;
+          })}
+        </TabPane>
+      </Tabs>
+    </>
   );
-}
+});
+export default Home;

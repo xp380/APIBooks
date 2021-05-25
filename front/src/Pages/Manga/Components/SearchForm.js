@@ -1,14 +1,14 @@
 import React, { useContext, useRef } from 'react'
-import { MovieContext } from '../Context'
+import { MangaContext } from "../Context"
 import { Input } from 'antd'
 
 const { Search } = Input;
 
 const SearchForm = () => {
-    const { setSearchMovie } = useContext(MovieContext)
+    const { setSearchAnime } = useContext(MangaContext)
     const inputRef = useRef()
     const handleSubmit = (e) => e.preventDefault()
-    const searchItems = () => setSearchMovie(inputRef.current.value)
+    const searchItems = () => setSearchAnime(inputRef.current.value)
 
     return (
 

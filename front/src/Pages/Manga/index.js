@@ -1,27 +1,35 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Tabs } from 'antd'
 
 import MangaList from './Components/Manga'
-import List from './Components/List'
-import { MangaProvider } from './Context'
-export default function Index() {
+import Mangas from './Components/Mangas'
+import Search from './Components/SearchForm'
+import { MangaContext } from './Context'
+
+const Home = React.memo(() => {
+  const { animes } = useContext(MangaContext)
   const { TabPane } = Tabs
 
+  if (!animes) {
+    return (
+      'error'
+    );
+  }
   return (
-    <MangaProvider>
-      <>
-        <Tabs defaultActiveKey="1" >
-          <TabPane tab="Accueil" key="1">
-            <h3>Liste des mangas</h3>
-            <MangaList />
-          </TabPane>
-          <TabPane tab="Card" key="2">
-            <h3>Liste des mangas en carte</h3>
-            <List />
-          </TabPane>
-        </Tabs>
-      </>
-    </MangaProvider>
-
-  )
-}
+    <>
+      <Tabs defaultActiveKey="1" >
+        <TabPane tab="Accueil" key="1">
+          <MangaList />
+        </TabPane>
+        <TabPane tab="Card" key="2">
+          <Search />
+          {animes.slice(0, 1).map((animeTest) => {
+            <h3>Liste des Mangas</h3>
+            return <Mangas key={animeTest.mal_id} animeTest={animeTest} />;
+          })}
+        </TabPane>
+      </Tabs>
+    </>
+  );
+});
+export default Home;

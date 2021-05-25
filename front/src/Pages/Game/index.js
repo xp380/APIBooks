@@ -4,7 +4,7 @@ import { GameProvider } from './Context'
 
 
 import GameList from './Components/Game'
-import List from './Components/List'
+import List from './Components/Games'
 
 export default function Index() {
   const { TabPane } = Tabs;

@@ -1,14 +1,14 @@
-import React, { useContext, useRef } from 'react'
-import { MovieContext } from '../Context'
+import React, { useContext, useRef } from "react"
+import { GameContext } from "../Context"
 import { Input } from 'antd'
 
-const { Search } = Input;
+const { Search } = Input
 
 const SearchForm = () => {
-    const { setSearchMovie } = useContext(MovieContext)
+    const { setSearchGame } = useContext(GameContext)
     const inputRef = useRef()
     const handleSubmit = (e) => e.preventDefault()
-    const searchItems = () => setSearchMovie(inputRef.current.value)
+    const searchItems = () => setSearchGame(inputRef.current.value)
 
     return (
 

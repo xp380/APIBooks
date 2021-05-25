@@ -9,13 +9,15 @@ const Main = () => {
         <>
             <Row gutter={16}>
                 {datas.map((item, mal_id) => (
-                    <Card key={mal_id} style={{ width: 300, margin: 10 }} bordered={true} hoverable >
+                    <Card key={mal_id}
+                        style={{ width: 300, margin: 10 }}
+                        bordered={true}
+                        hoverable
+                    >
                         <div>
                             <p style={{ textAlign: "left" }}>{item.title} <span style={{ float: "right" }}>{item.score}</span></p>
                         </div>
                         <p><img src={item.image_url} alt="#" width="200" height="200" /></p>
-                        {/* <p>Date Début: {item.start_date}</p>
-                        <p>Date Fin: {item.end_date}</p> */}
                     </Card>
                 ))}
             </Row>
