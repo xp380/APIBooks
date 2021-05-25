@@ -1,18 +1,29 @@
-import React from "react";
-import { Descriptions } from 'antd'
+import React, { useContext } from "react";
+import { CryptoContext } from '../Context'
+import { Card, Row } from 'antd'
 
-export const Crypto = ({ crypto }) => {
-  const { name, current_price, total_volume, image, last_updated } = crypto;
-
+export const Crypto = () => {
+  const { cryptos } = useContext(CryptoContext)
 
   return (
-    <>
-      <Descriptions title={name}>
-        <Descriptions.Item label="Logo"><img src={image} alt="Smiley face" height="42" width="42"></img></Descriptions.Item>
-        <Descriptions.Item label="Prix actuel">{current_price}</Descriptions.Item>
-        <Descriptions.Item label="Quantité totale">{total_volume}</Descriptions.Item>
-        <Descriptions.Item label="Dernière mise à jour">{last_updated}</Descriptions.Item>
-      </Descriptions>
-    </>
-  );
+    <Row gutter={16}>
+      {cryptos.map((item, id) => (
+        <Card
+          key={id}
+          style={{ width: 300, margin: 10 }} bordered={true}
+          hoverable
+        >
+          <p>
+            Quantité totale: {item.total_volume}
+            <br />
+            Prix actuel: {item.current_price}
+            <br />
+            Last updated: {item.last_updated}
+            <br />
+            Logo: <img src={item.image} alt="Smiley face" height="42" width="42"></img>
+          </p>
+        </Card>
+      ))}
+    </Row>
+  )
 };

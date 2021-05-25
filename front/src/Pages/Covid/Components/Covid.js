@@ -1,21 +1,29 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CovidContext } from '../Context'
 import { Card, Row, } from 'antd'
 
-export const Covid = ({ covid }) => {
-    const { Confirmed, Deaths, Recovered, Active, Date, Country } = covid;
+export const Covid = () => {
+    const { covids } = useContext(CovidContext);
 
     return (
-        <>
-            <Row gutter={16}>
-                <Card title={Country} style={{ width: 300, margin: "1,5%" }} bordered={true} hoverable >
-                    <p>Confirmés: {Confirmed}</p>
-                    <p>Morts: {Deaths}</p>
-                    <p>Rétablis: {Recovered}</p>
-                    <p>Active: {Active}</p>
-                    <p>Date: {Date}</p>
+        <Row gutter={16}>
+            {covids.map((item, id) => (
+                <Card
+                    key={id}
+                    style={{ width: 300, margin: 10 }} bordered={true}
+                    hoverable
+                >
+                    <p>
+                        NB de Confirmés: {item.Confirmed}
+                        <br />
+                        NB de décès: {item.Deaths}
+                        <br />
+                        NB de Rétablis: {item.Recovered}
+                        <br />
+                        Date: {item.Date}
+                    </p>
                 </Card>
-            </Row>
-
-        </>
+            ))}
+        </Row>
     )
 }

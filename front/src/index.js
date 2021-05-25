@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { CovidProvider } from './Pages/Covid/Context'
-import { CryptoProvider } from './Pages/Crypto/Context'
 // import App from './App';
 import Covid from './Pages/Covid/index'
 import Crypto from './Pages/Crypto/index'
@@ -15,12 +13,8 @@ import 'antd/dist/antd.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <CovidProvider>
-      <Covid />
-    </CovidProvider>
-    {/* <CryptoProvider>
-      <Crypto />
-    </CryptoProvider> */}
+    <Covid />
+    {/* <Crypto /> */}
     {/* <Game /> */}
     {/* <Manga /> */}
     {/* <Movie /> */}

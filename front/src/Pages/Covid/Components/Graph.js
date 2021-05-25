@@ -2,6 +2,19 @@ import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import axios from "axios";
 
+// const Graph = () => {
+//     const getData = () => {}
+
+//     useEffect(() => {
+//         getData();
+//     }, []);
+//     return (
+//         <div>Graphique</div>
+//     );
+// }
+
+// export default Graph;
+
 export default function Graph() {
 
     const [data, setData] = useState([]);
@@ -13,7 +26,9 @@ export default function Graph() {
     let recovered = [];
     useEffect(() => {
 
-        axios.get("https://api.covid19api.com/total/dayone/country/france").then(res => {
+        axios.get("https://api.covid19api.com/total/country/france?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z").then(res => {
+            // https://api.covid19api.com/total/country/south-africa/status/confirmed?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z
+
             const ipl = res.data;
             setPosts(ipl);
 
@@ -53,7 +68,7 @@ export default function Graph() {
                 }
             });
         });
-    });
+    }, []);
 
     return (
         <div>
