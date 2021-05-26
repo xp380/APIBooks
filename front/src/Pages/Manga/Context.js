@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useState, useEffect, createContext } from 'react'
-import { getAxios } from '../Function/index'
 const MangaContext = createContext()
 
 const MangaProvider = ({ children }) => {

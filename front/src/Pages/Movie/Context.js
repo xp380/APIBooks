@@ -1,5 +1,4 @@
 import React, { useState, useEffect, createContext } from "react";
-import { getAxios } from "../Function/index";
 import axios from "axios"
 const MovieContext = createContext();
 

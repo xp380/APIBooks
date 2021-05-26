@@ -1,33 +1,34 @@
-import React, { useState } from 'react'
-import { Tabs, Input } from "antd"
-import { GameProvider } from './Context'
-
+import React, { useContext } from 'react'
+import { Tabs } from "antd"
 
 import GameList from './Components/Game'
-import List from './Components/Games'
+import Games from './Components/Games'
+import Search from './Components/SearchForm'
+import { GameContext } from './Context'
 
-export default function Index() {
+const Home = React.memo(() => {
+  const { games } = useContext(GameContext)
   const { TabPane } = Tabs;
-  const { Search } = Input;
-  const [search, setSearch] = useState("");
-  const handleChange = (e) => {
-    setSearch(e.target.value);
-  };
+
   return (
-    <GameProvider>
-      <>
-        <Tabs defaultActiveKey="1" >
-          <TabPane tab="Accueil" key="1">
-            <h3>Liste des jeux vidéos</h3>
-            <Search style={{ width: 300 }} placeholder="insérer le nom du jeu" onSearch={handleChange} enterButton />
-            <GameList />
-          </TabPane>
-          <TabPane tab="Card" key="2">
-            <h3>Représentation des Films</h3>
-            <List />
-          </TabPane>
-        </Tabs>
-      </>
-    </GameProvider>
+
+    <>
+      <Tabs defaultActiveKey="1" >
+        <TabPane tab="Accueil" key="1">
+          <h3>Liste des jeux vidéos</h3>
+          <GameList />
+        </TabPane>
+        <TabPane tab="Card" key="2">
+          <Search />
+          {games.slice(0, 1).map((gameTest) => {
+            <h3>Liste des Jeux videos</h3>
+            return <Games key={gameTest.mal_id} gameTest={gameTest} />;
+          })}
+        </TabPane>
+      </Tabs>
+    </>
+
   )
-}
+})
+
+export default Home

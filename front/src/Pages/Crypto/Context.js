@@ -8,11 +8,11 @@ export const CryptoProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-        const result = await axios("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur")
-        setCryptos(result.data)
+      const result = await axios("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur")
+      setCryptos(result.data)
     }
     fetchData()
-}, [])
+  }, [])
 
   const contextValues = {
     cryptos,
