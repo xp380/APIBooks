@@ -20,7 +20,9 @@ export const Crypto = () => {
             <br />
             Last updated: {item.last_updated}
             <br />
-            Logo: <img src={item.image} alt="Smiley face" height="42" width="42"></img>
+            Nom: {item.name}
+            <br />
+            <img src={item.image} alt="Smiley face" height="42" width="42"></img>
           </p>
         </Card>
       ))}

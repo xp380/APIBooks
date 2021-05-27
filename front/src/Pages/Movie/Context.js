@@ -10,6 +10,8 @@ const MovieProvider = ({ children }) => {
   const getMovie = async () => {
     const response = await axios.get(
       "https://api.themoviedb.org/3/movie/upcoming?api_key=30582d63e1f78f53711360b533a5d861"
+      // https://api.themoviedb.org/3/movie/120?api_key=30582d63e1f78f53711360b533a5d861
+      // https://api.themoviedb.org/3/discover/movie?api_key=30582d63e1f78f53711360b533a5d861&with_genres=28,18
     );
     setDatas(response.data.results);
   };

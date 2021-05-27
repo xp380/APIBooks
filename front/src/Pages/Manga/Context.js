@@ -11,6 +11,7 @@ const MangaProvider = ({ children }) => {
         const response = await axios.get(
             // "https://api.jikan.moe/v3/anime/5114"
             "https://api.jikan.moe/v3/top/anime"
+            // https://api.jikan.moe/v3/genre/anime/1/1
         );
         setDatas(response.data.top);
     };

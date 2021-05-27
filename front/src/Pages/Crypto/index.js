@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Tabs } from 'antd';
 
 import { Crypto } from "./Components/Crypto";
+import Cryptos from './Components/Cryptos'
+import Search from './Components/SearchForm'
 import Graph from './Components/Graph'
+import { CryptoContext } from './Context'
 
-import { CryptoProvider } from "./Context";
-
-export default function Bitcoin() {
+const Home = React.memo(() => {
   const { TabPane } = Tabs;
+  const { cryptoData } = useContext(CryptoContext)
 
+  if (!cryptoData) {
+    return (
+      'error'
+    );
+  }
 
   return (
-    <CryptoProvider>
+    <>
       <Tabs defaultActiveKey="1" >
         <TabPane tab="Accueil" key="1">
           <h3>Liste des Cryptos</h3>
@@ -21,7 +28,18 @@ export default function Bitcoin() {
           <h3>Liste des Cryptos en graphismes</h3>
           <Graph />
         </TabPane>
+        <TabPane tab="Search" key="3">
+          <h3>Recherche</h3>
+          <Search />
+          {cryptoData.map((cryptoTest) => {
+            <h3>Liste des Mangas</h3>
+            return <Cryptos key={cryptoTest.id} cryptoTest={cryptoTest} />;
+          })}
+        </TabPane>
       </Tabs>
-    </CryptoProvider>
+    </>
   );
-}
+})
+
+
+export default Home

@@ -15,7 +15,7 @@ const Main = () => {
               <p style={{ textAlign: "left" }}>{item.slug} <span style={{ float: "right" }}>{item.rating}</span></p>
             </div>
             <img src={item.background_image} alt="#" width="200" height="200" />
-            {/* <Tag>{item.genres}</Tag> */}
+            {/* <Tag>{item.genres.name}</Tag> */}
             {/* <p>Date de sortie: {item.released}</p> */}
           </Card>
         ))}

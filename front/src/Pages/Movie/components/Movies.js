@@ -6,7 +6,7 @@ const Movies = () => {
     const { movies } = useContext(MovieContext)
     return (
         <Row gutter={16}>
-            {movies.slice(0, 1).map((item, id) => (
+            {movies.slice(0, 6).map((item, id) => (
                 <Card
                     key={id}
                     style={{ width: 300, margin: 10 }} bordered={true}

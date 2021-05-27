@@ -11,6 +11,8 @@ const GameProvider = ({ children }) => {
     const response = await axios(
       "https://api.rawg.io/api/games?key=9b12083a67134bbdad6628f19da1e91a"
       // `https://api.rawg.io/api/games?key=9b12083a67134bbdad6628f19da1e91a&search=${searchTerm}`
+      // https://api.rawg.io/api/genres/3?key=9b12083a67134bbdad6628f19da1e91a pour jeux d'aventures(3)
+      // https://api.rawg.io/api/genres?key=9b12083a67134bbdad6628f19da1e91a liste de genres
     );
     setDatas(response.data.results);
   };

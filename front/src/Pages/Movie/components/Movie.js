@@ -17,7 +17,7 @@ const Main = () => {
             <p style={{ textAlign: "left" }}>{item.title} <span style={{ float: "right" }}>{item.vote_average}</span></p>
           </div>
           <p><img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="#" width="200" height="200" /></p>
-          <Tag color={"red", "green"}> {item.title}</Tag>
+          <Tag color={"red", "green"}> {item.genre_ids}</Tag>
         </Card>
       ))}
     </Row >

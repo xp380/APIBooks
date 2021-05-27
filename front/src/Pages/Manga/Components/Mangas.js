@@ -6,7 +6,7 @@ const Mangas = () => {
     const { animes } = useContext(MangaContext)
     return (
         <Row gutter={16}>
-            {animes.slice(0, 1).map((item, mal_id) => (
+            {animes.slice(0, 6).map((item, mal_id) => (
                 <Card key={mal_id} style={{ width: 300, margin: 10 }} bordered={true} hoverable >
                     <div>
                         <p style={{ textAlign: "left" }}>{item.title} <span style={{ float: "right" }}>{item.score}</span></p>

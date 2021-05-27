@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
+import App from './App';
+import { CryptoProvider } from './Pages/Crypto/Context'
 import { MovieProvider } from './Pages/Movie/Context'
 import { MangaProvider } from './Pages/Manga/Context'
 import { GameProvider } from './Pages/Game/Context'
@@ -16,11 +17,14 @@ import 'antd/dist/antd.css';
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* <App /> */}
     {/* <Covid /> */}
-    {/* <Crypto /> */}
-    <GameProvider>
+    <CryptoProvider>
+      <Crypto />
+    </CryptoProvider>
+    {/* <GameProvider>
       <Game />
-    </GameProvider>
+    </GameProvider> */}
     {/* <MangaProvider>
       <Manga />
     </MangaProvider> */}
