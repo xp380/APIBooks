@@ -5,7 +5,9 @@ const MovieContext = createContext();
 const MovieProvider = ({ children }) => {
   const [datas, setDatas] = useState([]);
   const [movies, setMovies] = useState([])
-  const [searchMovie, setSearchMovie] = useState("")
+  const [searchMovie, setSearchMovie] = useState("Pokemon")
+
+  const [dataModal, setDataModal] = useState([]);
 
   const getMovie = async () => {
     const response = await axios.get(
@@ -31,8 +33,18 @@ const MovieProvider = ({ children }) => {
     getMovies();
   }, [searchMovie]);
 
+  const fetchUsers = async () => {
+    const response = await fetch("https://api.themoviedb.org/3/movie/upcoming?api_key=30582d63e1f78f53711360b533a5d861");
+    const data = await response.json();
+    setDataModal(data.results);
+  };
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
   return (
-    <MovieContext.Provider value={{ datas, setSearchMovie, movies }}>
+    <MovieContext.Provider value={{ datas, setSearchMovie, movies, dataModal }}>
       {children}
     </MovieContext.Provider>
   );

@@ -3,11 +3,12 @@ import { Tabs } from 'antd'
 
 import MovieList from "./components/Movie";
 import Movies from './components/Movies'
+import MoviesTest from './components/MoviesTest'
 import Search from './components/SearchForm'
 import { MovieContext } from './Context'
 
 const Home = React.memo(() => {
-  const { movies } = useContext(MovieContext)
+  const { movies, dataModal } = useContext(MovieContext)
   const { TabPane } = Tabs
 
   if (!movies) {
@@ -27,6 +28,11 @@ const Home = React.memo(() => {
             <h3>Représentation des Films</h3>
             return <Movies key={moviesTest.id} moviesTest={moviesTest} />;
           })}
+        </TabPane>
+        <TabPane tab="Modal" key="3">
+        {dataModal.map((singleUser) => {
+          return <MoviesTest key={singleUser.id} {...singleUser} />;
+        })}
         </TabPane>
       </Tabs>
     </>
