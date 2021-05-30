@@ -5,7 +5,8 @@ const MangaContext = createContext()
 const MangaProvider = ({ children }) => {
     const [datas, setDatas] = useState([]);
     const [animes, setAnimes] = useState([])
-    const [searchAnime, setSearchAnime] = useState('')
+    const [searchAnime, setSearchAnime] = useState('Pokemon')
+    const [dataModal, setDataModal] = useState([])
 
     const getManga = async () => {
         const response = await axios.get(
@@ -31,8 +32,18 @@ const MangaProvider = ({ children }) => {
         getAnimes();
     }, [searchAnime]);
 
+    const fetchManga = async () => {
+        const response = await axios.get(
+            "https://api.jikan.moe/v3/top/anime"
+        );
+        setDataModal(response.data.top);
+    };
+    useEffect(() => {
+        fetchManga();
+    }, []);
+
     return (
-        <MangaContext.Provider value={{ datas, setSearchAnime, animes }}>
+        <MangaContext.Provider value={{ datas, setSearchAnime, animes, dataModal }}>
             {children}
         </MangaContext.Provider>
     );

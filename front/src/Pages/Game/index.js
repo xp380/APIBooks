@@ -3,11 +3,12 @@ import { Tabs } from "antd"
 
 import GameList from './Components/Game'
 import Games from './Components/Games'
+import ModalGame from './Components/ModalGame'
 import Search from './Components/SearchForm'
 import { GameContext } from './Context'
 
 const Home = React.memo(() => {
-  const { games } = useContext(GameContext)
+  const { games, dataModal } = useContext(GameContext)
   const { TabPane } = Tabs;
 
   return (
@@ -24,6 +25,11 @@ const Home = React.memo(() => {
             <h3>Liste des Jeux videos</h3>
             return <Games key={gameTest.mal_id} gameTest={gameTest} />;
           })}
+        </TabPane>
+        <TabPane tab="Modal" key="3">
+        {dataModal.map((singleModal) => {
+          return <ModalGame key={singleModal.id} {...singleModal} />;
+        })}
         </TabPane>
       </Tabs>
     </>

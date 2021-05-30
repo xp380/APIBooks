@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { Card, Row,  Button } from 'antd'
 import Details from './Details'
 
-export default function MoviesTest(props) {
+export default function ModalManga(props) {
     const [open, setOpen] = useState(false)
     
     const handleClickOpen = () => {
@@ -12,14 +12,14 @@ export default function MoviesTest(props) {
         setOpen(false)
     }
 
-    const { title, id, vote_average, poster_path } = props;
+    const { image_url, mal_id, score, title } = props;
     return(
         <Row gutter={16}>
-        <Card key={id} style={{ width: 300, margin: 10 }} bordered={true} title={title}>
+        <Card key={mal_id} style={{ width: 300, margin: 10 }} bordered={true} title={title}>
           <div>
-            <p style={{ textAlign: "left" }}>{title} <span style={{ float: "right" }}>{vote_average}</span></p>
+            <p style={{ textAlign: "left" }}>{title} <span style={{ float: "right" }}>{score}</span></p>
           </div>
-          <p><img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt="#" width="200" height="200" /></p>
+          <p><img src={image_url} alt="#" width="200" height="200" /></p>
             <Button onClick={handleClickOpen} variant="contained" size='middle' style={{marginLeft: "50px"}}>
                 Details
             </Button>

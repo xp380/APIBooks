@@ -6,6 +6,7 @@ const GameProvider = ({ children }) => {
   const [datas, setDatas] = useState([]);
   const [games, setGames] = useState([])
   const [searchGame, setSearchGame] = useState('')
+  const [dataModal, setDataModal] = useState([])
 
   const getGame = async () => {
     const response = await axios(
@@ -31,8 +32,18 @@ const GameProvider = ({ children }) => {
     }
     getGames()
   }, [searchGame])
+
+  const fetchGames = async () => {
+    const response = await fetch("https://api.rawg.io/api/games?key=9b12083a67134bbdad6628f19da1e91a");
+    const data = await response.json()
+    setDataModal(data.results)
+  }
+  
+  useEffect(() => {
+    fetchGames()
+  }, [])
   return (
-    <GameContext.Provider value={{ datas, setSearchGame, games }}>
+    <GameContext.Provider value={{ datas, setSearchGame, games, dataModal }}>
       {children}
     </GameContext.Provider>
   );

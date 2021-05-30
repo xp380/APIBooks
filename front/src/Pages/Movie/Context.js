@@ -33,14 +33,14 @@ const MovieProvider = ({ children }) => {
     getMovies();
   }, [searchMovie]);
 
-  const fetchUsers = async () => {
+  const fetchMovies = async () => {
     const response = await fetch("https://api.themoviedb.org/3/movie/upcoming?api_key=30582d63e1f78f53711360b533a5d861");
     const data = await response.json();
     setDataModal(data.results);
   };
 
   useEffect(() => {
-    fetchUsers();
+    fetchMovies();
   }, []);
 
   return (

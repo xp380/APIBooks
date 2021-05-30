@@ -1,25 +1,23 @@
-import React, {useState} from 'react'
-import { Card, Row,  Button } from 'antd'
+import React, { useState} from 'react'
+import { Card, Row, Button } from 'antd'
 import Details from './Details'
 
-export default function MoviesTest(props) {
+export default function ModalGame(props) {
     const [open, setOpen] = useState(false)
-    
     const handleClickOpen = () => {
         setOpen(true)
     }
     const handleClose = () => {
         setOpen(false)
-    }
-
-    const { title, id, vote_average, poster_path } = props;
+    } 
+    const { name, id, rating, background_image } = props;
     return(
         <Row gutter={16}>
-        <Card key={id} style={{ width: 300, margin: 10 }} bordered={true} title={title}>
+        <Card key={id} style={{ width: 300, margin: 10 }} bordered={true} title={name}>
           <div>
-            <p style={{ textAlign: "left" }}>{title} <span style={{ float: "right" }}>{vote_average}</span></p>
+            <p style={{ textAlign: "left" }}>{name} <span style={{ float: "right" }}>{rating}</span></p>
           </div>
-          <p><img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt="#" width="200" height="200" /></p>
+          <img src={background_image} alt="#" width="200" height="200" />
             <Button onClick={handleClickOpen} variant="contained" size='middle' style={{marginLeft: "50px"}}>
                 Details
             </Button>

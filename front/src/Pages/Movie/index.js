@@ -30,8 +30,8 @@ const Home = React.memo(() => {
           })}
         </TabPane>
         <TabPane tab="Modal" key="3">
-        {dataModal.map((singleUser) => {
-          return <MoviesTest key={singleUser.id} {...singleUser} />;
+        {dataModal.map((singleModal) => {
+          return <MoviesTest key={singleModal.id} {...singleModal} />;
         })}
         </TabPane>
       </Tabs>
