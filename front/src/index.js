@@ -22,15 +22,15 @@ ReactDOM.render(
     {/* <CryptoProvider>
       <Crypto />
     </CryptoProvider> */}
-    <GameProvider>
+    {/* <GameProvider>
       <Game />
-    </GameProvider>
+    </GameProvider> */}
     {/* <MangaProvider>
       <Manga />
     </MangaProvider> */}
-    {/* <MovieProvider>
+    <MovieProvider>
       <Movie />
-    </MovieProvider> */}
+    </MovieProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
