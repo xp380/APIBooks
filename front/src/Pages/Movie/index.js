@@ -21,14 +21,7 @@ const Home = React.memo(() => {
     <>
       <Tabs defaultActiveKey="1" >
         <TabPane tab="Accueil" key="1">
-        <button
-            variant="primary"
-            // onClick={sortByRated}
-            style={{ width: "10%" }}
-          >
-            {/* {sortType === "asc" ? "Sort ascending" : "Sort descending"} */}
-            Trier par notes
-          </button>
+
           <MovieFirst />
         </TabPane>
         <TabPane tab="Card" key="2">

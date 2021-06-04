@@ -36,17 +36,15 @@ const Movies = () => {
         <Row>
         <Col md={3} xs={12}>
           <button
-            variant="primary"
             onClick={sortByRated}
-            style={{ width: "100%" }}
+            style={{ width: "50%" }}
           >
             sort by Ratings
             {/* {sortType === "asc" ? "Tier par notes croissantes" : "Trier par notes décroissantes"} */}
           </button>
           <button
-            variant="primary"
             onClick={sortByTitle}
-            style={{ width: "100%" }}
+            style={{ width: "50%" }}
           >
             sort by popularity
             {/* {sortType === "asc" ? "Tier par titre croissantes" : "Trier par titre décroissantes"} */}
@@ -59,11 +57,14 @@ const Movies = () => {
             return (
                 <Card
                   title={movie.title}
-                  description={movie.overview}
-                  rate={movie.vote_average}
-                  poster={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                  vote={movie.vote_count}
-                />
+                >
+                     <div>
+                        <p style={{ textAlign: "left" }}>{movie.title} <span style={{ float: "right" }}>{movie.vote_average}</span></p>
+                        <p>{movie.vote_average}</p>
+                        <p>{movie.popularity}</p>
+                    </div>
+                    <p><img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="#" width="200" height="200" /></p>
+                  </Card>
             );
           })
         ) : (
