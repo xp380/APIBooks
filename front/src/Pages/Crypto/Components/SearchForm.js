@@ -2,7 +2,7 @@ import React, { useContext, useRef } from 'react'
 import { CryptoContext } from "../Context"
 
 const SearchForm = () => {
-    const { setSearchCrypto, cryptoData } = useContext(CryptoContext)
+    const { setSearchCrypto } = useContext(CryptoContext)
     const inputRef = useRef()
     const handleSubmit = (e) => e.preventDefault()
     const searchItems = () => setSearchCrypto(inputRef.current.value)

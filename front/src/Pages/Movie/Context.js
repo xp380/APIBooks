@@ -57,18 +57,18 @@ const MovieProvider = ({ children }) => {
     );
     setSortedMovies(filteredList)
   };
-  useEffect(() => { 
+  useEffect(() => {
     sortMovies()
   }, [])
-  
-  
+
+
   return (
-    <MovieContext.Provider value={{ 
-    datas,
-    setSearchMovie,
-    movies, 
-    dataModal,
-    sortedMovies, sortType, setSortType, popularMovie, setSortedMovies  
+    <MovieContext.Provider value={{
+      datas,
+      setSearchMovie,
+      movies,
+      dataModal,
+      sortedMovies, sortType, setSortType, popularMovie, setSortedMovies
     }}>
       {children}
     </MovieContext.Provider>

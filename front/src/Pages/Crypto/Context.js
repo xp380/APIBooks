@@ -6,7 +6,7 @@ export const CryptoContext = createContext();
 export const CryptoProvider = ({ children }) => {
   const [cryptos, setCryptos] = useState([]);
   const [cryptoData, setCryptoData] = useState([])
-  const [searchCrypto, setSearchCrypto] = useState('')
+  const [searchCrypto, setSearchCrypto] = useState('bitcoin')
 
   useEffect(() => {
     const fetchData = async () => {
