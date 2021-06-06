@@ -21,7 +21,6 @@ const Home = React.memo(() => {
     <>
       <Tabs defaultActiveKey="1" >
         <TabPane tab="Accueil" key="1">
-
           <MovieFirst />
         </TabPane>
         <TabPane tab="Card" key="2">

@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
 import { MovieContext } from '../Context'
-import { Card, Col, Row } from 'antd'
+import { Card, Button, Row } from 'antd'
 
 
 const Movies = () => {
   const { sortedMovies, sortType, setSortType, popularMovie, setSortedMovies } = useContext(MovieContext)
+
   const sortByRated = () => {
     const sortedList = [...popularMovie].sort((a, b) => {
       if (sortType === "asc") {
@@ -17,7 +18,7 @@ const Movies = () => {
     });
     setSortedMovies(sortedList);
   };
-  const sortByTitle = () => {
+  const sortByPop = () => {
     const sortedList = [...popularMovie].sort((a, b) => {
       if (sortType === "asc") {
         setSortType("des");
@@ -34,41 +35,39 @@ const Movies = () => {
   return (
     <>
       <Row>
-        <Col md={3} xs={12}>
-          <button
-            onClick={sortByRated}
-            style={{ width: "50%" }}
-          >
-            sort by Ratings
-            {/* {sortType === "asc" ? "Tier par notes croissantes" : "Trier par notes décroissantes"} */}
-          </button>
-          <button
-            onClick={sortByTitle}
-            style={{ width: "50%" }}
-          >
-            sort by popularity
-            {/* {sortType === "asc" ? "Tier par titre croissantes" : "Trier par titre décroissantes"} */}
-          </button>
-
-        </Col>
+        <Button
+          onClick={sortByRated}
+          size='middle'
+          style={{ marginLeft: "50px" }}
+        >
+          {sortType === "asc" ? "Trier par notes croissantes" : "Trier par notes décroissantes"}
+        </Button>
+        <Button
+          onClick={sortByPop}
+          size='middle'
+          style={{ marginLeft: "50px" }}
+        >
+          {sortType === "asc" ? "Trier par popularité croissante" : "Trier par popularité décroissantes"}
+        </Button>
       </Row>
       {sortedMovies.length > 0 ? (
-        sortedMovies.map((movie, index) => {
+        sortedMovies.map((movie, id) => {
           return (
-            <Card
-              title={movie.title}
-            >
-              <div>
-                <p style={{ textAlign: "left" }}>{movie.title} <span style={{ float: "right" }}>{movie.vote_average}</span></p>
-                <p>Moyenne des votes:{movie.vote_average}</p>
-                <p>Popularité: {movie.popularity}</p>
-              </div>
-              <p><img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="#" width="200" height="200" /></p>
-            </Card>
+            <Row gutter={16}>
+              <Card
+                style={{ width: 300, margin: 10 }} bordered={true}
+                key={id}
+                title={movie.title}
+              >
+                <div>
+                  <p style={{ textAlign: "left" }}>{movie.title} <span style={{ float: "right" }}>note:{movie.vote_average}</span></p>
+                  <p>Popularité: {movie.popularity}</p>
+                </div>
+                <p><img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="#" width="200" height="200" /></p>
+              </Card>
+            </Row>
           );
-        })
-      ) : (
-        <p>No search result...!</p>
+        })) : (<p>No search result...!</p>
       )}
     </>
   )

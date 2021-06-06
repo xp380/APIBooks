@@ -48,18 +48,38 @@ const MovieProvider = ({ children }) => {
     fetchMovies();
   }, []);
 
+  useEffect(() => {
+    fetch("https://api.themoviedb.org/3/movie/popular?&Lnguage=en-US&api_key=e944d64e45bd1927514acc391b971f4d")
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("something went wrong!");
+        }
+      })
+      .then(res => {
+        setPopularMovie(res.results);
+      })
+      .catch(err => console.log(err));
+  }, []);
 
-  const sortMovies = async () => {
-    const response = await axios.get('https://api.themoviedb.org/3/movie/upcoming?api_key=30582d63e1f78f53711360b533a5d861')
-    setPopularMovie(response.data.results)
-    let filteredList = popularMovie.filter((movie) =>
+  useEffect(() => {
+    let filteredList = popularMovie.filter(movie =>
       movie.title.toLowerCase().includes(searchValue)
     );
-    setSortedMovies(filteredList)
-  };
-  useEffect(() => {
-    sortMovies()
-  }, [])
+    setSortedMovies(filteredList);
+  }, [searchValue, popularMovie]);
+  // const sortMovies = async () => {
+  //   const response = await axios.get('https://api.themoviedb.org/3/movie/upcoming?api_key=30582d63e1f78f53711360b533a5d861')
+  //   setPopularMovie(response.data.results)
+  //   let filteredList = popularMovie.filter((movie) =>
+  //     movie.title.toLowerCase().includes(searchValue)
+  //   );
+  //   setSortedMovies(filteredList)
+  // };
+  // useEffect(() => {
+  //   sortMovies()
+  // }, [searchValue, popularMovie])
 
 
   return (
