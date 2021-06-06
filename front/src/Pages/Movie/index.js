@@ -32,12 +32,12 @@ const Home = React.memo(() => {
           })}
         </TabPane>
         <TabPane tab="Modal" key="3">
-        {dataModal.map((singleModal) => {
-          return <MoviesThird key={singleModal.id} {...singleModal} />;
-        })}
+          {dataModal.map((singleModal) => {
+            return <MoviesThird key={singleModal.id} {...singleModal} />;
+          })}
         </TabPane>
         <TabPane tab="Sort" key="4">
-            <MovieSort />
+          <MovieSort />
         </TabPane>
       </Tabs>
     </>

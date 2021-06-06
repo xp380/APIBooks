@@ -5,11 +5,12 @@ import { Crypto } from "./Components/Crypto";
 import Cryptos from './Components/Cryptos'
 import Search from './Components/SearchForm'
 import Graph from './Components/Graph'
+import TestCrypto from './Components/TestCrypto'
 import { CryptoContext } from './Context'
 
 const Home = React.memo(() => {
   const { TabPane } = Tabs;
-  const { cryptoData } = useContext(CryptoContext)
+  const { cryptoData, cryptos } = useContext(CryptoContext)
 
   if (!cryptoData) {
     return (
@@ -34,6 +35,12 @@ const Home = React.memo(() => {
           {cryptoData.map((cryptoTest) => {
             <h3>Liste des Mangas</h3>
             return <Cryptos key={cryptoTest.id} cryptoTest={cryptoTest} />;
+          })}
+        </TabPane>
+        <TabPane tab="Graph Select" key="4">
+          <h3>Sélection des Crypto</h3>
+          {cryptos.map((singleModal) => {
+            return <TestCrypto key={cryptos.id} {...singleModal} />
           })}
         </TabPane>
       </Tabs>
