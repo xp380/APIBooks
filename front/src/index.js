@@ -22,18 +22,18 @@ ReactDOM.render(
     {/* <CovidProvider>
       <Covid />
     </CovidProvider> */}
-    {/* <CryptoProvider>
+    <CryptoProvider>
       <Crypto />
-    </CryptoProvider> */}
+    </CryptoProvider>
     {/* <GameProvider>
       <Game />
     </GameProvider> */}
     {/* <MangaProvider>
       <Manga />
     </MangaProvider> */}
-    <MovieProvider>
+    {/* <MovieProvider>
       <Movie />
-    </MovieProvider>
+    </MovieProvider> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

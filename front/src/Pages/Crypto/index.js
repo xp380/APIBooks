@@ -6,6 +6,8 @@ import Cryptos from './Components/Cryptos'
 import Search from './Components/SearchForm'
 import Graph from './Components/Graph'
 import TestCrypto from './Components/TestCrypto'
+import SortCrypto from './Components/SortCrypto'
+
 import { CryptoContext } from './Context'
 
 const Home = React.memo(() => {
@@ -42,6 +44,9 @@ const Home = React.memo(() => {
           {cryptos.map((singleModal) => {
             return <TestCrypto key={cryptos.id} {...singleModal} />
           })}
+        </TabPane>
+        <TabPane tab="Sort" key="5" >
+          <SortCrypto />
         </TabPane>
       </Tabs>
     </>

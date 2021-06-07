@@ -7,6 +7,12 @@ export const CovidProvider = ({ children }) => {
     const [covids, setCovids] = useState([])
     const [data, setData] = useState([]);
 
+
+    const [covidData, setCovidData] = useState([]);
+    const [sortedCovid, setSortedCovid] = useState([]);
+    const [searchValue] = useState("");
+    const [sortType, setSortType] = useState("asc");
+
     let date = [];
     let confirmed = [];
     let deaths = [];
@@ -61,12 +67,26 @@ export const CovidProvider = ({ children }) => {
         });
     }, []);
 
-
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await axios("https://api.covid19api.com/total/country/france")
+            setCovidData(result.data)
+        }
+        fetchData()
+    }, [])
+    
+      useEffect(() => {
+        let filteredList = covidData.filter(covid =>
+          covid.Country.toLowerCase().includes(searchValue)
+        );
+        setSortedCovid(filteredList);
+      }, [searchValue, covidData]);
 
     const contextValues = {
         covids,
         setCovids,
         data,
+        sortedCovid, sortType, setSortType, setSortedCovid, covidData
     }
 
     return <CovidContext.Provider value={contextValues}>{children}</CovidContext.Provider>

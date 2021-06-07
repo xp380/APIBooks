@@ -5,6 +5,7 @@ import { Covid } from './Components/Covid'
 import Graph from './Components/Graph'
 import Search from './Components/SelectForm'
 import TestCovid from './Components/TestCovid'
+import SortCovid from './Components/SortCovid'
 
 import { CovidContext } from './Context'
 
@@ -30,7 +31,9 @@ export default function Covid2020() {
           {covids.map((singleModal) => {
             return <TestCovid key={singleModal} {...singleModal} />
           })}
-          {/* <TestCovid /> */}
+        </TabPane>
+        <TabPane tab="sort" key="5">
+          <SortCovid />
         </TabPane>
       </Tabs>
     </>
