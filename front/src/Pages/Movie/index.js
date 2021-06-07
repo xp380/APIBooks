@@ -6,6 +6,7 @@ import MovieSecond from './components/MovieSecond'
 import MoviesThird from './components/MoviesThird'
 import MovieSort from './components/MovieSortData'
 import Search from './components/SearchForm'
+import SortForm from './components/SortForm'
 import { MovieContext } from './Context'
 
 const Home = React.memo(() => {
@@ -36,6 +37,7 @@ const Home = React.memo(() => {
           })}
         </TabPane>
         <TabPane tab="Sort" key="4">
+          <SortForm />
           <MovieSort />
         </TabPane>
       </Tabs>
