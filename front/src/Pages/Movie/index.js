@@ -10,7 +10,7 @@ import SortForm from './components/SortForm'
 import { MovieContext } from './Context'
 
 const Home = React.memo(() => {
-  const { movies, dataModal } = useContext(MovieContext)
+  const { movies, dataModal, genres } = useContext(MovieContext)
   const { TabPane } = Tabs
 
   if (!movies) {
@@ -33,7 +33,14 @@ const Home = React.memo(() => {
         </TabPane>
         <TabPane tab="Modal" key="3">
           {dataModal.map((singleModal) => {
-            return <MoviesThird key={singleModal.id} {...singleModal} />;
+            return (
+            <>
+            <MoviesThird key={singleModal.id} {...singleModal} /><h4>Genres:</h4>
+            {singleModal.genre_ids.map((id) => {
+              return <p>{genres[id]}</p>
+            })}
+            </>
+            );
           })}
         </TabPane>
         <TabPane tab="Sort" key="4">

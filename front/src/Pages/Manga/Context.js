@@ -1,12 +1,17 @@
-import axios from 'axios';
-import React, { useState, useEffect, createContext } from 'react'
-const MangaContext = createContext()
+import axios from "axios";
+import React, { useState, useEffect, createContext } from "react";
+const MangaContext = createContext();
 
 const MangaProvider = ({ children }) => {
     const [datas, setDatas] = useState([]);
-    const [animes, setAnimes] = useState([])
-    const [searchAnime, setSearchAnime] = useState('Pokemon')
-    const [dataModal, setDataModal] = useState([])
+    const [animes, setAnimes] = useState([]);
+    const [searchAnime, setSearchAnime] = useState("Pokemon");
+    const [dataModal, setDataModal] = useState([]);
+
+    const [popularManga, setPopularManga] = useState([]);
+    const [sortedMangas, setSortedMangas] = useState([]);
+    const [searchValue] = useState("");
+    const [sortType, setSortType] = useState("asc");
 
     const getManga = async () => {
         const response = await axios.get(
@@ -23,7 +28,9 @@ const MangaProvider = ({ children }) => {
     useEffect(() => {
         const getAnimes = async () => {
             try {
-                const response = await axios.get(`https://api.jikan.moe/v3/search/anime?q=${searchAnime}&page=1`);
+                const response = await axios.get(
+                    `https://api.jikan.moe/v3/search/anime?q=${searchAnime}&page=1`
+                );
                 setAnimes(response.data.results);
             } catch (err) {
                 console.log(err);
@@ -33,20 +40,51 @@ const MangaProvider = ({ children }) => {
     }, [searchAnime]);
 
     const fetchManga = async () => {
-        const response = await axios.get(
-            "https://api.jikan.moe/v3/top/anime"
-        );
+        const response = await axios.get("https://api.jikan.moe/v3/top/anime");
         setDataModal(response.data.top);
     };
     useEffect(() => {
         fetchManga();
     }, []);
 
+    useEffect(() => {
+        fetch("https://api.jikan.moe/v3/top/anime")
+            .then((res) => {
+                if (res.ok) {
+                    return res.json();
+                } else {
+                    throw new Error("something went wrong!");
+                }
+            })
+            .then((res) => {
+                setPopularManga(res.top);
+            })
+            .catch((err) => console.log(err));
+    }, []);
+
+    useEffect(() => {
+        let filteredList = popularManga.filter((manga) =>
+            manga.title.toLowerCase().includes(searchValue)
+        );
+        setSortedMangas(filteredList);
+    }, [searchValue, popularManga]);
     return (
-        <MangaContext.Provider value={{ datas, setSearchAnime, animes, dataModal }}>
+        <MangaContext.Provider
+            value={{
+                datas,
+                setSearchAnime,
+                animes,
+                dataModal,
+                sortedMangas,
+                sortType,
+                setSortType,
+                popularManga,
+                setSortedMangas
+            }}
+        >
             {children}
         </MangaContext.Provider>
     );
-}
+};
 
-export { MangaContext, MangaProvider }
+export { MangaContext, MangaProvider };
