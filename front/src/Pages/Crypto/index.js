@@ -7,6 +7,7 @@ import Search from "./Components/SearchForm";
 import Graph from "./Components/Graph";
 import TestCrypto from "./Components/TestCrypto";
 import SortCrypto from "./Components/SortCrypto";
+import SortForm from "./Components/SortForm";
 
 import { CryptoContext } from "./Context";
 
@@ -49,6 +50,7 @@ const Home = React.memo(() => {
                     })}
                 </TabPane>
                 <TabPane tab="Sort" key="5">
+                    <SortForm />
                     <SortCrypto />
                 </TabPane>
             </Tabs>
