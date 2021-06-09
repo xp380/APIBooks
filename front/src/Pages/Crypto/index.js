@@ -4,6 +4,7 @@ import { Tabs } from "antd";
 import { Crypto } from "./Components/Crypto";
 import Cryptos from "./Components/Cryptos";
 import Search from "./Components/SearchForm";
+import CryptoDemo from "./Components/CryptoDemo";
 import Graph from "./Components/Graph";
 import TestCrypto from "./Components/TestCrypto";
 import SortCrypto from "./Components/SortCrypto";
@@ -13,7 +14,7 @@ import { CryptoContext } from "./Context";
 
 const Home = React.memo(() => {
     const { TabPane } = Tabs;
-    const { cryptoData, cryptos } = useContext(CryptoContext);
+    const { cryptoData, cryptos, cryptoSearched } = useContext(CryptoContext);
 
     if (!cryptoData) {
         return "error";
@@ -33,10 +34,10 @@ const Home = React.memo(() => {
                 <TabPane tab="Search" key="3">
                     <h3>Recherche</h3>
                     <Search />
-                    {cryptoData.map((cryptoTest) => {
+                    {cryptoSearched.map((cryptoTest) => {
                         <h3>Liste des Mangas</h3>;
                         return (
-                            <Cryptos
+                            <CryptoDemo
                                 key={cryptoTest.id}
                                 cryptoTest={cryptoTest}
                             />
