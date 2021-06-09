@@ -14,6 +14,8 @@ export const CovidProvider = ({ children }) => {
     const [searchValue] = useState("");
     const [sortType, setSortType] = useState("asc");
 
+    const [covidFound, setCovidFound] = useState([]);
+
     let date = [];
     let confirmed = [];
     let deaths = [];
@@ -25,6 +27,13 @@ export const CovidProvider = ({ children }) => {
                 "https://api.covid19api.com/total/country/france"
             );
             setCovids(result.data);
+        };
+        fetchData();
+    }, []);
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await axios("https://api.covid19api.com/countries");
+            setCovidFound(result.data);
         };
         fetchData();
     }, []);
@@ -109,7 +118,8 @@ export const CovidProvider = ({ children }) => {
         setSortedCovid,
         covidData,
         setSearchCovid,
-        covidSearched
+        covidSearched,
+        covidFound
     };
 
     return (

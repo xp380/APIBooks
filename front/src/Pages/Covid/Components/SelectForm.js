@@ -1,24 +1,24 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext } from "react";
 import { CovidContext } from "../Context";
-import { Input } from "antd";
-
-const { Search } = Input;
+import { Select } from "antd";
 
 const SelectForm = () => {
-    const { setSearchCovid } = useContext(CovidContext);
-    const inputRef = useRef();
+    const { setSearchCovid, covidFound } = useContext(CovidContext);
+    const { Option } = Select;
     const handleSubmit = (e) => e.preventDefault();
-    const searchItems = () => setSearchCovid(inputRef.current.value);
+    const searchItems = (e) => setSearchCovid(e.target.value);
 
     return (
         <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                placeholder="search movies ...."
-                ref={inputRef}
+            <select
+                aria-label="Default select"
+                style={{ width: 320 }}
                 onChange={searchItems}
-            />
-            <button type="submit">Enter</button>
+            >
+                {covidFound.map((item) => (
+                    <option value={item.Country}>{item.Country}</option>
+                ))}
+            </select>
         </form>
     );
 };

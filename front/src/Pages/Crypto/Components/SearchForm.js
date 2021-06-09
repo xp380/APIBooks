@@ -1,38 +1,33 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext } from "react";
 import { CryptoContext } from "../Context";
+import { Select } from "antd";
 
 const SearchForm = () => {
-    const { setSearchCrypto } = useContext(CryptoContext);
-    const inputRef = useRef();
+    const { Option } = Select;
+    const { setSearchCrypto, cryptosData } = useContext(CryptoContext);
     const handleSubmit = (e) => e.preventDefault();
-    const searchItems = () => setSearchCrypto(inputRef.current.value);
+    const searchItems = (e) => setSearchCrypto(e.target.value);
 
     return (
         <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                placeholder="search movies ...."
-                ref={inputRef}
-                onChange={searchItems}
-            />
-
-            {/* <select
-                ref={inputRef}
+            <select
                 aria-label="Default select"
+                style={{ width: 320 }}
                 onChange={searchItems}
             >
-                <option value="" selected>
-                    Select Crypto
-                </option>
-                {cryptoData.map((c) => {
-                    return (
-                        <>
-                            <option value={c.searchCrypto}>{c.searchCrypto}</option>
-                        </>
-                    )
-                })}
-            </select> */}
-            <button type="submit">Enter</button>
+                {cryptosData.map((item) => (
+                    <option value={item.id}>{item.id}</option>
+                ))}
+            </select>
+            {/* <Select
+                // defaultValue={{ value: "bitcoin" }}
+                style={{ width: 120 }}
+                onChange={searchItems}
+            >
+                {cryptosData.map((item) => (
+                    <Option value={item.id}>{item.id}</Option>
+                ))}
+            </Select> */}
         </form>
     );
 };
