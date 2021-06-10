@@ -1,26 +1,127 @@
-import React, { useContext } from 'react'
-import { MovieContext } from '../Context';
-import { Card, Row, Tag } from 'antd'
+// import React, { useContext } from "react";
+// import { MovieContext } from "../Context";
+// import { Card, Row, Tag } from "antd";
+
+// const Movies = () => {
+//     const { movies } = useContext(MovieContext);
+//     return (
+//         <Row gutter={16}>
+//             {movies.slice(0, 6).map((item, id) => (
+//                 <Card
+//                     key={id}
+//                     style={{ width: 300, margin: 10 }}
+//                     bordered={true}
+//                     hoverable
+//                 >
+//                     <div>
+//                         <p style={{ textAlign: "left" }}>
+//                             {item.title}{" "}
+//                             <span style={{ float: "right" }}>
+//                                 {item.vote_average}
+//                             </span>
+//                         </p>
+//                     </div>
+//                     <p>
+//                         <img
+//                             src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+//                             alt="#"
+//                             width="200"
+//                             height="200"
+//                         />
+//                     </p>
+//                     <Tag color={"red"}> {item.title}</Tag>
+//                 </Card>
+//             ))}
+//         </Row>
+//     );
+// };
+
+// export default Movies;
+
+import React, { useContext } from "react";
+import { MovieContext } from "../Context";
+import { Card, Row, Tag } from "antd";
 
 const Movies = () => {
-    const { movies } = useContext(MovieContext)
+    const { movies, genres } = useContext(MovieContext);
     return (
         <Row gutter={16}>
-            {movies.slice(0, 6).map((item, id) => (
-                <Card
-                    key={id}
-                    style={{ width: 300, margin: 10 }} bordered={true}
-                    hoverable
-                >
-                    <div>
-                        <p style={{ textAlign: "left" }}>{item.title} <span style={{ float: "right" }}>{item.vote_average}</span></p>
-                    </div>
-                    <p><img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="#" width="200" height="200" /></p>
-                    <Tag color={"red"}> {item.title}</Tag>
-                </Card>
-            ))}
-        </Row >
-    )
-}
+            {movies.slice(0, 6).map((item, id) => {
+                // if (item.title === "Cruella") {
+                return (
+                    <Card
+                        key={id}
+                        style={{ width: 300, margin: 10 }}
+                        bordered={true}
+                        hoverable
+                    >
+                        <div>
+                            <p style={{ textAlign: "left" }}>
+                                {item.title}{" "}
+                                <span style={{ float: "right" }}>
+                                    {item.vote_average}
+                                </span>
+                            </p>
+                        </div>
+                        <p>
+                            <img
+                                src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+                                alt="#"
+                                width="200"
+                                height="200"
+                            />
+                        </p>
+                        {item.genre_ids.map((id) => {
+                            if (id === 35) {
+                                return <Tag color="blue"> {genres[id]} </Tag>;
+                            } else if (id === 80) {
+                                return <Tag color="red"> {genres[id]}</Tag>;
+                            } else if (id === 28) {
+                                return <Tag color="cyan"> {genres[id]}</Tag>;
+                            } else if (id === 12) {
+                                return <Tag color="green"> {genres[id]}</Tag>;
+                            } else if (id === 16) {
+                                return <Tag color="yellow"> {genres[id]}</Tag>;
+                            } else if (id === 99) {
+                                return <Tag color="purple"> {genres[id]}</Tag>;
+                            } else if (id === 18) {
+                                return <Tag color="gold"> {genres[id]}</Tag>;
+                            } else if (id === 10751) {
+                                return <Tag color="pink"> {genres[id]}</Tag>;
+                            } else if (id === 14) {
+                                return <Tag color="orange"> {genres[id]}</Tag>;
+                            } else if (id === 36) {
+                                return <Tag color="lime"> {genres[id]}</Tag>;
+                            } else if (id === 27) {
+                                return (
+                                    <Tag color="processing"> {genres[id]}</Tag>
+                                );
+                            } else if (id === 10402) {
+                                return (
+                                    <Tag color="geekblue"> {genres[id]}</Tag>
+                                );
+                            } else if (id === 9648) {
+                                return <Tag color="magenta"> {genres[id]}</Tag>;
+                            } else if (id === 10749) {
+                                return <Tag color="green"> {genres[id]}</Tag>;
+                            } else if (id === 878) {
+                                return <Tag color="volcano"> {genres[id]}</Tag>;
+                            } else if (id === 100770) {
+                                return <Tag color="pink"> {genres[id]}</Tag>;
+                            } else if (id === 53) {
+                                return <Tag color="red"> {genres[id]}</Tag>;
+                            } else if (id === 10762) {
+                                return <Tag color="lime"> {genres[id]}</Tag>;
+                            } else if (id === 37) {
+                                return <Tag color="yellow"> {genres[id]}</Tag>;
+                            }
+                        })}
+                    </Card>
+                );
+                // }
+            })}
+        </Row>
+    );
+};
 
-export default Movies
+export default Movies;
