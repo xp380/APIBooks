@@ -1,14 +1,15 @@
 import React, { useContext } from "react";
-import { MovieContext } from "../Context";
-import { Card, Row, Tag } from "antd";
+import { MangaContext } from "../Context";
+import { Card, Row } from "antd";
 
-const Main = () => {
-    const { datas } = useContext(MovieContext);
+const Mangas = () => {
+    const { sortedMangas } = useContext(MangaContext);
+
     return (
         <Row gutter={16}>
-            {datas.map((item, id) => (
+            {sortedMangas.map((item, mal_id) => (
                 <Card
-                    key={id}
+                    key={mal_id}
                     style={{ width: 300, margin: 10 }}
                     bordered={true}
                     hoverable
@@ -16,24 +17,23 @@ const Main = () => {
                     <div>
                         <p style={{ textAlign: "left" }}>
                             {item.title}{" "}
-                            <span style={{ float: "right" }}>
-                                {item.vote_average}
-                            </span>
+                            <span style={{ float: "right" }}>{item.score}</span>
                         </p>
                     </div>
                     <p>
                         <img
-                            src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+                            src={item.image_url}
                             alt="#"
                             width="200"
                             height="200"
                         />
                     </p>
-                    <Tag color={("red", "green")}> {item.genre_ids}</Tag>
+                    <p>rank: {item.rank}</p>
+                    <p>score: {item.score}</p>
                 </Card>
             ))}
         </Row>
     );
 };
 
-export default Main;
+export default Mangas;

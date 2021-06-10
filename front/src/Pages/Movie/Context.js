@@ -7,6 +7,7 @@ const MovieProvider = ({ children }) => {
   const [movies, setMovies] = useState([])
   const [searchMovie, setSearchMovie] = useState("Pokemon")
   const [dataModal, setDataModal] = useState([]);
+  const [genres, setGenres] = useState([])
 
 
   const [popularMovie, setPopularMovie] = useState([]);
@@ -39,13 +40,27 @@ const MovieProvider = ({ children }) => {
     getMovies();
   }, [searchMovie]);
 
-  const fetchMovies = async () => {
-    const response = await fetch("https://api.themoviedb.org/3/movie/upcoming?api_key=30582d63e1f78f53711360b533a5d861");
-    const data = await response.json();
-    setDataModal(data.results);
-  };
   useEffect(() => {
-    fetchMovies();
+    fetch(
+      "https://api.themoviedb.org/3/movie/upcoming?api_key=30582d63e1f78f53711360b533a5d861"
+    )
+      .then((res) => res.json())
+      .then((result) => {
+        setDataModal(result.results);
+      });
+
+    fetch(
+      "https://api.themoviedb.org/3/genre/movie/list?&api_key=1bd87bc8f44f05134b3cff209a473d2e"
+    )
+      .then((genre) => genre.json())
+      .then((result) => {
+        const genres = result.genres.reduce((genres, gen) => {
+          const { id, name } = gen;
+          genres[id] = name;
+          return genres;
+        }, []);
+        setGenres(genres);
+      });
   }, []);
 
   useEffect(() => {
@@ -88,7 +103,8 @@ const MovieProvider = ({ children }) => {
       setSearchMovie,
       movies,
       dataModal,
-      sortedMovies, sortType, setSortType, popularMovie, setSortedMovies
+      sortedMovies, sortType, setSortType, popularMovie, setSortedMovies,
+      genres
     }}>
       {children}
     </MovieContext.Provider>
@@ -96,3 +112,5 @@ const MovieProvider = ({ children }) => {
 };
 
 export { MovieContext, MovieProvider };
+
+

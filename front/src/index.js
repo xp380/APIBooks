@@ -1,41 +1,43 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import { CovidProvider } from './Pages/Covid/Context'
-import { CryptoProvider } from './Pages/Crypto/Context'
-import { MovieProvider } from './Pages/Movie/Context'
-import { MangaProvider } from './Pages/Manga/Context'
-import { GameProvider } from './Pages/Game/Context'
-import Covid from './Pages/Covid/index'
-import Crypto from './Pages/Crypto/index'
-import Game from './Pages/Game/index'
-import Manga from './Pages/Manga/index'
-import Movie from './Pages/Movie/index'
-import 'antd/dist/antd.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import HomePage from "./HomePage";
+import App from "./App";
+import { CovidProvider } from "./Pages/Covid/Context";
+import { CryptoProvider } from "./Pages/Crypto/Context";
+import { MovieProvider } from "./Pages/Movie/Context";
+import { MangaProvider } from "./Pages/Manga/Context";
+import { GameProvider } from "./Pages/Game/Context";
+import Covid from "./Pages/Covid/index";
+import Crypto from "./Pages/Crypto/index";
+import Game from "./Pages/Game/index";
+import Manga from "./Pages/Manga/index";
+import Movie from "./Pages/Movie/index";
+import "antd/dist/antd.css";
 
 // import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
-    {/* <App /> */}
-    {/* <CovidProvider>
-      <Covid />
-    </CovidProvider> */}
-    {/* <CryptoProvider>
-      <Crypto />
-    </CryptoProvider> */}
-    {/* <GameProvider>
-      <Game />
-    </GameProvider> */}
-    {/* <MangaProvider>
-      <Manga />
-    </MangaProvider> */}
-    <MovieProvider>
-      <Movie />
-    </MovieProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        {/* <HomePage /> */}
+        {/* <App /> */}
+        {/* <CovidProvider>
+            <Covid />
+        </CovidProvider> */}
+        {/* <CryptoProvider>
+            <Crypto />
+        </CryptoProvider> */}
+        <GameProvider>
+            <Game />
+        </GameProvider>
+        {/* <MangaProvider>
+            <Manga />
+        </MangaProvider> */}
+        {/* <MovieProvider>
+            <Movie />
+        </MovieProvider> */}
+    </React.StrictMode>,
+    document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
