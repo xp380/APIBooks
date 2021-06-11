@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Tabs } from "antd";
+import { Tabs, Row } from "antd";
 
 import { Covid } from "./Components/Covid";
 import Graph from "./Components/Graph";
@@ -39,9 +39,13 @@ export default function Covid2020() {
                     })}
                 </TabPane>
                 <TabPane tab="lol" key="4">
-                    {covids.map((singleModal) => {
-                        return <TestCovid key={singleModal} {...singleModal} />;
-                    })}
+                    <Row>
+                        {covids.map((singleModal) => {
+                            return (
+                                <TestCovid key={singleModal} {...singleModal} />
+                            );
+                        })}
+                    </Row>
                 </TabPane>
                 <TabPane tab="sort" key="5">
                     <SortForm />

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Tabs } from "antd";
+import { Tabs, Row } from "antd";
 
 import MovieFirst from "./components/MovieFirst";
 import MovieSecond from "./components/MovieSecond";
@@ -36,16 +36,18 @@ const Home = React.memo(() => {
                     })}
                 </TabPane>
                 <TabPane tab="Modal" key="3">
-                    {dataModal.map((singleModal) => {
-                        return (
-                            <>
-                                <MoviesThird
-                                    key={singleModal.id}
-                                    {...singleModal}
-                                />
-                            </>
-                        );
-                    })}
+                    <Row>
+                        {dataModal.map((singleModal) => {
+                            return (
+                                <>
+                                    <MoviesThird
+                                        key={singleModal.id}
+                                        {...singleModal}
+                                    />
+                                </>
+                            );
+                        })}
+                    </Row>
                 </TabPane>
                 <TabPane tab="Sort" key="4">
                     <SortForm />

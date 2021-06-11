@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Tabs } from "antd";
+import { Tabs, Row } from "antd";
 
 import { Crypto } from "./Components/Crypto";
 import Cryptos from "./Components/Cryptos";
@@ -46,9 +46,13 @@ const Home = React.memo(() => {
                 </TabPane>
                 <TabPane tab="Graph Select" key="4">
                     <h3>Sélection des Crypto</h3>
-                    {cryptos.map((singleModal) => {
-                        return <TestCrypto key={cryptos.id} {...singleModal} />;
-                    })}
+                    <Row>
+                        {cryptos.map((singleModal) => {
+                            return (
+                                <TestCrypto key={cryptos.id} {...singleModal} />
+                            );
+                        })}
+                    </Row>
                 </TabPane>
                 <TabPane tab="Sort" key="5">
                     <SortForm />
