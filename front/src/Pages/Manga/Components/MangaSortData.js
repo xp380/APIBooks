@@ -28,7 +28,7 @@ const Mangas = () => {
                             height="200"
                         />
                     </p>
-                    <p>rank: {item.rank}</p>
+                    <p>Nb Membres: {item.members}</p>
                     <p>score: {item.score}</p>
                 </Card>
             ))}

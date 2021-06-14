@@ -30,12 +30,12 @@ ReactDOM.render(
         {/* <GameProvider>
             <Game />
         </GameProvider> */}
-        {/* <MangaProvider>
+        <MangaProvider>
             <Manga />
-        </MangaProvider> */}
-        <MovieProvider>
+        </MangaProvider>
+        {/* <MovieProvider>
             <Movie />
-        </MovieProvider>
+        </MovieProvider> */}
     </React.StrictMode>,
     document.getElementById("root")
 );

@@ -16,10 +16,11 @@ const MangaProvider = ({ children }) => {
     const getManga = async () => {
         const response = await axios.get(
             // "https://api.jikan.moe/v3/anime/5114"
-            "https://api.jikan.moe/v3/top/anime"
-            // https://api.jikan.moe/v3/genre/anime/1/1
+            // "https://api.jikan.moe/v3/top/anime"
+            "https://api.jikan.moe/v3/genre/anime/1/1"
+            // /search/anime?q=Boku&page=1&genre=12&genre_exclude=0
         );
-        setDatas(response.data.top);
+        setDatas(response.data.anime);
     };
     useEffect(() => {
         getManga();
@@ -40,15 +41,17 @@ const MangaProvider = ({ children }) => {
     }, [searchAnime]);
 
     const fetchManga = async () => {
-        const response = await axios.get("https://api.jikan.moe/v3/top/anime");
-        setDataModal(response.data.top);
+        const response = await axios.get(
+            "https://api.jikan.moe/v3/genre/anime/1/1"
+        );
+        setDataModal(response.data.anime);
     };
     useEffect(() => {
         fetchManga();
     }, []);
 
     useEffect(() => {
-        fetch("https://api.jikan.moe/v3/top/anime")
+        fetch("https://api.jikan.moe/v3/genre/anime/1/1")
             .then((res) => {
                 if (res.ok) {
                     return res.json();
@@ -57,7 +60,7 @@ const MangaProvider = ({ children }) => {
                 }
             })
             .then((res) => {
-                setPopularManga(res.top);
+                setPopularManga(res.anime);
             })
             .catch((err) => console.log(err));
     }, []);

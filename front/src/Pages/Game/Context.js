@@ -7,6 +7,7 @@ const GameProvider = ({ children }) => {
     const [games, setGames] = useState([]);
     const [searchGame, setSearchGame] = useState("");
     const [dataModal, setDataModal] = useState([]);
+    const [genres, setGenres] = useState([]);
 
     const [popularGame, setPopularGame] = useState([]);
     const [sortedGames, setSortedGames] = useState([]);
@@ -75,6 +76,7 @@ const GameProvider = ({ children }) => {
         );
         setSortedGames(filteredList);
     }, [searchValue, popularGame]);
+
     return (
         <GameContext.Provider
             value={{
@@ -86,7 +88,8 @@ const GameProvider = ({ children }) => {
                 sortType,
                 setSortType,
                 popularGame,
-                setSortedGames
+                setSortedGames,
+                genres
             }}
         >
             {children}

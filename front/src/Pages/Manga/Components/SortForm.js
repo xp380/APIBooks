@@ -6,14 +6,14 @@ const Mangas = () => {
     const { sortType, setSortType, popularManga, setSortedMangas } =
         useContext(MangaContext);
 
-    const sortByRank = () => {
+    const sortByMembers = () => {
         const sortedList = [...popularManga].sort((a, b) => {
             if (sortType === "asc") {
                 setSortType("des");
-                return a.rank - b.rank;
+                return a.members - b.members;
             } else {
                 setSortType("asc");
-                return b.rank - a.rank;
+                return b.members - a.members;
             }
         });
         setSortedMangas(sortedList);
@@ -34,13 +34,13 @@ const Mangas = () => {
     return (
         <>
             <Button
-                onClick={sortByRank}
+                onClick={sortByMembers}
                 size="middle"
                 style={{ marginLeft: "50px" }}
             >
                 {sortType === "asc"
-                    ? "Trier par rank croissantes"
-                    : "Trier par rank décroissantes"}
+                    ? "Trier par membres croissantes"
+                    : "Trier par membres décroissantes"}
             </Button>
             <Button
                 onClick={sortByScore}
