@@ -5,7 +5,6 @@ import MangaList from "./Components/Manga";
 import Mangas from "./Components/Mangas";
 import Search from "./Components/SearchForm";
 import ModalManga from "./Components/ModalManga";
-import MangaSort from "./Components/MangaSortData";
 import SortForm from "./Components/SortForm";
 import { MangaContext } from "./Context";
 
@@ -20,6 +19,8 @@ const Home = React.memo(() => {
         <>
             <Tabs defaultActiveKey="1">
                 <TabPane tab="Accueil" key="1">
+                    <SortForm />
+
                     <MangaList />
                 </TabPane>
                 <TabPane tab="Card" key="2">
@@ -45,10 +46,6 @@ const Home = React.memo(() => {
                             );
                         })}
                     </Row>
-                </TabPane>
-                <TabPane tab="Sort" key="4">
-                    <SortForm />
-                    <MangaSort />
                 </TabPane>
             </Tabs>
         </>

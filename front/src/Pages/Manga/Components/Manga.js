@@ -1,14 +1,25 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { MangaContext } from "../Context";
+import Details from "./Details";
 
-import { Card, Row, Tag } from "antd";
+import { Card, Row, Tag, Button } from "antd";
 
-const Main = () => {
-    const { datas } = useContext(MangaContext);
+const Main = React.memo(() => {
+    const { sortedMangas } = useContext(MangaContext);
+
+    const [open, setOpen] = useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     return (
         <>
             <Row gutter={16}>
-                {datas.map((item, mal_id) => (
+                {sortedMangas.map((item, mal_id) => (
                     <Card
                         key={mal_id}
                         style={{ width: 300, margin: 10 }}
@@ -30,6 +41,14 @@ const Main = () => {
                                 width="200"
                                 height="200"
                             />
+                            <Button
+                                onClick={handleClickOpen}
+                                variant="contained"
+                                size="middle"
+                                style={{ marginLeft: "50px" }}
+                            >
+                                Details
+                            </Button>
                             <p>Genres: </p>
                             {item.genres.map((data) => {
                                 if (data.mal_id === 1) {
@@ -209,9 +228,15 @@ const Main = () => {
                         </p>
                     </Card>
                 ))}
+                <Details
+                    open={open}
+                    handleClickOpen={handleClickOpen}
+                    handleClose={handleClose}
+                    detailsData={sortedMangas}
+                />
             </Row>
         </>
     );
-};
+});
 
 export default Main;

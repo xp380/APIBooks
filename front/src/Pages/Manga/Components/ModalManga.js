@@ -1,35 +1,48 @@
-import React, {useState} from 'react'
-import { Card, Row,  Button } from 'antd'
-import Details from './Details'
+import React, { useState } from "react";
+import { Card, Row, Button } from "antd";
+import Details from "./Details";
 
 export default function ModalManga(props) {
-    const [open, setOpen] = useState(false)
-    
+    const [open, setOpen] = useState(false);
+
     const handleClickOpen = () => {
-        setOpen(true)
-    }
+        setOpen(true);
+    };
     const handleClose = () => {
-        setOpen(false)
-    }
+        setOpen(false);
+    };
 
     const { image_url, mal_id, score, title } = props;
-    return(
+    return (
         <Row gutter={16}>
-        <Card key={mal_id} style={{ width: 300, margin: 10 }} bordered={true} title={title}>
-          <div>
-            <p style={{ textAlign: "left" }}>{title} <span style={{ float: "right" }}>{score}</span></p>
-          </div>
-          <p><img src={image_url} alt="#" width="200" height="200" /></p>
-            <Button onClick={handleClickOpen} variant="contained" size='middle' style={{marginLeft: "50px"}}>
-                Details
-            </Button>
-        </Card>
-        <Details
-            open={open}
-            handleClickOpen={handleClickOpen}
-            handleClose={handleClose}
-            detailsData={props}
-        />
+            <Card
+                key={mal_id}
+                style={{ width: 300, margin: 10 }}
+                bordered={true}
+            >
+                <div>
+                    <p style={{ textAlign: "left" }}>
+                        {title} <span style={{ float: "right" }}>{score}</span>
+                    </p>
+                </div>
+                <p>
+                    <img src={image_url} alt="#" width="200" height="200" />
+                </p>
+                <Button
+                    onClick={handleClickOpen}
+                    variant="contained"
+                    size="middle"
+                    style={{ marginLeft: "50px" }}
+                >
+                    Details
+                </Button>
+            </Card>
+            <Details
+                open={open}
+                handleClickOpen={handleClickOpen}
+                handleClose={handleClose}
+                detailsData={props}
+            />
         </Row>
-    )
+    );
 }

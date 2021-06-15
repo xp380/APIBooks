@@ -24,15 +24,15 @@ ReactDOM.render(
         {/* <CovidProvider>
             <Covid />
         </CovidProvider> */}
-        {/* <CryptoProvider>
+        <CryptoProvider>
             <Crypto />
-        </CryptoProvider> */}
+        </CryptoProvider>
         {/* <GameProvider>
             <Game />
         </GameProvider> */}
-        <MangaProvider>
+        {/* <MangaProvider>
             <Manga />
-        </MangaProvider>
+        </MangaProvider> */}
         {/* <MovieProvider>
             <Movie />
         </MovieProvider> */}
