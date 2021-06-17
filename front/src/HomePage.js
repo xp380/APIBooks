@@ -47,15 +47,15 @@ export default function HomePage() {
                                 <MovieProvider>
                                     <Layout>
                                         <Header
-                                            style={{
-                                                position: "fixed",
-                                                width: "100%",
-                                                left: 0,
-                                                top: 0,
-                                                right: 0,
-                                                zIndex: 1000,
-                                                color: "white"
-                                            }}
+                                        // style={{
+                                        //     position: "fixed",
+                                        //     width: "100%",
+                                        //     left: 0,
+                                        //     top: 0,
+                                        //     right: 0,
+                                        //     zIndex: 1000,
+                                        //     color: "white"
+                                        // }}
                                         >
                                             <Menu
                                                 theme="dark"
@@ -68,7 +68,7 @@ export default function HomePage() {
                                             </Menu>
                                         </Header>
                                         <Content>
-                                            <Carousel autoplay>
+                                            {/* <Carousel autoplay>
                                                 <div>
                                                     <h3 style={contentStyle}>
                                                         <Link to="/covids">
@@ -104,7 +104,7 @@ export default function HomePage() {
                                                         </Link>
                                                     </h3>
                                                 </div>
-                                            </Carousel>
+                                            </Carousel> */}
                                             <Switch>
                                                 <Route path="/covids" exact>
                                                     <Covid />

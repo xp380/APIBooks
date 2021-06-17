@@ -5,7 +5,6 @@ const MangaContext = createContext();
 const MangaProvider = ({ children }) => {
     const [animes, setAnimes] = useState([]);
     const [searchAnime, setSearchAnime] = useState("Pokemon");
-    const [dataModal, setDataModal] = useState([]);
 
     const [popularManga, setPopularManga] = useState([]);
     const [sortedMangas, setSortedMangas] = useState([]);
@@ -31,7 +30,6 @@ const MangaProvider = ({ children }) => {
             "https://api.jikan.moe/v3/genre/anime/1/1"
         );
         setPopularManga(response.data.anime);
-        setDataModal(response.data.anime);
     };
     useEffect(() => {
         sortManga();
@@ -48,7 +46,6 @@ const MangaProvider = ({ children }) => {
             value={{
                 setSearchAnime,
                 animes,
-                dataModal,
                 sortedMangas,
                 sortType,
                 setSortType,

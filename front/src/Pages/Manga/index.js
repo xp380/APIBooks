@@ -4,12 +4,12 @@ import { Tabs, Row } from "antd";
 import MangaList from "./Components/Manga";
 import Mangas from "./Components/Mangas";
 import Search from "./Components/SearchForm";
-import ModalManga from "./Components/ModalManga";
+// import ModalManga from "./Components/ModalManga";
 import SortForm from "./Components/SortForm";
 import { MangaContext } from "./Context";
 
 const Home = React.memo(() => {
-    const { animes, dataModal } = useContext(MangaContext);
+    const { animes, sortedMangas } = useContext(MangaContext);
     const { TabPane } = Tabs;
 
     if (!animes) {
@@ -20,8 +20,13 @@ const Home = React.memo(() => {
             <Tabs defaultActiveKey="1">
                 <TabPane tab="Accueil" key="1">
                     <SortForm />
-
-                    <MangaList />
+                    <Row>
+                        {sortedMangas.map((testModal) => {
+                            return (
+                                <MangaList key={testModal.id} {...testModal} />
+                            );
+                        })}
+                    </Row>
                 </TabPane>
                 <TabPane tab="Card" key="2">
                     <Search />
@@ -35,7 +40,7 @@ const Home = React.memo(() => {
                         );
                     })}
                 </TabPane>
-                <TabPane tab="Modal" key="3">
+                {/* <TabPane tab="Modal" key="3">
                     <Row>
                         {dataModal.map((singleModal) => {
                             return (
@@ -46,7 +51,7 @@ const Home = React.memo(() => {
                             );
                         })}
                     </Row>
-                </TabPane>
+                </TabPane> */}
             </Tabs>
         </>
     );
