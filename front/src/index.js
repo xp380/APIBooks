@@ -21,18 +21,18 @@ ReactDOM.render(
     <React.StrictMode>
         {/* <HomePage /> */}
         {/* <App /> */}
-        {/* <CovidProvider>
+        <CovidProvider>
             <Covid />
-        </CovidProvider> */}
+        </CovidProvider>
         {/* <CryptoProvider>
             <Crypto />
         </CryptoProvider> */}
         {/* <GameProvider>
             <Game />
         </GameProvider> */}
-        <MangaProvider>
+        {/* <MangaProvider>
             <Manga />
-        </MangaProvider>
+        </MangaProvider> */}
         {/* <MovieProvider>
             <Movie />
         </MovieProvider> */}

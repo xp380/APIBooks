@@ -4,7 +4,6 @@ import axios from "axios";
 export const CovidContext = createContext();
 
 export const CovidProvider = ({ children }) => {
-    const [covids, setCovids] = useState([]);
     const [data, setData] = useState([]);
     const [searchCovid, setSearchCovid] = useState("south-africa");
     const [covidSearched, setCovidSearched] = useState([]);
@@ -21,15 +20,7 @@ export const CovidProvider = ({ children }) => {
     let deaths = [];
     let recovered = [];
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const result = await axios(
-                "https://api.covid19api.com/total/country/france"
-            );
-            setCovids(result.data);
-        };
-        fetchData();
-    }, []);
+
     useEffect(() => {
         const fetchData = async () => {
             const result = await axios("https://api.covid19api.com/countries");
@@ -109,8 +100,6 @@ export const CovidProvider = ({ children }) => {
     }, [searchCovid]);
 
     const contextValues = {
-        covids,
-        setCovids,
         data,
         sortedCovid,
         sortType,

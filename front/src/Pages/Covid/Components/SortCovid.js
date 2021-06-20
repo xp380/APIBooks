@@ -1,34 +1,58 @@
-import React, { useContext } from "react";
-import { CovidContext } from "../Context";
-import { Card, Row } from "antd";
+import React, { useState } from "react";
+// import { CovidContext } from "../Context";
+import { Card, Row, Button } from "antd";
+import GraphSelected from './GraphSelected'
 
-const CovidSort = () => {
-    const { sortedCovid } = useContext(CovidContext);
 
+const CovidSort = React.memo((props) => {
+    const [open, setOpen] = useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const { id, Confirmed, Deaths, Recovered, Date, Country } = props;
     return (
         <>
             <Row gutter={16}>
-                {sortedCovid.map((covid, id) => (
-                    <Card
-                        key={id}
-                        style={{ width: 300, margin: 10 }}
-                        bordered={true}
-                        hoverable
+                <Card
+                    key={id}
+                    style={{ width: 300, margin: 10 }}
+                    bordered={true}
+                    hoverable
+                >
+                    <p>
+                        NB de Confirmés: {Confirmed}
+                        <br />
+                        NB de décès: {Deaths}
+                        <br />
+                        NB de Rétablis: {Recovered}
+                        <br />
+                        Date: {Date}
+                        <br />
+                        Pays: {Country}
+                    </p>
+                    <Button
+                        onClick={handleClickOpen}
+                        variant="contained"
+                        size="middle"
+                        style={{ marginLeft: "50px" }}
                     >
-                        <p>
-                            NB de Confirmés: {covid.Confirmed}
-                            <br />
-                            NB de décès: {covid.Deaths}
-                            <br />
-                            NB de Rétablis: {covid.Recovered}
-                            <br />
-                            Date: {covid.Date}
-                        </p>
-                    </Card>
-                ))}
+                        Details
+                    </Button>
+                </Card>
+                <GraphSelected
+                    open={open}
+                    handleClickOpen={handleClickOpen}
+                    handleClose={handleClose}
+                    detailsData={props}
+                />
             </Row>
         </>
     );
-};
+});
 
 export default CovidSort;
