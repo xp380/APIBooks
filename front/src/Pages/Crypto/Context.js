@@ -4,7 +4,6 @@ import axios from "axios";
 export const CryptoContext = createContext();
 
 export const CryptoProvider = ({ children }) => {
-    const [cryptos, setCryptos] = useState([]);
     const [cryptoData, setCryptoData] = useState([]);
     const [searchCrypto, setSearchCrypto] = useState("bitcoin");
     const [cryptoSearched, setCryptoSearched] = useState([]);
@@ -14,15 +13,7 @@ export const CryptoProvider = ({ children }) => {
     const [searchValue] = useState("");
     const [sortType, setSortType] = useState("asc");
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const result = await axios(
-                "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur"
-            );
-            setCryptos(result.data);
-        };
-        fetchData();
-    }, []);
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -57,8 +48,6 @@ export const CryptoProvider = ({ children }) => {
     }, [searchCrypto]);
 
     const contextValues = {
-        cryptos,
-        setCryptos,
         setSearchCrypto,
         cryptoSearched,
         cryptoData,

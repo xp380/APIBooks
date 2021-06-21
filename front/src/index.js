@@ -20,10 +20,10 @@ import "antd/dist/antd.css";
 ReactDOM.render(
     <React.StrictMode>
         {/* <HomePage /> */}
-        {/* <App /> */}
-        <CovidProvider>
+        <App />
+        {/* <CovidProvider>
             <Covid />
-        </CovidProvider>
+        </CovidProvider> */}
         {/* <CryptoProvider>
             <Crypto />
         </CryptoProvider> */}

@@ -19,15 +19,6 @@ const SearchForm = () => {
                     <option value={item.id}>{item.id}</option>
                 ))}
             </select>
-            {/* <Select
-                // defaultValue={{ value: "bitcoin" }}
-                style={{ width: 120 }}
-                onChange={searchItems}
-            >
-                {cryptosData.map((item) => (
-                    <Option value={item.id}>{item.id}</Option>
-                ))}
-            </Select> */}
         </form>
     );
 };

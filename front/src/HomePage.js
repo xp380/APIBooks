@@ -24,7 +24,7 @@ import Time from "./Footer/Time";
 
 // import Chat from "./Images/Chat.js";
 
-import { Layout, Menu, Carousel } from "antd";
+import { Layout, Menu, Carousel, BackTop } from "antd";
 const { Header, Footer, Content } = Layout;
 const contentStyle = {
     height: "160px",
@@ -124,6 +124,7 @@ export default function HomePage() {
                                                 </Route>
                                                 <Redirect to="/" />
                                             </Switch>
+                                            <BackTop />
                                         </Content>
                                     </Layout>
                                 </MovieProvider>
