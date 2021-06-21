@@ -3,15 +3,13 @@ import { Tabs, Row } from "antd";
 
 import GameList from "./Components/Game";
 import Games from "./Components/Games";
-import ModalGame from "./Components/ModalGame";
 import Search from "./Components/SearchForm";
-import GameSort from "./Components/GameSort";
 import SortForm from "./Components/SortForm";
 
 import { GameContext } from "./Context";
 
 const Home = React.memo(() => {
-    const { games, dataModal } = useContext(GameContext);
+    const { games, sortedGames } = useContext(GameContext);
     const { TabPane } = Tabs;
 
     return (
@@ -19,7 +17,14 @@ const Home = React.memo(() => {
             <Tabs defaultActiveKey="1">
                 <TabPane tab="Accueil" key="1">
                     <h3>Liste des jeux vidéos</h3>
-                    <GameList />
+                    <SortForm />
+                    <Row>
+                        {sortedGames.map((testModal) => {
+                            return (
+                                <GameList key={testModal.id} {...testModal} />
+                            )
+                        })}
+                    </Row>
                 </TabPane>
                 <TabPane tab="Card" key="2">
                     <Search />
@@ -30,22 +35,7 @@ const Home = React.memo(() => {
                         );
                     })}
                 </TabPane>
-                <TabPane tab="Modal" key="3">
-                    <Row>
-                        {dataModal.map((singleModal) => {
-                            return (
-                                <ModalGame
-                                    key={singleModal.id}
-                                    {...singleModal}
-                                />
-                            );
-                        })}
-                    </Row>
-                </TabPane>
-                <TabPane tab="Sort" key="4">
-                    <SortForm />
-                    <GameSort />
-                </TabPane>
+
             </Tabs>
         </>
     );
