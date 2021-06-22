@@ -1,16 +1,14 @@
 import React, { useContext } from "react";
 import { Tabs, Row } from "antd";
 
-import MovieFirst from "./components/MovieFirst";
 import MovieSecond from "./components/MovieSecond";
-import MoviesThird from "./components/MoviesThird";
 import MovieSort from "./components/MovieSortData";
 import Search from "./components/SearchForm";
 import SortForm from "./components/SortForm";
 import { MovieContext } from "./Context";
 
 const Home = React.memo(() => {
-    const { movies, dataModal } = useContext(MovieContext);
+    const { movies, sortedMovies } = useContext(MovieContext);
     const { TabPane } = Tabs;
 
     if (!movies) {
@@ -21,7 +19,14 @@ const Home = React.memo(() => {
         <>
             <Tabs defaultActiveKey="1" style={{ marginTop: 60 }}>
                 <TabPane tab="Accueil" key="1">
-                    <MovieFirst />
+                    <SortForm />
+                    <Row style={{ marginLeft: 80 }}>
+                        {sortedMovies.map((testModal) => {
+                            return (
+                                <MovieSort key={testModal.id} {...testModal} />
+                            );
+                        })}
+                    </Row>
                 </TabPane>
                 <TabPane tab="Card" key="2">
                     <Search />
@@ -34,24 +39,6 @@ const Home = React.memo(() => {
                             />
                         );
                     })}
-                </TabPane>
-                <TabPane tab="Modal" key="3">
-                    <Row>
-                        {dataModal.map((singleModal) => {
-                            return (
-                                <>
-                                    <MoviesThird
-                                        key={singleModal.id}
-                                        {...singleModal}
-                                    />
-                                </>
-                            );
-                        })}
-                    </Row>
-                </TabPane>
-                <TabPane tab="Sort" key="4">
-                    <SortForm />
-                    <MovieSort />
                 </TabPane>
             </Tabs>
         </>

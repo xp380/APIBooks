@@ -1,40 +1,60 @@
-import React, { useContext } from "react";
-import { MovieContext } from "../Context";
-import { Card, Row } from "antd";
+import React, { useState } from "react";
+import { Card, Row, Button } from "antd";
+import Details from './Details'
 
-const Movies = () => {
-    const { sortedMovies } = useContext(MovieContext);
+const Movies = React.memo((props) => {
+    const [open, setOpen] = useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const { poster_path, title, vote_average, popularity, id } = props;
 
     return (
-        <Row gutter={16}>
-            {sortedMovies.map((movie, id) => (
-                <Card
-                    style={{ width: 300, margin: 10 }}
-                    bordered={true}
-                    key={id}
-                    title={movie.title}
-                >
-                    <div>
-                        <p style={{ textAlign: "left" }}>
-                            {movie.title}{" "}
-                            <span style={{ float: "right" }}>
-                                note:{movie.vote_average}
-                            </span>
-                        </p>
-                        <p>Popularité: {movie.popularity}</p>
-                    </div>
-                    <p>
-                        <img
-                            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                            alt="#"
-                            width="200"
-                            height="200"
-                        />
+        <Row >
+            <Card
+                style={{ width: 300, margin: 10 }}
+                bordered={true}
+                key={id}
+            >
+                <div>
+                    <p style={{ textAlign: "left" }}>
+                        {title}{" "}
+                        <span style={{ float: "right" }}>
+                            note:{vote_average}
+                        </span>
                     </p>
-                </Card>
-            ))}
+                    <p>Popularité: {popularity}</p>
+                </div>
+                <p>
+                    <img
+                        src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+                        alt="#"
+                        width="200"
+                        height="200"
+                    />
+                </p>
+                <Button
+                    onClick={handleClickOpen}
+                    variant="contained"
+                    size="middle"
+                    style={{ marginLeft: "50px" }}
+                >
+                    Details
+                </Button>
+            </Card>
+            <Details
+                open={open}
+                handleClickOpen={handleClickOpen}
+                handleClose={handleClose}
+                detailsData={props}
+            />
         </Row>
     );
-};
+});
 
 export default Movies;
