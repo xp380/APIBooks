@@ -14,7 +14,7 @@ export default function Covid2020() {
     const { TabPane } = Tabs;
     return (
         <>
-            <Tabs defaultActiveKey="1">
+            <Tabs defaultActiveKey="1" style={{ marginTop: 60 }}>
                 <TabPane tab="Accueil" key="1">
                     <h3>Bilan du Covid en France</h3>
                     <SortForm />

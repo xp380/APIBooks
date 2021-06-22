@@ -17,7 +17,7 @@ const Home = React.memo(() => {
 
     return (
         <>
-            <Tabs defaultActiveKey="1">
+            <Tabs defaultActiveKey="1" style={{ marginTop: 60 }}>
                 <TabPane tab="Accueil" key="1">
                     <h3>Liste des Cryptos</h3>
                     <SortForm />
