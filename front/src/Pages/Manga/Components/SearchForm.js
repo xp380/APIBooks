@@ -11,7 +11,6 @@ const SearchForm = () => {
     const searchItems = () => setSearchAnime(inputRef.current.value)
 
     return (
-
         <form onSubmit={handleSubmit}>
             <input
                 type="text"

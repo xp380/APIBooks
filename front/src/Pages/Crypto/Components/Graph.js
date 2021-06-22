@@ -56,7 +56,7 @@ export default function Graph() {
     }, []);
 
     return (
-        <div>
+        <div style={{ width: "85%", marginLeft: 80 }}>
             <Bar data={data.Data}></Bar>
         </div>
     );

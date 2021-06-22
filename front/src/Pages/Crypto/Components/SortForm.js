@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { Button } from "antd";
 import { CryptoContext } from "../Context";
+import { SortAscendingOutlined, SortDescendingOutlined } from "@ant-design/icons"
+
 
 const Cryptos = () => {
     const { sortType, setSortType, cryptosData, setSortedCrypto } =
@@ -31,25 +33,50 @@ const Cryptos = () => {
         setSortedCrypto(sortedList);
     };
 
+    const sortByRank = () => {
+        const sortedList = [...cryptosData].sort((a, b) => {
+            if (sortType === "asc") {
+                setSortType("des");
+                return a.market_cap_rank - b.market_cap_rank;
+            } else {
+                setSortType("asc");
+                return b.market_cap_rank - a.market_cap_rank;
+            }
+        });
+        setSortedCrypto(sortedList);
+    };
+
     return (
         <>
             <Button
                 onClick={sortByPrice}
                 size="middle"
-                style={{ marginLeft: "50px" }}
+                style={{ marginLeft: "50px", color: "wheat", backgroundColor: "darkslateblue" }}
             >
+                Prix
                 {sortType === "asc"
-                    ? "Trier par Prix croissantes"
-                    : "Trier par Prix décroissantes"}
+                    ? <SortAscendingOutlined />
+                    : <SortDescendingOutlined />}
             </Button>
             <Button
                 onClick={sortByVolume}
                 size="middle"
-                style={{ marginLeft: "50px" }}
+                style={{ marginLeft: "50px", color: "black", backgroundColor: "tomato" }}
             >
+                Volume
                 {sortType === "asc"
-                    ? "Trier par Volume croissante"
-                    : "Trier par Volume décroissantes"}
+                    ? <SortAscendingOutlined />
+                    : <SortDescendingOutlined />}
+            </Button>
+            <Button
+                onClick={sortByRank}
+                size="middle"
+                style={{ marginLeft: "50px", color: "whitesmoke", backgroundColor: "goldenrod" }}
+            >
+                Rank
+                {sortType === "asc"
+                    ? <SortAscendingOutlined />
+                    : <SortDescendingOutlined />}
             </Button>
         </>
     );

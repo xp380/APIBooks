@@ -5,11 +5,11 @@ import { Card, Row, Tag } from "antd";
 const Games = () => {
     const { games } = useContext(GameContext);
     return (
-        <Row gutter={16}>
+        <Row style={{ marginLeft: 70 }}>
             {games.slice(0, 9).map((item, id) => (
                 <Card
                     key={id}
-                    style={{ width: 300, margin: 10 }}
+                    style={{ width: 300, margin: 10, }}
                     bordered={true}
                     hoverable
                 >

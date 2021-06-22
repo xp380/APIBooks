@@ -19,9 +19,7 @@ const SearchForm = () => {
                 ref={inputRef}
                 onChange={searchItems}
             />
-            <button type="submit">
-                Enter
-            </button>
+
         </form>
     )
 }

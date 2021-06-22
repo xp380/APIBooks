@@ -15,7 +15,7 @@ const Main = React.memo((props) => {
     const { id, slug, rating, background_image, tags } = props;
     return (
         <>
-            <Row gutter={16}>
+            <Row>
                 <Card
                     key={id}
                     style={{ width: 300, margin: 10 }}

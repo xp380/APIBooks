@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { CryptoContext } from "../Context";
 import { Card, Row, Button } from "antd";
 import GraphSelected from './GraphSelected'
 
@@ -14,9 +13,9 @@ const CryptoSort = React.memo((props) => {
         setOpen(false)
     }
 
-    const { id, total_volume, current_price, last_updated, name, image } = props
+    const { id, total_volume, current_price, last_updated, name, image, market_cap_rank } = props
     return (
-        <Row gutter={16}>
+        <Row >
             <Card
                 key={id}
                 style={{ width: 300, margin: 10 }}
@@ -31,6 +30,9 @@ const CryptoSort = React.memo((props) => {
                     Last updated: {last_updated}
                     <br />
                     Nom: {name}
+                    <br />
+                    Rank: {market_cap_rank}
+
                     <br />
                     <img
                         src={image}

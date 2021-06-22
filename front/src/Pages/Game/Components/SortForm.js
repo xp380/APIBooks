@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { Button } from "antd";
 import { GameContext } from "../Context";
+import { SortAscendingOutlined, SortDescendingOutlined } from "@ant-design/icons"
+
 
 const Games = () => {
     const { sortType, setSortType, popularGame, setSortedGames } =
@@ -31,25 +33,28 @@ const Games = () => {
         setSortedGames(sortedList);
     };
 
+
     return (
         <>
             <Button
                 onClick={sortByGrade}
                 size="middle"
-                style={{ marginLeft: "50px" }}
+                style={{ marginLeft: "50px", color: "greenyellow", backgroundColor: 'black' }}
             >
+                Notes
                 {sortType === "asc"
-                    ? "Trier par Métacritique croissantes"
-                    : "Trier par Métacritique décroissantes"}
+                    ? <SortAscendingOutlined />
+                    : <SortDescendingOutlined />}
             </Button>
             <Button
                 onClick={sortByTime}
                 size="middle"
-                style={{ marginLeft: "50px" }}
+                style={{ marginLeft: "50px", color: "red", backgroundColor: "whitesmoke" }}
             >
+                Temps d'une partie
                 {sortType === "asc"
-                    ? "Trier par temps de partie croissante"
-                    : "Trier par temps de partie décroissantes"}
+                    ? <SortAscendingOutlined />
+                    : <SortDescendingOutlined />}
             </Button>
         </>
     );

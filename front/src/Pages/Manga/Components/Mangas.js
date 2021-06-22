@@ -5,7 +5,7 @@ import { Card, Row } from "antd";
 const Mangas = () => {
     const { animes } = useContext(MangaContext);
     return (
-        <Row gutter={16}>
+        <Row style={{ marginLeft: 80 }}>
             {animes.slice(0, 6).map((item, mal_id) => (
                 <Card
                     key={mal_id}

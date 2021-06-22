@@ -18,7 +18,7 @@ const Home = React.memo(() => {
                 <TabPane tab="Accueil" key="1">
                     <h3>Liste des jeux vidéos</h3>
                     <SortForm />
-                    <Row>
+                    <Row style={{ marginLeft: 80 }}>
                         {sortedGames.map((testModal) => {
                             return (
                                 <GameList key={testModal.id} {...testModal} />

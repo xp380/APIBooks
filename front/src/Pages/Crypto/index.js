@@ -13,15 +13,13 @@ const Home = React.memo(() => {
     const { TabPane } = Tabs;
     const { cryptoSearched, sortedCrypto } = useContext(CryptoContext);
 
-
-
     return (
         <>
             <Tabs defaultActiveKey="1" style={{ marginTop: 60 }}>
                 <TabPane tab="Accueil" key="1">
                     <h3>Liste des Cryptos</h3>
                     <SortForm />
-                    <Row>
+                    <Row style={{ marginLeft: 70 }}>
                         {sortedCrypto.map((testModal) => {
                             return (
                                 <SortCrypto key={testModal.id} {...testModal} />

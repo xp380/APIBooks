@@ -4,7 +4,6 @@ import { Tabs, Row } from "antd";
 import MangaList from "./Components/Manga";
 import Mangas from "./Components/Mangas";
 import Search from "./Components/SearchForm";
-// import ModalManga from "./Components/ModalManga";
 import SortForm from "./Components/SortForm";
 import { MangaContext } from "./Context";
 
@@ -20,7 +19,7 @@ const Home = React.memo(() => {
             <Tabs defaultActiveKey="1" style={{ marginTop: 60 }}>
                 <TabPane tab="Accueil" key="1">
                     <SortForm />
-                    <Row>
+                    <Row style={{ marginLeft: 80 }}>
                         {sortedMangas.map((testModal) => {
                             return (
                                 <MangaList key={testModal.id} {...testModal} />
@@ -40,18 +39,7 @@ const Home = React.memo(() => {
                         );
                     })}
                 </TabPane>
-                {/* <TabPane tab="Modal" key="3">
-                    <Row>
-                        {dataModal.map((singleModal) => {
-                            return (
-                                <ModalManga
-                                    key={singleModal.id}
-                                    {...singleModal}
-                                />
-                            );
-                        })}
-                    </Row>
-                </TabPane> */}
+
             </Tabs>
         </>
     );
