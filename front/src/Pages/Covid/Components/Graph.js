@@ -5,7 +5,7 @@ import { Line } from "react-chartjs-2";
 export const Graph = () => {
     const { data } = useContext(CovidContext);
     return (
-        <div>
+        <div style={{ width: "85%", marginLeft: 70 }}>
             <Line data={data.Data}></Line>
         </div>
     );

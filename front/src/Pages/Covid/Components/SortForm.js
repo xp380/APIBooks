@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Button } from "antd";
 import { CovidContext } from "../Context";
+import { SortAscendingOutlined, SortDescendingOutlined } from "@ant-design/icons"
 
 const Covids = () => {
     const { sortType, setSortType, covidData, setSortedCovid } =
@@ -31,25 +32,49 @@ const Covids = () => {
         setSortedCovid(sortedList);
     };
 
+    const sortByConfirmed = () => {
+        const sortedList = [...covidData].sort((a, b) => {
+            if (sortType === "asc") {
+                setSortType("des");
+                return a.Confirmed - b.Confirmed;
+            } else {
+                setSortType("asc");
+                return b.Confirmed - a.Confirmed;
+            }
+        });
+        setSortedCovid(sortedList);
+    };
     return (
         <>
             <Button
                 onClick={sortByDeaths}
                 size="middle"
-                style={{ marginLeft: "50px" }}
+                style={{ marginLeft: "50px", color: 'cornflowerblue', backgroundColor: "darkblue" }}
             >
+                Morts
                 {sortType === "asc"
-                    ? "Trier par Morts croissantes"
-                    : "Trier par Morts décroissantes"}
+                    ? <SortAscendingOutlined />
+                    : <SortDescendingOutlined />}
             </Button>
             <Button
                 onClick={sortByRecovered}
                 size="middle"
-                style={{ marginLeft: "50px" }}
+                style={{ marginLeft: "50px", color: 'floralwhite', backgroundColor: 'darkorange' }}
             >
+                Rétablis
                 {sortType === "asc"
-                    ? "Trier par Rétablis croissantes"
-                    : "Trier par Rétablis décroissantes"}
+                    ? <SortAscendingOutlined />
+                    : <SortDescendingOutlined />}
+            </Button>
+            <Button
+                onClick={sortByConfirmed}
+                size="middle"
+                style={{ marginLeft: "50px", color: 'black', backgroundColor: 'greenyellow' }}
+            >
+                Confirmés
+                {sortType === "asc"
+                    ? <SortAscendingOutlined />
+                    : <SortDescendingOutlined />}
             </Button>
         </>
     );

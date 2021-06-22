@@ -5,7 +5,7 @@ import { Card, Row } from "antd";
 const Covids = () => {
     const { covidSearched } = useContext(CovidContext);
     return (
-        <Row gutter={16}>
+        <Row style={{ marginLeft: 70 }}>
             {covidSearched.map((item, id) => (
                 <Card
                     key={id}
