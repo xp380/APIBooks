@@ -23,7 +23,7 @@ import Movies from "./Pages/Movie/index";
 import Time from "./Footer/Time";
 
 
-import { Layout, Menu, BackTop } from "antd";
+import { Layout, Menu, BackTop, Drawer } from "antd";
 const { Header, Footer, Content } = Layout;
 
 
@@ -49,15 +49,10 @@ export default function HomePage() {
                                                 color: "white"
                                             }}
                                         >
-                                            <Menu
-                                                theme="dark"
-                                                mode="horizontal"
-                                                defaultSelectedKeys={["2"]}
-                                            >
-                                                <p style={{ marginLeft: 210 }}>
-                                                    <Routes />
-                                                </p>
-                                            </Menu>
+
+                                            <p >
+                                                <Routes />
+                                            </p>
                                         </Header>
                                         <Content>
                                             <Switch>
