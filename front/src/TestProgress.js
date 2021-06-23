@@ -43,7 +43,7 @@ export default function Test() {
         <>
             <Progress percent={progress} type="circle" width="100px"
                 style={{
-                    float: 'right', marginTop: 10,
+                    float: 'right'
                 }} />
         </>
     )

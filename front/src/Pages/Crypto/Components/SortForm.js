@@ -46,6 +46,19 @@ const Cryptos = () => {
         setSortedCrypto(sortedList);
     };
 
+    const sortByDate = () => {
+        const sortedList = [...cryptosData].sort((a, b) => {
+            if (sortType === "asc") {
+                setSortType("des");
+                return parseInt(a.atl_date) - parseInt(b.atl_date);
+            } else {
+                setSortType("asc");
+                return parseInt(b.atl_date) - parseInt(a.atl_date);
+            }
+        });
+        setSortedCrypto(sortedList);
+    };
+
     return (
         <>
             <Button
@@ -74,6 +87,16 @@ const Cryptos = () => {
                 style={{ marginLeft: "50px", color: "whitesmoke", backgroundColor: "goldenrod" }}
             >
                 Rank
+                {sortType === "asc"
+                    ? <SortAscendingOutlined />
+                    : <SortDescendingOutlined />}
+            </Button>
+            <Button
+                onClick={sortByDate}
+                size="middle"
+                style={{ marginLeft: "50px", color: "black", backgroundColor: "yellow" }}
+            >
+                Date D'entrée
                 {sortType === "asc"
                     ? <SortAscendingOutlined />
                     : <SortDescendingOutlined />}

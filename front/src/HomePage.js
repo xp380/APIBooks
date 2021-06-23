@@ -51,9 +51,12 @@ export default function HomePage() {
                                             <p >
                                                 <Routes />
                                             </p>
+                                            <Test />
 
                                         </Header>
-                                        <Content>
+                                        <Content
+                                            style={{ backgroundColor: "royalblue" }}
+                                        >
                                             <Switch>
                                                 <Route path="/covids" exact>
                                                     <Covid />
@@ -74,7 +77,6 @@ export default function HomePage() {
                                                 <Redirect to="/" />
                                             </Switch>
                                             <BackTop />
-                                            <Test />
                                         </Content>
                                     </Layout>
                                 </MovieProvider>

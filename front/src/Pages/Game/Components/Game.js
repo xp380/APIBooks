@@ -52,11 +52,13 @@ const Main = React.memo((props) => {
                         <p style={{ textAlign: "left" }}>
                             {slug}
                             <span style={{ float: "right" }}>
-                                {ratings.map((data) => {
+                                {/* {rating} */}
+
+                                {/* {ratings.map((data) => {
                                     if (data.percent > 70) {
                                         return <Tag color='blue'>{rating}</Tag>
                                     }
-                                })}
+                                })} */}
                             </span>
                         </p>
                     </div>
