@@ -12,21 +12,51 @@ const Main = React.memo((props) => {
         setOpen(false);
     };
 
-    const { id, slug, rating, background_image, tags } = props;
+    const { id, slug, rating, background_image, tags, ratings, percent, sortedGames } = props;
+
+    // const test = (lol) => {
+    //     if (lol.rating > 4) {
+    //         return <Tag color="blue">{lol.rating}</Tag>
+    //     } else if (lol.rating < 2) {
+    //         return <Tag color="red">{lol.rating}</Tag>
+    //     }
+    // }
+
+    const randomColorGenerator = () => {
+        let charChoices = '1234567890abcdef'.split('');
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            const randomIndex = Math.floor(Math.random() * 16 + 1);
+            color += charChoices[randomIndex];
+        }
+        return color;
+    };
+
+    const styles = {
+        backgroundColor: randomColorGenerator(),
+        width: 300,
+        margin: 10
+    };
+
     return (
         <>
             <Row>
                 <Card
                     key={id}
-                    style={{ width: 300, margin: 10 }}
+                    style={styles}
                     bordered={true}
                     hoverable
                 >
+
                     <div>
                         <p style={{ textAlign: "left" }}>
                             {slug}
                             <span style={{ float: "right" }}>
-                                {rating}
+                                {ratings.map((data) => {
+                                    if (data.percent > 70) {
+                                        return <Tag color='blue'>{rating}</Tag>
+                                    }
+                                })}
                             </span>
                         </p>
                     </div>

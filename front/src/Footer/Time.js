@@ -4,7 +4,7 @@ export default function Time() {
     const [useTime] = useState(new Date())
 
     return (
-        <p >
+        <p>
             {useTime.toLocaleDateString()} {useTime.toLocaleTimeString()}
         </p>
     )

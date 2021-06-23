@@ -6,9 +6,9 @@ import {
     Redirect,
     Link
 } from "react-router-dom";
-
 import Routes from "./Header/Routes";
 
+import Test from './TestProgress'
 import { CryptoProvider } from "./Pages/Crypto/Context";
 import { CovidProvider } from "./Pages/Covid/Context";
 import { GameProvider } from "./Pages/Game/Context";
@@ -23,12 +23,10 @@ import Movies from "./Pages/Movie/index";
 import Time from "./Footer/Time";
 
 
-import { Layout, Menu, BackTop, Drawer } from "antd";
+import { Layout, BackTop } from "antd";
 const { Header, Footer, Content } = Layout;
 
-
 export default function HomePage() {
-
     return (
         <>
             <Router>
@@ -53,6 +51,7 @@ export default function HomePage() {
                                             <p >
                                                 <Routes />
                                             </p>
+
                                         </Header>
                                         <Content>
                                             <Switch>
@@ -75,6 +74,7 @@ export default function HomePage() {
                                                 <Redirect to="/" />
                                             </Switch>
                                             <BackTop />
+                                            <Test />
                                         </Content>
                                     </Layout>
                                 </MovieProvider>
@@ -95,6 +95,7 @@ export default function HomePage() {
                     height: 20
                 }}
             >
+
                 <Time />
             </Footer>
         </>

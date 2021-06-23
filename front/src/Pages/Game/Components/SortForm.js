@@ -33,6 +33,18 @@ const Games = () => {
         setSortedGames(sortedList);
     };
 
+    const sortByDate = () => {
+        const sortedList = [...popularGame].sort((a, b) => {
+            if (sortType === "asc") {
+                setSortType("des");
+                return parseInt(a.released) - parseInt(b.released);
+            } else {
+                setSortType("asc");
+                return parseInt(b.released) - parseInt(a.released);
+            }
+        });
+        setSortedGames(sortedList);
+    };
 
     return (
         <>
@@ -52,6 +64,16 @@ const Games = () => {
                 style={{ marginLeft: "50px", color: "red", backgroundColor: "whitesmoke" }}
             >
                 Temps d'une partie
+                {sortType === "asc"
+                    ? <SortAscendingOutlined />
+                    : <SortDescendingOutlined />}
+            </Button>
+            <Button
+                onClick={sortByDate}
+                size="middle"
+                style={{ marginLeft: "50px", color: "blue", backgroundColor: "black" }}
+            >
+                Date
                 {sortType === "asc"
                     ? <SortAscendingOutlined />
                     : <SortDescendingOutlined />}
