@@ -14,12 +14,29 @@ const Movies = React.memo((props) => {
 
     const { poster_path, title, vote_average, popularity, id } = props;
 
+    const randomColorGenerator = () => {
+        let charChoices = '1234567890abcdef'.split('');
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            const randomIndex = Math.floor(Math.random() * 16 + 1);
+            color += charChoices[randomIndex];
+        }
+        return color;
+    };
+
+    const styles = {
+        backgroundColor: randomColorGenerator(),
+        width: 300,
+        margin: 10
+    };
+
     return (
         <Row >
             <Card
-                style={{ width: 300, margin: 10 }}
+                style={styles}
                 bordered={true}
                 key={id}
+                onClick={handleClickOpen}
             >
                 <div>
                     <p style={{ textAlign: "left" }}>
@@ -38,14 +55,6 @@ const Movies = React.memo((props) => {
                         height="200"
                     />
                 </p>
-                <Button
-                    onClick={handleClickOpen}
-                    variant="contained"
-                    size="middle"
-                    style={{ marginLeft: "50px" }}
-                >
-                    Details
-                </Button>
             </Card>
             <Details
                 open={open}

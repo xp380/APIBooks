@@ -3,7 +3,7 @@ import { Modal } from 'antd'
 import { Line } from 'react-chartjs-2'
 
 export const GraphSelected = ({ detailsData, handleClose, open }) => {
-    const { last_updated, total_volume, current_price, name } = detailsData;
+    const { last_updated, total_volume, current_price } = detailsData;
 
     let date = [last_updated]
     let volume = [total_volume]

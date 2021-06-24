@@ -21,6 +21,7 @@ const CryptoSort = React.memo((props) => {
                 style={{ width: 300, margin: 10 }}
                 bordered={true}
                 hoverable
+                onClick={handleClickOpen}
             >
                 <p>
                     Quantité totale: {total_volume}
@@ -40,22 +41,15 @@ const CryptoSort = React.memo((props) => {
                         height="42"
                         width="42"
                     ></img>
-                    <Button
-                        onClick={handleClickOpen}
-                        variant="contained"
-                        size="middle"
-                        style={{ marginLeft: "50px" }}
-                    >
-                        Details
-                    </Button>
+
                 </p>
-                <GraphSelected
-                    open={open}
-                    handleClickOpen={handleClickOpen}
-                    handleClose={handleClose}
-                    detailsData={props}
-                />
             </Card>
+            <GraphSelected
+                open={open}
+                handleClickOpen={handleClickOpen}
+                handleClose={handleClose}
+                detailsData={props}
+            />
         </Row>
     );
 });

@@ -10,8 +10,9 @@ const Covids = () => {
                 <Card
                     key={id}
                     style={{ width: 300, margin: 10 }}
+
                     bordered={true}
-                    hoverable
+                    loading={true}
                 >
                     <p>
                         NB de Confirmés: {item.Confirmed}

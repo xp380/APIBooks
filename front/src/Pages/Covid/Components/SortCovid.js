@@ -21,6 +21,7 @@ const CovidSort = React.memo((props) => {
                 style={{ width: 300, margin: 10 }}
                 bordered={true}
                 hoverable
+                onClick={handleClickOpen}
             >
                 <p>
                     NB de Confirmés: {Confirmed}
@@ -33,14 +34,7 @@ const CovidSort = React.memo((props) => {
                     <br />
                     Pays: {Country}
                 </p>
-                <Button
-                    onClick={handleClickOpen}
-                    variant="contained"
-                    size="middle"
-                    style={{ marginLeft: "50px" }}
-                >
-                    Details
-                </Button>
+
             </Card>
             <GraphSelected
                 open={open}

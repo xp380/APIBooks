@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import Details from './Details'
 import { Card, Row, Tag, Button } from "antd";
 
+
+
 const Main = React.memo((props) => {
+
     const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
@@ -12,7 +15,7 @@ const Main = React.memo((props) => {
         setOpen(false);
     };
 
-    const { id, slug, rating, background_image, tags, ratings, percent, sortedGames } = props;
+    const { id, slug, rating, background_image, tags, ratings, percent } = props;
 
     // const test = (lol) => {
     //     if (lol.rating > 4) {
@@ -45,22 +48,23 @@ const Main = React.memo((props) => {
                     key={id}
                     style={styles}
                     bordered={true}
-                    hoverable
+                    onClick={handleClickOpen}
                 >
-
                     <div>
-                        <p style={{ textAlign: "left" }}>
+                        <h3 style={{ textAlign: "left" }}>
                             {slug}
                             <span style={{ float: "right" }}>
-                                {/* {rating} */}
+                                {rating}
 
                                 {/* {ratings.map((data) => {
                                     if (data.percent > 70) {
                                         return <Tag color='blue'>{rating}</Tag>
+                                    } else if (data.percent < 10) {
+                                        return <Tag color='red'>{rating} </Tag>
                                     }
                                 })} */}
                             </span>
-                        </p>
+                        </h3>
                     </div>
                     <img
                         src={background_image}
@@ -68,14 +72,7 @@ const Main = React.memo((props) => {
                         width="200"
                         height="200"
                     />
-                    <Button
-                        onClick={handleClickOpen}
-                        variant="contained"
-                        size="middle"
-                        style={{ marginLeft: "50px" }}
-                    >
-                        Details
-                    </Button>
+
                     <p>Genres: </p>
                     {tags.map((data) => {
                         if (data.id === 31) {

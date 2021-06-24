@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Details from "./Details";
 
-import { Card, Tag, Button } from "antd";
+import { Card, Tag } from "antd";
 
 const Main = React.memo((props) => {
 
@@ -16,32 +16,45 @@ const Main = React.memo((props) => {
 
     const { image_url, mal_id, score, title, genres, episodes } = props;
 
+
+    const randomColorGenerator = () => {
+        let charChoices = '1234567890abcdef'.split('');
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            const randomIndex = Math.floor(Math.random() * 16 + 1);
+            color += charChoices[randomIndex];
+        }
+        return color;
+    };
+
+    const styles = {
+        backgroundColor: randomColorGenerator(),
+        width: 300,
+        margin: 10
+    };
+
     return (
         <>
             <Card
                 key={mal_id}
-                style={{ width: 300, margin: 10 }}
+                style={styles}
                 bordered={true}
                 hoverable
+                onClick={handleClickOpen}
             >
                 <div>
                     <p>ID:{mal_id}</p>
-                    <p style={{ textAlign: "left" }}>
+                    <h3 style={{ textAlign: "left" }}>
                         {title}
-                        <span style={{ float: "right" }}>{score}</span>
-                    </p>
+                        <span style={{ float: "right" }}>
+
+                            {score}
+                        </span>
+                    </h3>
                     <p>NB episodes: {episodes}</p>
                 </div>
                 <p>
                     <img src={image_url} alt="#" width="200" height="200" />
-                    <Button
-                        onClick={handleClickOpen}
-                        variant="contained"
-                        size="middle"
-                        style={{ marginLeft: "50px" }}
-                    >
-                        Details
-                    </Button>
                     <p>Genres: </p>
                     {genres.map((data) => {
                         if (data.mal_id === 1) {
