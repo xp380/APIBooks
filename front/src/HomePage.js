@@ -55,7 +55,7 @@ export default function HomePage() {
 
                                         </Header>
                                         <Content
-                                            style={{ backgroundColor: "royalblue" }}
+                                            style={{ backgroundColor: "silver" }}
                                         >
                                             <Switch>
                                                 <Route path="/covids" exact>

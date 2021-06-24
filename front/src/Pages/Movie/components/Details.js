@@ -7,7 +7,7 @@ export default function Details({ handleClose, open, detailsData, genres }) {
 
     return (
         <>
-            <Modal onOk={handleClose} onCancel={handleClose} visible={open}>
+            <Modal onOk={handleClose} onCancel={handleClose} visible={open} width={1000}>
                 <p>Langue originale: {original_language}</p>
                 <p>Titre originale: {original_title}</p>
                 <p>Résumé:{overview}</p>

@@ -5,7 +5,7 @@ export default function Details({ handleClose, open, detailsData }) {
     const { score, title, airing_start } = detailsData;
     return (
         <>
-            <Modal onOk={handleClose} onCancel={handleClose} visible={open}>
+            <Modal onOk={handleClose} onCancel={handleClose} visible={open} width={1000}>
                 <p>Titre originale: {title}</p>
                 <p>Score: {score}</p>
                 <p>Date début: {airing_start}</p>

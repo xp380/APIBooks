@@ -1,34 +1,41 @@
 import React from 'react'
 import { Modal } from 'antd'
-import { Line } from 'react-chartjs-2'
+import { Bar } from 'react-chartjs-2'
 
 export const GraphSelected = ({ detailsData, handleClose, open }) => {
-    const { last_updated, total_volume, current_price } = detailsData;
+    const { last_updated, high_24h, low_24h, name } = detailsData;
 
     let date = [last_updated]
-    let volume = [total_volume]
-    let price = [current_price]
+    let high = [high_24h]
+    let low = [low_24h]
+    // let volume = [total_volume]
+    // let price = [current_price]
 
     const data = {
         labels: date,
         datasets: [
             {
-                label: "quantité totale",
-                data: volume,
+                label: "Prix Élevé",
+                data: high,
                 backgroundColor: "Blue",
+                borderWidth: 6,
+                hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+                hoverBorderColor: 'rgba(255,99,132,1)',
             },
             {
-                label: 'Prix actuel',
-                data: price,
-                borderColor: "Black"
+                label: 'Prix Bas',
+                data: low,
+                backgroundColor: "Red",
+                borderWidth: 6,
+                hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+                hoverBorderColor: 'rgba(255,99,132,1)',
             },
-
         ]
     };
 
     return (
-        <Modal onOk={handleClose} onCancel={handleClose} visible={open}>
-            <Line data={data}></Line>
+        <Modal title={name} onOk={handleClose} onCancel={handleClose} visible={open} width={1000}>
+            <Bar data={data} ></Bar>
         </Modal>
     )
 }

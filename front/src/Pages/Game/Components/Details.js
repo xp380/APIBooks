@@ -8,7 +8,7 @@ export default function Details({ handleClose, open, detailsData }) {
 
     return (
         <>
-            <Modal width={500} onOk={handleClose} onCancel={handleClose} visible={open}>
+            <Modal width={500} onOk={handleClose} onCancel={handleClose} visible={open} width={1000}>
                 {/* <p>Nom: {name}</p> */}
                 <p>Date de sortie: {released}</p>
                 <img src={background_image} alt="#" width="200" height="200" />

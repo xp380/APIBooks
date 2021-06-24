@@ -1,6 +1,6 @@
 import React from 'react'
 import { Modal } from 'antd'
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 
 export const GraphSelected = ({ detailsData, handleClose, open }) => {
     const { Confirmed, Recovered, Deaths, Date } = detailsData
@@ -17,23 +17,26 @@ export const GraphSelected = ({ detailsData, handleClose, open }) => {
                 label: "Nombre de confirmés",
                 data: confirmed,
                 backgroundColor: "Blue",
+                borderWidth: 1
             },
             {
                 label: "Nombre de morts",
                 data: deaths,
-                borderColor: "Black"
+                backgroundColor: "red",
+                borderWidth: 1
             },
             {
                 label: "Nombre de Rétablis",
                 data: recovered,
-                borderColor: "Green"
+                backgroundColor: "Green",
+                borderWidth: 1
             },
         ]
     };
 
     return (
-        <Modal onOk={handleClose} onCancel={handleClose} visible={open}>
-            <Line data={data}></Line>
+        <Modal onOk={handleClose} onCancel={handleClose} visible={open} width={1000}>
+            <Bar data={data}></Bar>
         </Modal>
     )
 }
