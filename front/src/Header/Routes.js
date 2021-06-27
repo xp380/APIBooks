@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
     BrowserRouter as Router,
 } from "react-router-dom";
+import Progress from '../TestProgress'
 import { Drawer, Button } from "antd";
 import { MenuFoldOutlined } from "@ant-design/icons";
 

@@ -41,10 +41,13 @@ export default function Test() {
     }, []);
     return (
         <>
-            <Progress percent={progress} type="circle" width="100px"
+            <Progress percent={progress} strokeWidth={10}
+                style={{ width: 100, }}
+            />
+            {/* <Progress percent={progress} type="circle" width="100px"
                 style={{
                     float: 'right'
-                }} />
+                }} /> */}
         </>
     )
 }

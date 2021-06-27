@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import Routes from "./Header/Routes";
 
-import Test from './TestProgress'
+import Progress from './TestProgress'
 import { CryptoProvider } from "./Pages/Crypto/Context";
 import { CovidProvider } from "./Pages/Covid/Context";
 import { GameProvider } from "./Pages/Game/Context";
@@ -47,12 +47,9 @@ export default function HomePage() {
                                                 color: "white"
                                             }}
                                         >
-
                                             <p >
                                                 <Routes />
                                             </p>
-                                            <Test />
-
                                         </Header>
                                         <Content
                                             style={{ backgroundColor: "silver" }}
@@ -92,12 +89,12 @@ export default function HomePage() {
                     left: 0,
                     bottom: 0,
                     width: "100%",
-                    backgroundColor: "darkblue",
+                    backgroundColor: "#001529",
                     color: "white",
-                    height: 20
+                    height: 50
                 }}
             >
-
+                <Progress />
                 <Time />
             </Footer>
         </>

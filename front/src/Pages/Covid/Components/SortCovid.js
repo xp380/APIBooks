@@ -13,12 +13,28 @@ const CovidSort = React.memo((props) => {
         setOpen(false);
     };
 
+    const randomColorGenerator = () => {
+        let charChoices = '1234567890abcdef'.split('');
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            const randomIndex = Math.floor(Math.random() * 16 + 1);
+            color += charChoices[randomIndex];
+        }
+        return color;
+    };
+
+    const styles = {
+        backgroundColor: randomColorGenerator(),
+        width: 300,
+        margin: 10
+    };
+
     const { id, Confirmed, Deaths, Recovered, Date, Country, Active } = props;
     return (
         <>
             <Card
                 key={id}
-                style={{ width: 300, margin: 10, backgroundColor: "yellow" }}
+                style={styles}
                 bordered={true}
                 hoverable
                 onClick={handleClickOpen}

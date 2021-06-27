@@ -41,6 +41,7 @@ const CryptoSort = React.memo((props) => {
                 onClick={handleClickOpen}
             >
                 <div>
+
                     <img
                         src={image}
                         alt="Smiley face"
