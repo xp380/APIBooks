@@ -3,12 +3,11 @@ import {
     BrowserRouter as Router,
     Route,
     Switch,
-    Redirect,
-    Link
+    Redirect
 } from "react-router-dom";
 import Routes from "./Header/Routes";
 
-import Progress from './TestProgress'
+import Progress from "./TestProgress";
 import { CryptoProvider } from "./Pages/Crypto/Context";
 import { CovidProvider } from "./Pages/Covid/Context";
 import { GameProvider } from "./Pages/Game/Context";
@@ -21,7 +20,6 @@ import Game from "./Pages/Game/index";
 import Manga from "./Pages/Manga/index";
 import Movies from "./Pages/Movie/index";
 import Time from "./Footer/Time";
-
 
 import { Layout, BackTop } from "antd";
 const { Header, Footer, Content } = Layout;
@@ -47,12 +45,14 @@ export default function HomePage() {
                                                 color: "white"
                                             }}
                                         >
-                                            <p >
+                                            <p>
                                                 <Routes />
                                             </p>
                                         </Header>
                                         <Content
-                                            style={{ backgroundColor: "silver" }}
+                                            style={{
+                                                backgroundColor: "#FFB6C1"
+                                            }}
                                         >
                                             <Switch>
                                                 <Route path="/covids" exact>
@@ -100,4 +100,3 @@ export default function HomePage() {
         </>
     );
 }
-
