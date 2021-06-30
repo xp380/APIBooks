@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Card } from "antd";
-import GraphSelected from './GraphSelected'
-
+import GraphSelected from "./GraphSelected";
 
 const CovidSort = React.memo((props) => {
     const [open, setOpen] = useState(false);
@@ -14,8 +13,8 @@ const CovidSort = React.memo((props) => {
     };
 
     const randomColorGenerator = () => {
-        let charChoices = '1234567890abcdef'.split('');
-        let color = '#';
+        let charChoices = "1234567890abcdef".split("");
+        let color = "#";
         for (let i = 0; i < 6; i++) {
             const randomIndex = Math.floor(Math.random() * 16 + 1);
             color += charChoices[randomIndex];
@@ -40,15 +39,22 @@ const CovidSort = React.memo((props) => {
                 onClick={handleClickOpen}
             >
                 <div>
-                    <h3 style={{ textAlign: 'center' }}>{Country}</h3>
-                    <p style={{ textAlign: 'center' }}>{Date}</p>
-                    <p style={{ color: "black", backgroundColor: "red" }}>Active :{Active}</p>
-                    <p style={{ color: "white", backgroundColor: "black" }}>Morts:{Deaths}</p>
-                    <p style={{ color: "white", backgroundColor: "blue" }}>Rétablis:{Recovered}</p>
-                    <p style={{ color: 'black', backgroundColor: "orangered" }}>Confirmés:{Confirmed}</p>
+                    <h3 style={{ textAlign: "center" }}>{Country}</h3>
+                    <p style={{ textAlign: "center" }}>{Date}</p>
 
+                    <p style={{ color: "black", backgroundColor: "red" }}>
+                        Active :{Active}
+                    </p>
+                    <p style={{ color: "white", backgroundColor: "black" }}>
+                        Morts:{Deaths}
+                    </p>
+                    <p style={{ color: "white", backgroundColor: "blue" }}>
+                        Rétablis:{Recovered}
+                    </p>
+                    <p style={{ color: "black", backgroundColor: "orangered" }}>
+                        Confirmés:{Confirmed}
+                    </p>
                 </div>
-
             </Card>
             <GraphSelected
                 open={open}

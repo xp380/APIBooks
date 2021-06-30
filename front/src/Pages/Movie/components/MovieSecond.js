@@ -22,7 +22,7 @@ const Movies = () => {
                                 </span>
                             </p>
                         </div>
-                        <p>
+                        <p style={{ marginLeft: 25 }}>
                             <img
                                 src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
                                 alt="#"

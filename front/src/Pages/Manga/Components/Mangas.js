@@ -19,7 +19,7 @@ const Mangas = () => {
                             <span style={{ float: "right" }}>{item.score}</span>
                         </p>
                     </div>
-                    <p>
+                    <p style={{ marginLeft: 25 }}>
                         <img
                             src={item.image_url}
                             alt="#"

@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import Details from './Details'
+import Details from "./Details";
 import { Card, Row, Tag, Button } from "antd";
 
-
-
 const Main = React.memo((props) => {
-
     const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
@@ -15,7 +12,8 @@ const Main = React.memo((props) => {
         setOpen(false);
     };
 
-    const { id, slug, rating, background_image, tags, ratings, percent } = props;
+    const { id, slug, rating, background_image, tags, ratings, percent } =
+        props;
 
     // const test = (lol) => {
     //     if (lol.rating > 4) {
@@ -26,8 +24,8 @@ const Main = React.memo((props) => {
     // }
 
     const randomColorGenerator = () => {
-        let charChoices = '1234567890abcdef'.split('');
-        let color = '#';
+        let charChoices = "1234567890abcdef".split("");
+        let color = "#";
         for (let i = 0; i < 6; i++) {
             const randomIndex = Math.floor(Math.random() * 16 + 1);
             color += charChoices[randomIndex];
@@ -66,12 +64,14 @@ const Main = React.memo((props) => {
                             </span>
                         </h3>
                     </div>
-                    <img
-                        src={background_image}
-                        alt="#"
-                        width="200"
-                        height="200"
-                    />
+                    <p style={{ marginLeft: 25 }}>
+                        <img
+                            src={background_image}
+                            alt="#"
+                            width="200"
+                            height="200"
+                        />
+                    </p>
 
                     <p>Genres: </p>
                     {tags.map((data) => {

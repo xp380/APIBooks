@@ -1,18 +1,15 @@
 import React, { useState } from "react";
-import {
-    BrowserRouter as Router,
-} from "react-router-dom";
-import Progress from '../TestProgress'
+import { BrowserRouter as Router } from "react-router-dom";
+import Progress from "../TestProgress";
+// import Search from "../Pages/Movie/components/SearchForm";
 import { Drawer, Button } from "antd";
 import { MenuFoldOutlined } from "@ant-design/icons";
-
 
 export default function Routes() {
     const [visible, setVisible] = useState(false);
 
     const showDrawer = () => {
         setVisible(true);
-
     };
 
     const onClose = () => {
@@ -22,7 +19,6 @@ export default function Routes() {
     const style = { marginLeft: visible ? 210 : 0 };
     return (
         <>
-
             <Router>
                 <Button style={style} type="primary" onClick={showDrawer}>
                     <MenuFoldOutlined />
@@ -58,9 +54,9 @@ export default function Routes() {
                         {/* <Link to="/movies">Movies</Link> */}
                         <a href="/movies">Movies</a>
                     </p>
+                    <p>{/* <Search /> */}</p>
                 </Drawer>
             </Router>
-
         </>
     );
 }

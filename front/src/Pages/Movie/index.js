@@ -3,7 +3,7 @@ import { Tabs, Row } from "antd";
 
 import MovieSecond from "./components/MovieSecond";
 import MovieSort from "./components/MovieSortData";
-import Search from "./components/SearchForm";
+// import Search from "./components/SearchForm";
 import SortForm from "./components/SortForm";
 import { MovieContext } from "./Context";
 
@@ -29,7 +29,7 @@ const Home = React.memo(() => {
                     </Row>
                 </TabPane>
                 <TabPane tab="Card" key="2">
-                    <Search />
+                    {/* <Search /> */}
                     {movies.slice(0, 1).map((moviesTest) => {
                         <h3>Représentation des Films</h3>;
                         return (

@@ -4,7 +4,6 @@ import Details from "./Details";
 import { Card, Tag } from "antd";
 
 const Main = React.memo((props) => {
-
     const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
@@ -16,10 +15,9 @@ const Main = React.memo((props) => {
 
     const { image_url, mal_id, score, title, genres, episodes } = props;
 
-
     const randomColorGenerator = () => {
-        let charChoices = '1234567890abcdef'.split('');
-        let color = '#';
+        let charChoices = "1234567890abcdef".split("");
+        let color = "#";
         for (let i = 0; i < 6; i++) {
             const randomIndex = Math.floor(Math.random() * 16 + 1);
             color += charChoices[randomIndex];
@@ -46,15 +44,14 @@ const Main = React.memo((props) => {
                     <p>ID:{mal_id}</p>
                     <h3 style={{ textAlign: "left" }}>
                         {title}
-                        <span style={{ float: "right" }}>
-
-                            {score}
-                        </span>
+                        <span style={{ float: "right" }}>{score}</span>
                     </h3>
                     <p>NB episodes: {episodes}</p>
                 </div>
                 <p>
-                    <img src={image_url} alt="#" width="200" height="200" />
+                    <p style={{ marginLeft: 25 }}>
+                        <img src={image_url} alt="#" width="200" height="200" />
+                    </p>
                     <p>Genres: </p>
                     {genres.map((data) => {
                         if (data.mal_id === 1) {
@@ -84,9 +81,7 @@ const Main = React.memo((props) => {
                         } else if (data.mal_id === 13) {
                             return <Tag color="purple"> {data.name} </Tag>;
                         } else if (data.mal_id === 14) {
-                            return (
-                                <Tag color="processing">{data.name}</Tag>
-                            );
+                            return <Tag color="processing">{data.name}</Tag>;
                         } else if (data.mal_id === 15) {
                             return <Tag color="pink"> {data.name} </Tag>;
                         } else if (data.mal_id === 16) {

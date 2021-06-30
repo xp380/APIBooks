@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, Row, Button } from "antd";
-import Details from './Details'
+import Details from "./Details";
 
 const Movies = React.memo((props) => {
     const [open, setOpen] = useState(false);
@@ -15,8 +15,8 @@ const Movies = React.memo((props) => {
     const { poster_path, title, vote_average, popularity, id } = props;
 
     const randomColorGenerator = () => {
-        let charChoices = '1234567890abcdef'.split('');
-        let color = '#';
+        let charChoices = "1234567890abcdef".split("");
+        let color = "#";
         for (let i = 0; i < 6; i++) {
             const randomIndex = Math.floor(Math.random() * 16 + 1);
             color += charChoices[randomIndex];
@@ -31,7 +31,7 @@ const Movies = React.memo((props) => {
     };
 
     return (
-        <Row >
+        <Row>
             <Card
                 style={styles}
                 bordered={true}
@@ -47,7 +47,7 @@ const Movies = React.memo((props) => {
                     </p>
                     <p>Popularité: {popularity}</p>
                 </div>
-                <p>
+                <p style={{ marginLeft: 25 }}>
                     <img
                         src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
                         alt="#"

@@ -9,7 +9,7 @@ const Games = () => {
             {games.slice(0, 9).map((item, id) => (
                 <Card
                     key={id}
-                    style={{ width: 300, margin: 10, }}
+                    style={{ width: 300, margin: 10 }}
                     bordered={true}
                     hoverable
                 >
@@ -21,12 +21,14 @@ const Games = () => {
                             </span>
                         </p>
                     </div>
-                    <img
-                        src={item.background_image}
-                        alt="#"
-                        width="200"
-                        height="200"
-                    />
+                    <p style={{ marginLeft: 25 }}>
+                        <img
+                            src={item.background_image}
+                            alt="#"
+                            width="200"
+                            height="200"
+                        />
+                    </p>
                     <p>Genres:</p>
 
                     {item.tags.map((data) => {

@@ -14,15 +14,17 @@ export default function Covid2020() {
     const { TabPane } = Tabs;
     return (
         <>
-            <Tabs defaultActiveKey="1" style={{ marginTop: 60, }}>
+            <Tabs defaultActiveKey="1" style={{ marginTop: 60 }}>
                 <TabPane tab="Accueil" key="1">
-                    <h3>Bilan du Covid en France</h3>
+                    <h3 style={{ marginLeft: "45%", fontFamily: "fantasy" }}>
+                        Bilan du Covid en France
+                    </h3>
                     <SortForm />
                     <Row style={{ marginLeft: 70 }}>
                         {sortedCovid.map((testModal) => {
                             return (
                                 <SortCovid key={testModal.id} {...testModal} />
-                            )
+                            );
                         })}
                     </Row>
                 </TabPane>
@@ -30,17 +32,12 @@ export default function Covid2020() {
                     <h3>Représentation Graphique du bilan de Covid</h3>
                     <Graph />
                 </TabPane>
-                <TabPane tab="Test Select" key="3" >
+                <TabPane tab="Test Select" key="3">
                     <h3>Test changement de pays</h3>
                     <Search />
                     {covidSearched.slice(0, 1).map((covidTest) => {
                         <h3>Représentation des Covids</h3>;
-                        return (
-                            <CovidDemo
-                                key={covidTest.id}
-                                {...covidTest}
-                            />
-                        );
+                        return <CovidDemo key={covidTest.id} {...covidTest} />;
                     })}
                 </TabPane>
             </Tabs>

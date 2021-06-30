@@ -11,8 +11,6 @@ const GameProvider = ({ children }) => {
     const [searchValue] = useState("");
     const [sortType, setSortType] = useState("asc");
 
-
-
     useEffect(() => {
         const getGames = async () => {
             try {
@@ -27,7 +25,7 @@ const GameProvider = ({ children }) => {
         getGames();
     }, [searchGame]);
 
-
+    // https://api.rawg.io/api/games/portal?key=9b12083a67134bbdad6628f19da1e91a
     useEffect(() => {
         fetch(
             "https://api.rawg.io/api/games?key=9b12083a67134bbdad6628f19da1e91a"
@@ -61,7 +59,7 @@ const GameProvider = ({ children }) => {
                 sortType,
                 setSortType,
                 popularGame,
-                setSortedGames,
+                setSortedGames
             }}
         >
             {children}

@@ -5,6 +5,7 @@ import {
     Switch,
     Redirect
 } from "react-router-dom";
+import Search from "./Pages/Game/Components/SearchForm";
 import Routes from "./Header/Routes";
 
 import Progress from "./TestProgress";
@@ -48,6 +49,9 @@ export default function HomePage() {
                                             <p>
                                                 <Routes />
                                             </p>
+                                            {/* <p>
+                                                <Search />
+                                            </p> */}
                                         </Header>
                                         <Content
                                             style={{
