@@ -3,7 +3,7 @@ import { Tabs, Row } from "antd";
 
 import GameList from "./Components/Game";
 import Games from "./Components/Games";
-import Search from "./Components/SearchForm";
+// import Search from "./Components/SearchForm";
 import SortForm from "./Components/SortForm";
 
 import { GameContext } from "./Context";
@@ -58,7 +58,7 @@ const Home = React.memo(() => {
                     >
                         Recherche de Jeux Vidéos
                     </h3>
-                    <Search />
+                    {/* <Search /> */}
                     {games.slice(0, 1).map((gameTest) => {
                         <h3>Liste des Jeux videos</h3>;
                         return (

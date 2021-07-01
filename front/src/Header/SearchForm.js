@@ -1,8 +1,8 @@
 import React, { useContext, useRef } from "react";
-import { GameContext } from "../Context";
-import { MangaContext } from "../../Manga/Context";
-import { MovieContext } from "../../Movie/Context";
 import { Input } from "antd";
+import { GameContext } from "../Pages/Game/Context";
+import { MangaContext } from "../Pages/Manga/Context";
+import { MovieContext } from "../Pages/Movie/Context";
 import { SearchOutlined } from "@ant-design/icons";
 
 const { Search } = Input;
@@ -24,7 +24,7 @@ const SearchForm = () => {
             <input
                 style={{ marginLeft: 20 }}
                 type="text"
-                placeholder="search games ...."
+                placeholder="search ...."
                 ref={inputRef}
                 onChange={searchItems}
             />

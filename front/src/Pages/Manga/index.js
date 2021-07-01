@@ -3,7 +3,7 @@ import { Tabs, Row } from "antd";
 
 import MangaList from "./Components/Manga";
 import Mangas from "./Components/Mangas";
-import Search from "./Components/SearchForm";
+// import Search from "./Components/SearchForm";
 import SortForm from "./Components/SortForm";
 import { MangaContext } from "./Context";
 
@@ -60,7 +60,7 @@ const Home = React.memo(() => {
                     >
                         Recherche de Mangas
                     </h3>
-                    <Search />
+                    {/* <Search /> */}
                     {animes.slice(0, 1).map((animeTest) => {
                         <h3>Liste des Mangas</h3>;
                         return (

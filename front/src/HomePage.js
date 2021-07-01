@@ -5,7 +5,8 @@ import {
     Switch,
     Redirect
 } from "react-router-dom";
-import Search from "./Pages/Game/Components/SearchForm";
+import Search from "./Header/SearchForm";
+import Login from "./Header/Login";
 import Routes from "./Header/Routes";
 
 import Progress from "./TestProgress";
@@ -22,7 +23,7 @@ import Manga from "./Pages/Manga/index";
 import Movies from "./Pages/Movie/index";
 import Time from "./Footer/Time";
 
-import { Layout, BackTop } from "antd";
+import { Layout, BackTop, Menu } from "antd";
 const { Header, Footer, Content } = Layout;
 
 export default function HomePage() {
@@ -46,12 +47,27 @@ export default function HomePage() {
                                                 color: "white"
                                             }}
                                         >
+                                            <Menu
+                                                theme="dark"
+                                                mode="horizontal"
+                                                defaultSelectedKeys={["2"]}
+                                            >
+                                                <Menu.Item>
+                                                    <Routes />
+                                                </Menu.Item>
+                                                <Menu.Item
+                                                    style={{
+                                                        marginLeft: 750,
+                                                        color: "black"
+                                                    }}
+                                                >
+                                                    <Search />
+                                                </Menu.Item>
+                                            </Menu>
+
                                             <p>
                                                 <Routes />
                                             </p>
-                                            {/* <p>
-                                                <Search />
-                                            </p> */}
                                         </Header>
                                         <Content
                                             style={{
