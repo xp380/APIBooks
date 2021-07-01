@@ -1,7 +1,10 @@
 import React, { useContext } from "react";
 import { Button } from "antd";
 import { CovidContext } from "../Context";
-import { SortAscendingOutlined, SortDescendingOutlined } from "@ant-design/icons"
+import {
+    SortAscendingOutlined,
+    SortDescendingOutlined
+} from "@ant-design/icons";
 
 const Covids = () => {
     const { sortType, setSortType, covidData, setSortedCovid } =
@@ -46,36 +49,56 @@ const Covids = () => {
     };
     return (
         <>
-            <Button
-                onClick={sortByDeaths}
-                size="middle"
-                style={{ marginLeft: "50px", color: 'cornflowerblue', backgroundColor: "darkblue" }}
-            >
-                Morts
-                {sortType === "asc"
-                    ? <SortAscendingOutlined />
-                    : <SortDescendingOutlined />}
-            </Button>
-            <Button
-                onClick={sortByRecovered}
-                size="middle"
-                style={{ marginLeft: "50px", color: 'floralwhite', backgroundColor: 'darkorange' }}
-            >
-                Rétablis
-                {sortType === "asc"
-                    ? <SortAscendingOutlined />
-                    : <SortDescendingOutlined />}
-            </Button>
-            <Button
-                onClick={sortByConfirmed}
-                size="middle"
-                style={{ marginLeft: "50px", color: 'black', backgroundColor: 'greenyellow' }}
-            >
-                Confirmés
-                {sortType === "asc"
-                    ? <SortAscendingOutlined />
-                    : <SortDescendingOutlined />}
-            </Button>
+            <div>
+                <Button
+                    onClick={sortByDeaths}
+                    size="middle"
+                    style={{
+                        marginLeft: "80px",
+                        color: "cornflowerblue",
+                        backgroundColor: "darkblue"
+                    }}
+                >
+                    Morts
+                    {sortType === "asc" ? (
+                        <SortAscendingOutlined />
+                    ) : (
+                        <SortDescendingOutlined />
+                    )}
+                </Button>
+                <Button
+                    onClick={sortByRecovered}
+                    size="middle"
+                    style={{
+                        marginLeft: "50px",
+                        color: "floralwhite",
+                        backgroundColor: "darkorange"
+                    }}
+                >
+                    Rétablis
+                    {sortType === "asc" ? (
+                        <SortAscendingOutlined />
+                    ) : (
+                        <SortDescendingOutlined />
+                    )}
+                </Button>
+                <Button
+                    onClick={sortByConfirmed}
+                    size="middle"
+                    style={{
+                        marginLeft: "50px",
+                        color: "black",
+                        backgroundColor: "greenyellow"
+                    }}
+                >
+                    Confirmés
+                    {sortType === "asc" ? (
+                        <SortAscendingOutlined />
+                    ) : (
+                        <SortDescendingOutlined />
+                    )}
+                </Button>
+            </div>
         </>
     );
 };

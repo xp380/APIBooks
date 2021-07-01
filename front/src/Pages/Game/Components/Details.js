@@ -73,7 +73,9 @@ export default function Details({ handleClose, open, detailsData }) {
                 <h3
                     style={{
                         color: "white",
-                        marginLeft: 30
+                        marginLeft: 30,
+                        fontWeight: "bold",
+                        fontFamily: "Impact, fantasy"
                     }}
                 >
                     {name}
@@ -92,11 +94,26 @@ export default function Details({ handleClose, open, detailsData }) {
                     />
 
                     <div style={{ color: "white", marginLeft: 50 }}>
-                        <p> Date de sortie: {released}</p>
-                        <p>Temps d'une partie: {playtime}</p>
+                        <p
+                            style={{
+                                fontFamily: "Trebuchet MS, sans-serif",
+                                fontWeight: "bold"
+                            }}
+                        >
+                            {" "}
+                            Date de sortie: {released}
+                        </p>
+                        <p
+                            style={{
+                                fontFamily: "Trebuchet MS, sans-serif",
+                                fontWeight: "bold"
+                            }}
+                        >
+                            Temps d'une partie: {playtime}
+                        </p>
 
                         {/* <p>Plateforme: {slug}</p> */}
-                        <p>
+                        <p style={{ fontWeight: "bold" }}>
                             {" "}
                             Genres:
                             {tags.map((data) => {
@@ -187,13 +204,17 @@ export default function Details({ handleClose, open, detailsData }) {
                                 }
                             })}
                         </p>
-                        <p>Classement: {rating_top}</p>
-                        <p>Note: {rating}</p>
+                        <p style={{ fontWeight: "bold" }}>
+                            Classement: {rating_top}
+                        </p>
+                        <p style={{ fontWeight: "bold" }}>Note: {rating}</p>
                     </div>
 
                     <div style={{ color: "white", marginLeft: 100 }}>
-                        <p>Plateforme:</p>
-                        <p>Nb de notes: {ratings_count}</p>
+                        <p style={{ fontWeight: "bold" }}>Plateforme:</p>
+                        <p style={{ fontWeight: "bold" }}>
+                            Nb de notes: {ratings_count}
+                        </p>
                     </div>
                 </div>
                 {/* {short_screenshots.map((data) => {

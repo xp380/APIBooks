@@ -15,24 +15,62 @@ const Home = React.memo(() => {
 
     return (
         <>
-            <Tabs defaultActiveKey="1" style={{ marginTop: 60 }}>
+            <Tabs
+                defaultActiveKey="1"
+                type="card"
+                style={{ marginTop: 60 }}
+                tabBarGutter={50}
+                tabBarStyle={{
+                    backgroundColor: "#235e96",
+                    padding: 10,
+                    position: "fixed",
+                    width: "100%",
+                    zIndex: 1000
+                }}
+            >
                 <TabPane tab="Accueil" key="1">
-                    <h3>Liste des Cryptos</h3>
+                    <h3
+                        style={{
+                            textAlign: "center",
+                            fontWeight: "bold",
+                            fontFamily: "number",
+                            marginTop: 90
+                        }}
+                    >
+                        Liste des Cryptos
+                    </h3>
                     <SortForm />
                     <Row style={{ marginLeft: 70 }}>
                         {sortedCrypto.map((testModal) => {
                             return (
                                 <SortCrypto key={testModal.id} {...testModal} />
-                            )
+                            );
                         })}
                     </Row>
                 </TabPane>
                 <TabPane tab="Card" key="2">
-                    <h3>Liste des Cryptos en graphismes</h3>
+                    <h3
+                        style={{
+                            textAlign: "center",
+                            fontWeight: "bold",
+                            fontFamily: "number",
+                            marginTop: 70
+                        }}
+                    >
+                        Liste des Cryptos en graphismes
+                    </h3>
                     <Graph />
                 </TabPane>
                 <TabPane tab="Search" key="3">
-                    <h3>Recherche</h3>
+                    <h3
+                        style={{
+                            textAlign: "center",
+                            fontWeight: "bold",
+                            marginTop: 80
+                        }}
+                    >
+                        Recherche
+                    </h3>
                     <Search />
                     {cryptoSearched.map((cryptoTest) => {
                         <h3>Liste des Cryptos</h3>;

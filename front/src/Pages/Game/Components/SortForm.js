@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { Button } from "antd";
 import { GameContext } from "../Context";
-import { SortAscendingOutlined, SortDescendingOutlined } from "@ant-design/icons"
-
+import {
+    SortAscendingOutlined,
+    SortDescendingOutlined
+} from "@ant-design/icons";
 
 const Games = () => {
     const { sortType, setSortType, popularGame, setSortedGames } =
@@ -48,36 +50,56 @@ const Games = () => {
 
     return (
         <>
-            <Button
-                onClick={sortByGrade}
-                size="middle"
-                style={{ marginLeft: "50px", color: "greenyellow", backgroundColor: 'black' }}
-            >
-                Notes
-                {sortType === "asc"
-                    ? <SortAscendingOutlined />
-                    : <SortDescendingOutlined />}
-            </Button>
-            <Button
-                onClick={sortByTime}
-                size="middle"
-                style={{ marginLeft: "50px", color: "red", backgroundColor: "whitesmoke" }}
-            >
-                Temps d'une partie
-                {sortType === "asc"
-                    ? <SortAscendingOutlined />
-                    : <SortDescendingOutlined />}
-            </Button>
-            <Button
-                onClick={sortByDate}
-                size="middle"
-                style={{ marginLeft: "50px", color: "blue", backgroundColor: "black" }}
-            >
-                Date
-                {sortType === "asc"
-                    ? <SortAscendingOutlined />
-                    : <SortDescendingOutlined />}
-            </Button>
+            <div>
+                <Button
+                    onClick={sortByGrade}
+                    size="middle"
+                    style={{
+                        marginLeft: "90px",
+                        color: "greenyellow",
+                        backgroundColor: "black"
+                    }}
+                >
+                    Notes
+                    {sortType === "asc" ? (
+                        <SortAscendingOutlined />
+                    ) : (
+                        <SortDescendingOutlined />
+                    )}
+                </Button>
+                <Button
+                    onClick={sortByTime}
+                    size="middle"
+                    style={{
+                        marginLeft: "50px",
+                        color: "red",
+                        backgroundColor: "whitesmoke"
+                    }}
+                >
+                    Temps d'une partie
+                    {sortType === "asc" ? (
+                        <SortAscendingOutlined />
+                    ) : (
+                        <SortDescendingOutlined />
+                    )}
+                </Button>
+                <Button
+                    onClick={sortByDate}
+                    size="middle"
+                    style={{
+                        marginLeft: "50px",
+                        color: "blue",
+                        backgroundColor: "black"
+                    }}
+                >
+                    Date
+                    {sortType === "asc" ? (
+                        <SortAscendingOutlined />
+                    ) : (
+                        <SortDescendingOutlined />
+                    )}
+                </Button>
+            </div>
         </>
     );
 };

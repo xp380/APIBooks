@@ -41,18 +41,38 @@ const Main = React.memo((props) => {
                 onClick={handleClickOpen}
             >
                 <div>
-                    <p>ID:{mal_id}</p>
-                    <h3 style={{ textAlign: "left" }}>
+                    <p
+                        style={{
+                            fontWeight: "bold",
+                            fontFamily: "Impact, fantasy"
+                        }}
+                    >
+                        ID:{mal_id}
+                    </p>
+                    <h3
+                        style={{
+                            textAlign: "left",
+                            fontWeight: "bold",
+                            fontFamily: "Impact, fantasy"
+                        }}
+                    >
                         {title}
                         <span style={{ float: "right" }}>{score}</span>
                     </h3>
-                    <p>NB episodes: {episodes}</p>
+                    <p
+                        style={{
+                            fontWeight: "bold",
+                            fontFamily: "Impact, fantasy"
+                        }}
+                    >
+                        NB episodes: {episodes}
+                    </p>
                 </div>
                 <p>
                     <p style={{ marginLeft: 25 }}>
                         <img src={image_url} alt="#" width="200" height="200" />
                     </p>
-                    <p>Genres: </p>
+                    <p style={{ fontFamily: "Impact, fantasy" }}>Genres: </p>
                     {genres.map((data) => {
                         if (data.mal_id === 1) {
                             return <Tag color="blue"> {data.name} </Tag>;

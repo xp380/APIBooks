@@ -28,7 +28,8 @@ export default function Details({ handleClose, open, detailsData }) {
             >
                 <h3
                     style={{
-                        color: "white"
+                        color: "white",
+                        fontFamily: "Impact, fantasy"
                     }}
                 >
                     {original_title}
@@ -36,7 +37,8 @@ export default function Details({ handleClose, open, detailsData }) {
                 <div
                     style={{
                         display: "flex",
-                        alignItems: "center"
+                        alignItems: "center",
+                        fontFamily: "Impact, fantasy"
                     }}
                 >
                     <img

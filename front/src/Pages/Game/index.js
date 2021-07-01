@@ -14,19 +14,50 @@ const Home = React.memo(() => {
 
     return (
         <>
-            <Tabs defaultActiveKey="1" style={{ marginTop: 60 }}>
+            <Tabs
+                defaultActiveKey="1"
+                type="card"
+                tabBarGutter={50}
+                tabBarStyle={{
+                    backgroundColor: "#235e96",
+                    padding: 10,
+                    position: "fixed",
+                    width: "100%",
+                    zIndex: 1000
+                }}
+                style={{ marginTop: 60 }}
+            >
                 <TabPane tab="Accueil" key="1">
-                    <h3>Liste des jeux vidéos</h3>
+                    <h3
+                        style={{
+                            textAlign: "center",
+                            fontWeight: "bold",
+                            fontFamily: "monospace",
+                            marginTop: 90
+                        }}
+                    >
+                        Liste des jeux vidéos
+                    </h3>
                     <SortForm />
                     <Row style={{ marginLeft: 80 }}>
                         {sortedGames.map((testModal) => {
                             return (
                                 <GameList key={testModal.id} {...testModal} />
-                            )
+                            );
                         })}
                     </Row>
                 </TabPane>
                 <TabPane tab="Card" key="2">
+                    <h3
+                        style={{
+                            textAlign: "center",
+                            fontWeight: "bold",
+                            fontFamily: "number",
+                            marginTop: 90
+                        }}
+                    >
+                        Recherche de Jeux Vidéos
+                    </h3>
                     <Search />
                     {games.slice(0, 1).map((gameTest) => {
                         <h3>Liste des Jeux videos</h3>;
@@ -35,7 +66,6 @@ const Home = React.memo(() => {
                         );
                     })}
                 </TabPane>
-
             </Tabs>
         </>
     );

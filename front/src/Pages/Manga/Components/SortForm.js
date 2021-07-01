@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { Button } from "antd";
 import { MangaContext } from "../Context";
-import { SortAscendingOutlined, SortDescendingOutlined } from "@ant-design/icons"
-
+import {
+    SortAscendingOutlined,
+    SortDescendingOutlined
+} from "@ant-design/icons";
 
 const Mangas = () => {
     const { sortType, setSortType, popularManga, setSortedMangas } =
@@ -64,42 +66,66 @@ const Mangas = () => {
             <Button
                 onClick={sortByID}
                 size="middle"
-                style={{ marginLeft: "50px", color: 'seashell', backgroundColor: 'black' }}
+                style={{
+                    marginLeft: "90px",
+                    color: "seashell",
+                    backgroundColor: "black"
+                }}
             >
                 ID
-                {sortType === "asc"
-                    ? <SortAscendingOutlined />
-                    : <SortDescendingOutlined />}
+                {sortType === "asc" ? (
+                    <SortAscendingOutlined />
+                ) : (
+                    <SortDescendingOutlined />
+                )}
             </Button>
             <Button
                 onClick={sortByScore}
                 size="middle"
-                style={{ marginLeft: "50px", color: "rebeccapurple", backgroundColor: 'white' }}
+                style={{
+                    marginLeft: "50px",
+                    color: "rebeccapurple",
+                    backgroundColor: "white"
+                }}
             >
                 Score
-                {sortType === "asc"
-                    ? <SortAscendingOutlined />
-                    : <SortDescendingOutlined />}
+                {sortType === "asc" ? (
+                    <SortAscendingOutlined />
+                ) : (
+                    <SortDescendingOutlined />
+                )}
             </Button>
             <Button
                 onClick={sortByEpisodes}
                 size="middle"
-                style={{ marginLeft: "50px", color: "silver", backgroundColor: 'black' }}
+                style={{
+                    marginLeft: "50px",
+                    color: "silver",
+                    backgroundColor: "black"
+                }}
             >
                 NB Episodes
-                {sortType === "asc"
-                    ? <SortAscendingOutlined />
-                    : <SortDescendingOutlined />}
+                {sortType === "asc" ? (
+                    <SortAscendingOutlined />
+                ) : (
+                    <SortDescendingOutlined />
+                )}
             </Button>
             <Button
                 onClick={sortByDate}
                 size="middle"
-                style={{ marginLeft: "50px", color: "revert", backgroundColor: 'white' }}
+                style={{
+                    marginLeft: "50px",
+                    color: "revert",
+                    backgroundColor: "white"
+                }}
             >
                 Date
-                {sortType === "asc"
-                    ? <SortAscendingOutlined />
-                    : <SortDescendingOutlined />}
+                {sortType === "asc" ? (
+                    <SortAscendingOutlined />
+                ) : (
+                    <SortDescendingOutlined />
+                )}
             </Button>
         </>
     );

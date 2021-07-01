@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { Button } from "antd";
 import { CryptoContext } from "../Context";
-import { SortAscendingOutlined, SortDescendingOutlined } from "@ant-design/icons"
-
+import {
+    SortAscendingOutlined,
+    SortDescendingOutlined
+} from "@ant-design/icons";
 
 const Cryptos = () => {
     const { sortType, setSortType, cryptosData, setSortedCrypto } =
@@ -61,46 +63,76 @@ const Cryptos = () => {
 
     return (
         <>
-            <Button
-                onClick={sortByPrice}
-                size="middle"
-                style={{ marginLeft: "50px", color: "wheat", backgroundColor: "darkslateblue" }}
-            >
-                Prix
-                {sortType === "asc"
-                    ? <SortAscendingOutlined />
-                    : <SortDescendingOutlined />}
-            </Button>
-            <Button
-                onClick={sortByVolume}
-                size="middle"
-                style={{ marginLeft: "50px", color: "black", backgroundColor: "tomato" }}
-            >
-                Volume
-                {sortType === "asc"
-                    ? <SortAscendingOutlined />
-                    : <SortDescendingOutlined />}
-            </Button>
-            <Button
-                onClick={sortByRank}
-                size="middle"
-                style={{ marginLeft: "50px", color: "whitesmoke", backgroundColor: "goldenrod" }}
-            >
-                Rank
-                {sortType === "asc"
-                    ? <SortAscendingOutlined />
-                    : <SortDescendingOutlined />}
-            </Button>
-            <Button
-                onClick={sortByDate}
-                size="middle"
-                style={{ marginLeft: "50px", color: "black", backgroundColor: "yellow" }}
-            >
-                Date D'entrée
-                {sortType === "asc"
-                    ? <SortAscendingOutlined />
-                    : <SortDescendingOutlined />}
-            </Button>
+            <div>
+                <Button
+                    onClick={sortByPrice}
+                    size="middle"
+                    style={{
+                        marginLeft: "80px",
+                        color: "wheat",
+                        backgroundColor: "darkslateblue",
+                        fontWeight: "bold"
+                    }}
+                >
+                    Prix
+                    {sortType === "asc" ? (
+                        <SortAscendingOutlined />
+                    ) : (
+                        <SortDescendingOutlined />
+                    )}
+                </Button>
+                <Button
+                    onClick={sortByVolume}
+                    size="middle"
+                    style={{
+                        marginLeft: "50px",
+                        color: "black",
+                        backgroundColor: "tomato",
+                        fontWeight: "bold"
+                    }}
+                >
+                    Volume
+                    {sortType === "asc" ? (
+                        <SortAscendingOutlined />
+                    ) : (
+                        <SortDescendingOutlined />
+                    )}
+                </Button>
+                <Button
+                    onClick={sortByRank}
+                    size="middle"
+                    style={{
+                        marginLeft: "50px",
+                        color: "whitesmoke",
+                        backgroundColor: "goldenrod",
+                        fontWeight: "bold"
+                    }}
+                >
+                    Rank
+                    {sortType === "asc" ? (
+                        <SortAscendingOutlined />
+                    ) : (
+                        <SortDescendingOutlined />
+                    )}
+                </Button>
+                <Button
+                    onClick={sortByDate}
+                    size="middle"
+                    style={{
+                        marginLeft: "50px",
+                        color: "black",
+                        backgroundColor: "yellow",
+                        fontWeight: "bold"
+                    }}
+                >
+                    Date D'entrée
+                    {sortType === "asc" ? (
+                        <SortAscendingOutlined />
+                    ) : (
+                        <SortDescendingOutlined />
+                    )}
+                </Button>
+            </div>
         </>
     );
 };

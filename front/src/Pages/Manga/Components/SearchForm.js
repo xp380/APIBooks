@@ -1,28 +1,28 @@
-import React, { useContext, useRef } from 'react'
-import { MangaContext } from "../Context"
-import { Input } from 'antd'
+import React, { useContext, useRef } from "react";
+import { MangaContext } from "../Context";
+import { Input } from "antd";
+import { SearchOutlined } from "@ant-design/icons";
 
 const { Search } = Input;
 
 const SearchForm = () => {
-    const { setSearchAnime } = useContext(MangaContext)
-    const inputRef = useRef()
-    const handleSubmit = (e) => e.preventDefault()
-    const searchItems = () => setSearchAnime(inputRef.current.value)
+    const { setSearchAnime } = useContext(MangaContext);
+    const inputRef = useRef();
+    const handleSubmit = (e) => e.preventDefault();
+    const searchItems = () => setSearchAnime(inputRef.current.value);
 
     return (
         <form onSubmit={handleSubmit}>
             <input
+                style={{ marginLeft: 90 }}
                 type="text"
-                placeholder="search movies ...."
+                placeholder="search mangas ...."
                 ref={inputRef}
                 onChange={searchItems}
             />
-            <button type="submit">
-                Enter
-            </button>
+            <SearchOutlined />
         </form>
-    )
-}
+    );
+};
 
 export default SearchForm;

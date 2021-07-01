@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { Button } from "antd";
 import { MovieContext } from "../Context";
-import { SortAscendingOutlined, SortDescendingOutlined } from "@ant-design/icons"
-
+import {
+    SortAscendingOutlined,
+    SortDescendingOutlined
+} from "@ant-design/icons";
 
 const Movies = () => {
     const { sortType, setSortType, popularMovie, setSortedMovies } =
@@ -51,32 +53,50 @@ const Movies = () => {
             <Button
                 onClick={sortByRated}
                 size="middle"
-                style={{ marginLeft: "50px", color: 'black', backgroundColor: "red" }}
+                style={{
+                    marginLeft: "90px",
+                    color: "black",
+                    backgroundColor: "red"
+                }}
             >
                 Note
-                {sortType === "asc"
-                    ? <SortAscendingOutlined />
-                    : <SortDescendingOutlined />}
+                {sortType === "asc" ? (
+                    <SortAscendingOutlined />
+                ) : (
+                    <SortDescendingOutlined />
+                )}
             </Button>
             <Button
                 onClick={sortByPop}
                 size="middle"
-                style={{ marginLeft: "50px", color: "whitesmoke", backgroundColor: "green" }}
+                style={{
+                    marginLeft: "50px",
+                    color: "whitesmoke",
+                    backgroundColor: "green"
+                }}
             >
                 Popularité
-                {sortType === "asc"
-                    ? <SortAscendingOutlined />
-                    : <SortDescendingOutlined />}
+                {sortType === "asc" ? (
+                    <SortAscendingOutlined />
+                ) : (
+                    <SortDescendingOutlined />
+                )}
             </Button>
             <Button
                 onClick={sortById}
                 size="middle"
-                style={{ marginLeft: "50px", color: "black", backgroundColor: "blueviolet" }}
+                style={{
+                    marginLeft: "50px",
+                    color: "black",
+                    backgroundColor: "blueviolet"
+                }}
             >
                 ID
-                {sortType === "asc"
-                    ? <SortAscendingOutlined />
-                    : <SortDescendingOutlined />}
+                {sortType === "asc" ? (
+                    <SortAscendingOutlined />
+                ) : (
+                    <SortDescendingOutlined />
+                )}
             </Button>
         </>
     );

@@ -39,19 +39,43 @@ const CovidSort = React.memo((props) => {
                 onClick={handleClickOpen}
             >
                 <div>
-                    <h3 style={{ textAlign: "center" }}>{Country}</h3>
-                    <p style={{ textAlign: "center" }}>{Date}</p>
-
-                    <p style={{ color: "black", backgroundColor: "red" }}>
-                        Active :{Active}
+                    <h3 style={{ textAlign: "center", border: "solid" }}>
+                        {Country}
+                    </h3>
+                    <p style={{ textAlign: "center", fontWeight: "bold" }}>
+                        {Date}
                     </p>
-                    <p style={{ color: "white", backgroundColor: "black" }}>
+
+                    <p
+                        style={{
+                            fontFamily: "monospace",
+                            fontWeight: "bold"
+                        }}
+                    >
+                        Active:{Active}
+                    </p>
+                    <p
+                        style={{
+                            fontFamily: "emoji",
+                            fontWeight: "bold"
+                        }}
+                    >
                         Morts:{Deaths}
                     </p>
-                    <p style={{ color: "white", backgroundColor: "blue" }}>
+                    <p
+                        style={{
+                            fontFamily: "math",
+                            fontWeight: "bold"
+                        }}
+                    >
                         Rétablis:{Recovered}
                     </p>
-                    <p style={{ color: "black", backgroundColor: "orangered" }}>
+                    <p
+                        style={{
+                            fontFamily: "fantasy",
+                            fontWeight: "bold"
+                        }}
+                    >
                         Confirmés:{Confirmed}
                     </p>
                 </div>

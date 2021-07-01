@@ -1,23 +1,30 @@
 import React, { useState } from "react";
 import { Card, Row, Divider } from "antd";
-import GraphSelected from './GraphSelected'
+import GraphSelected from "./GraphSelected";
 
 const CryptoSort = React.memo((props) => {
-
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
-        setOpen(true)
-    }
+        setOpen(true);
+    };
     const handleClose = () => {
-        setOpen(false)
-    }
+        setOpen(false);
+    };
 
-    const { id, total_volume, current_price, atl_date, name, image, market_cap_rank, last_updated } = props
+    const {
+        id,
+        total_volume,
+        current_price,
+        atl_date,
+        name,
+        image,
+        market_cap_rank
+    } = props;
 
     const randomColorGenerator = () => {
-        let charChoices = '1234567890abcdef'.split('');
-        let color = '#';
+        let charChoices = "1234567890abcdef".split("");
+        let color = "#";
         for (let i = 0; i < 6; i++) {
             const randomIndex = Math.floor(Math.random() * 16 + 1);
             color += charChoices[randomIndex];
@@ -32,7 +39,7 @@ const CryptoSort = React.memo((props) => {
     };
 
     return (
-        <Row >
+        <Row>
             <Card
                 key={id}
                 style={styles}
@@ -41,7 +48,6 @@ const CryptoSort = React.memo((props) => {
                 onClick={handleClickOpen}
             >
                 <div>
-
                     <img
                         src={image}
                         alt="Smiley face"
@@ -50,11 +56,21 @@ const CryptoSort = React.memo((props) => {
                         style={{ marginLeft: 100 }}
                     ></img>
                     <Divider />
-                    <p >Rank:{market_cap_rank}</p>
-                    <p >Nom:{name}</p>
-                    <p >Prix actuel: {current_price}</p>
-                    <p>Volume:{total_volume}</p>
-                    <p>Date: {atl_date}</p>
+                    <p style={{ fontWeight: "bold", fontFamily: "monospace" }}>
+                        Rank:{market_cap_rank}
+                    </p>
+                    <p style={{ fontWeight: "bold", fontFamily: "monospace" }}>
+                        Nom:{name}
+                    </p>
+                    <p style={{ fontWeight: "bold", fontFamily: "monospace" }}>
+                        Prix actuel: {current_price}
+                    </p>
+                    <p style={{ fontWeight: "bold", fontFamily: "monospace" }}>
+                        Volume:{total_volume}
+                    </p>
+                    <p style={{ fontWeight: "bold", fontFamily: "monospace" }}>
+                        Date: {atl_date}
+                    </p>
                 </div>
             </Card>
             <GraphSelected

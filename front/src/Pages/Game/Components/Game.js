@@ -12,8 +12,7 @@ const Main = React.memo((props) => {
         setOpen(false);
     };
 
-    const { id, slug, rating, background_image, tags, ratings, percent } =
-        props;
+    const { id, slug, rating, background_image, tags } = props;
 
     // const test = (lol) => {
     //     if (lol.rating > 4) {
@@ -49,7 +48,7 @@ const Main = React.memo((props) => {
                     onClick={handleClickOpen}
                 >
                     <div>
-                        <h3 style={{ textAlign: "left" }}>
+                        <h3 style={{ textAlign: "left", fontWeight: "bold" }}>
                             {slug}
                             <span style={{ float: "right" }}>
                                 {rating}
@@ -73,7 +72,7 @@ const Main = React.memo((props) => {
                         />
                     </p>
 
-                    <p>Genres: </p>
+                    <p style={{ fontWeight: "bold" }}>Genres: </p>
                     {tags.map((data) => {
                         if (data.id === 31) {
                             return <Tag color="blue"> {data.name} </Tag>;

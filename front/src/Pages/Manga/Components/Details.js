@@ -27,7 +27,8 @@ export default function Details({ handleClose, open, detailsData }) {
             >
                 <h3
                     style={{
-                        color: "white"
+                        color: "white",
+                        fontFamily: "Impact, fantasy"
                     }}
                 >
                     {title}
@@ -40,7 +41,13 @@ export default function Details({ handleClose, open, detailsData }) {
                 >
                     <img src={image_url} alt="#" width="300" height="300" />
 
-                    <div style={{ marginLeft: 50, color: "white" }}>
+                    <div
+                        style={{
+                            marginLeft: 50,
+                            color: "white",
+                            fontFamily: "Impact, fantasy"
+                        }}
+                    >
                         <p>NB Episodes:{episodes}</p>
                         <p>Score: {score}</p>
                         <p>Date début: {airing_start}</p>

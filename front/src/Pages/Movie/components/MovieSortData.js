@@ -39,13 +39,25 @@ const Movies = React.memo((props) => {
                 onClick={handleClickOpen}
             >
                 <div>
-                    <p style={{ textAlign: "left" }}>
+                    <p
+                        style={{
+                            textAlign: "left",
+                            fontFamily: "Impact, fantasy"
+                        }}
+                    >
                         {title}{" "}
-                        <span style={{ float: "right" }}>
+                        <span
+                            style={{
+                                float: "right",
+                                fontFamily: "Impact, fantasy"
+                            }}
+                        >
                             note:{vote_average}
                         </span>
                     </p>
-                    <p>Popularité: {popularity}</p>
+                    <p style={{ fontFamily: "Impact, fantasy" }}>
+                        Popularité: {popularity}
+                    </p>
                 </div>
                 <p style={{ marginLeft: 25 }}>
                     <img
