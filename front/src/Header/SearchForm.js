@@ -24,7 +24,7 @@ const SearchForm = () => {
             <input
                 style={{ marginLeft: 20 }}
                 type="text"
-                placeholder="search ...."
+                placeholder="search  ...."
                 ref={inputRef}
                 onChange={searchItems}
             />

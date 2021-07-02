@@ -29,7 +29,6 @@ const Covids = () => {
                     key={id}
                     style={styles}
                     bordered={true}
-                    hoverable
                     // onClick={handleClickOpen}
                 >
                     <div>

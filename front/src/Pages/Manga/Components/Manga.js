@@ -37,7 +37,6 @@ const Main = React.memo((props) => {
                 key={mal_id}
                 style={styles}
                 bordered={true}
-                hoverable
                 onClick={handleClickOpen}
             >
                 <div>

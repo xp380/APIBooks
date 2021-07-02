@@ -28,7 +28,7 @@ export default function Covid2020() {
                 }}
             >
                 <TabPane tab="Accueil" key="1">
-                    <h3
+                    <h2
                         style={{
                             marginLeft: "45%",
                             fontFamily: "fantasy",
@@ -37,7 +37,7 @@ export default function Covid2020() {
                         }}
                     >
                         Bilan du Covid en France
-                    </h3>
+                    </h2>
                     <SortForm />
                     <Row style={{ marginLeft: 70 }}>
                         {sortedCovid.map((testModal) => {

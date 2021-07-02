@@ -12,7 +12,6 @@ const Movies = () => {
                         key={id}
                         style={{ width: 300, margin: 10 }}
                         bordered={true}
-                        hoverable
                     >
                         <div>
                             <p style={{ textAlign: "left" }}>

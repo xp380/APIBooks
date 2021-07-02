@@ -49,6 +49,7 @@ export default function HomePage() {
                                         >
                                             <Menu
                                                 theme="dark"
+                                                style={{ height: 30 }}
                                                 mode="horizontal"
                                                 defaultSelectedKeys={["2"]}
                                             >
@@ -64,10 +65,6 @@ export default function HomePage() {
                                                     <Search />
                                                 </Menu.Item>
                                             </Menu>
-
-                                            <p>
-                                                <Routes />
-                                            </p>
                                         </Header>
                                         <Content
                                             style={{

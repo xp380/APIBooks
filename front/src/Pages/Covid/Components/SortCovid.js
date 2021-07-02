@@ -35,7 +35,6 @@ const CovidSort = React.memo((props) => {
                 key={id}
                 style={styles}
                 bordered={true}
-                hoverable
                 onClick={handleClickOpen}
             >
                 <div>
