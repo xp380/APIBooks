@@ -1,11 +1,8 @@
 import React, { useContext, useRef } from "react";
-import { Input } from "antd";
 import { GameContext } from "../Pages/Game/Context";
 import { MangaContext } from "../Pages/Manga/Context";
 import { MovieContext } from "../Pages/Movie/Context";
 import { SearchOutlined } from "@ant-design/icons";
-
-const { Search } = Input;
 
 const SearchForm = () => {
     const { setSearchGame } = useContext(GameContext);

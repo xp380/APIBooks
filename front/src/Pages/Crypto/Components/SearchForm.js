@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
 import { CryptoContext } from "../Context";
-import { Select } from "antd";
 
 const SearchForm = () => {
-    const { Option } = Select;
     const { setSearchCrypto, cryptosData } = useContext(CryptoContext);
     const handleSubmit = (e) => e.preventDefault();
     const searchItems = (e) => setSearchCrypto(e.target.value);

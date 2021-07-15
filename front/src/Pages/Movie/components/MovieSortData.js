@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Row, Button } from "antd";
+import { Card, Row } from "antd";
 import Details from "./Details";
 
 const Movies = React.memo((props) => {

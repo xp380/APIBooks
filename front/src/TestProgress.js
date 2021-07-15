@@ -26,11 +26,12 @@ export default function Test() {
                 !scrollY
                     ? 0
                     : scrollY + innerHeight >= pageHeight
-                        ? 100
-                        : Math.round(
-                            ((scrollY + innerHeight * (scrollY / pageHeight)) / pageHeight) *
-                            100
-                        )
+                    ? 100
+                    : Math.round(
+                          ((scrollY + innerHeight * (scrollY / pageHeight)) /
+                              pageHeight) *
+                              100
+                      )
             );
         }, 100);
 
@@ -41,13 +42,11 @@ export default function Test() {
     }, []);
     return (
         <>
-            <Progress percent={progress} strokeWidth={10}
-                style={{ width: 100, }}
+            <Progress
+                percent={progress}
+                strokeWidth={10}
+                style={{ width: 100 }}
             />
-            {/* <Progress percent={progress} type="circle" width="100px"
-                style={{
-                    float: 'right'
-                }} /> */}
         </>
-    )
+    );
 }

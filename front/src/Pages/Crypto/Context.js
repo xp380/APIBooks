@@ -4,7 +4,7 @@ import axios from "axios";
 export const CryptoContext = createContext();
 
 export const CryptoProvider = ({ children }) => {
-    const [cryptoData, setCryptoData] = useState([]);
+    const [cryptoData] = useState([]);
     const [searchCrypto, setSearchCrypto] = useState("bitcoin");
     const [cryptoSearched, setCryptoSearched] = useState([]);
 
@@ -12,8 +12,6 @@ export const CryptoProvider = ({ children }) => {
     const [sortedCrypto, setSortedCrypto] = useState([]);
     const [searchValue] = useState("");
     const [sortType, setSortType] = useState("asc");
-
-
 
     useEffect(() => {
         const fetchData = async () => {

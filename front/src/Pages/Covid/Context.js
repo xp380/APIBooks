@@ -20,7 +20,6 @@ export const CovidProvider = ({ children }) => {
     let deaths = [];
     let recovered = [];
 
-
     useEffect(() => {
         const fetchData = async () => {
             const result = await axios("https://api.covid19api.com/countries");

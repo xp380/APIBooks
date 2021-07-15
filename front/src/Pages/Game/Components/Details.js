@@ -1,6 +1,5 @@
 import React from "react";
-import { Modal, Carousel, Tag } from "antd";
-import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import { Modal, Tag } from "antd";
 
 export default function Details({ handleClose, open, detailsData }) {
     const {
@@ -12,52 +11,12 @@ export default function Details({ handleClose, open, detailsData }) {
         playtime,
         rating_top,
         rating,
-        parent_platforms: [{ platform }],
-        short_screenshots,
-        parent_platforms,
+        // parent_platforms: [{ platform }],
+        // short_screenshots,
+        // parent_platforms,
         ratings_count
     } = detailsData;
 
-    const SampleNextArrow = (props) => {
-        const { className, style, onClick } = props;
-        return (
-            <div
-                className={className}
-                style={{
-                    ...style,
-                    color: "white",
-                    fontSize: "15px",
-                    lineHeight: "1.5715"
-                }}
-                onClick={onClick}
-            >
-                <RightOutlined />
-            </div>
-        );
-    };
-
-    const SamplePrevArrow = (props) => {
-        const { className, style, onClick } = props;
-        return (
-            <div
-                className={className}
-                style={{
-                    ...style,
-                    color: "white",
-                    fontSize: "15px",
-                    lineHeight: "1.5715"
-                }}
-                onClick={onClick}
-            >
-                <LeftOutlined />
-            </div>
-        );
-    };
-
-    const settings = {
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />
-    };
     return (
         <>
             <Modal
@@ -217,55 +176,6 @@ export default function Details({ handleClose, open, detailsData }) {
                         </p>
                     </div>
                 </div>
-                {/* {short_screenshots.map((data) => {
-                    return (
-                        <Carousel arrows {...settings}>
-                            <div>
-                                <img
-                                    src={data.image}
-                                    alt="#"
-                                    width="200"
-                                    height="200"
-                                />
-                            </div>
-                        </Carousel>
-                    );
-                })} */}
-                {/* <Carousel arrows {...settings}>
-                    <div>
-                        <img
-                            src={background_image}
-                            alt="#"
-                            width="200"
-                            height="200"
-                        />
-                    </div>
-                    <div>
-                        <img
-                            src={background_image}
-                            alt="#"
-                            width="200"
-                            height="200"
-                        />
-                    </div>
-                    <div>
-                        <img
-                            src={background_image}
-                            alt="#"
-                            width="200"
-                            height="200"
-                        />
-                    </div>
-                    <div>
-                        <img
-                            src={background_image}
-                            alt="#"
-                            marginLeft="300"
-                            width="500"
-                            height="200"
-                        />
-                    </div>
-                </Carousel> */}
             </Modal>
         </>
     );

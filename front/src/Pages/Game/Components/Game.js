@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Details from "./Details";
-import { Card, Row, Tag, Button } from "antd";
+import { Card, Row, Tag } from "antd";
 
 const Main = React.memo((props) => {
     const [open, setOpen] = useState(false);
@@ -13,14 +13,6 @@ const Main = React.memo((props) => {
     };
 
     const { id, slug, rating, background_image, tags } = props;
-
-    // const test = (lol) => {
-    //     if (lol.rating > 4) {
-    //         return <Tag color="blue">{lol.rating}</Tag>
-    //     } else if (lol.rating < 2) {
-    //         return <Tag color="red">{lol.rating}</Tag>
-    //     }
-    // }
 
     const randomColorGenerator = () => {
         let charChoices = "1234567890abcdef".split("");
@@ -50,17 +42,7 @@ const Main = React.memo((props) => {
                     <div>
                         <h3 style={{ textAlign: "left", fontWeight: "bold" }}>
                             {slug}
-                            <span style={{ float: "right" }}>
-                                {rating}
-
-                                {/* {ratings.map((data) => {
-                                    if (data.percent > 70) {
-                                        return <Tag color='blue'>{rating}</Tag>
-                                    } else if (data.percent < 10) {
-                                        return <Tag color='red'>{rating} </Tag>
-                                    }
-                                })} */}
-                            </span>
+                            <span style={{ float: "right" }}>{rating}</span>
                         </h3>
                     </div>
                     <p style={{ marginLeft: 25 }}>
