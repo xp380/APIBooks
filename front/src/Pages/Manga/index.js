@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import { Tabs, Row } from "antd";
 
-import MangaList from "./Components/Manga";
-import Mangas from "./Components/Mangas";
-// import Search from "./Components/SearchForm";
+import MangaList from "./Components/SortManga";
+import Mangas from "./Components/SearchManga";
 import SortForm from "./Components/SortForm";
 import { MangaContext } from "./Context";
 

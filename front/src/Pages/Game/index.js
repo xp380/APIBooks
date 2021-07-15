@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import { Tabs, Row } from "antd";
 
-import GameList from "./Components/Game";
-import Games from "./Components/Games";
-// import Search from "./Components/SearchForm";
+import GameList from "./Components/SortGame";
+import Games from "./Components/SearchGame";
 import SortForm from "./Components/SortForm";
 
 import { GameContext } from "./Context";

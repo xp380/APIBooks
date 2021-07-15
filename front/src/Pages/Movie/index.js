@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import { Tabs, Row } from "antd";
 
-import MovieSecond from "./components/MovieSecond";
-import MovieSort from "./components/MovieSortData";
-// import Search from "./components/SearchForm";
+import MovieSecond from "./components/SearchMovie";
+import MovieSort from "./components/SortMovie";
 import SortForm from "./components/SortForm";
 import { MovieContext } from "./Context";
 

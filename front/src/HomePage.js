@@ -8,7 +8,7 @@ import {
 import Search from "./Header/SearchForm";
 import Routes from "./Header/Routes";
 
-import Progress from "./TestProgress";
+import Progress from "./Footer/TestProgress";
 import { CryptoProvider } from "./Pages/Crypto/Context";
 import { CovidProvider } from "./Pages/Covid/Context";
 import { GameProvider } from "./Pages/Game/Context";
