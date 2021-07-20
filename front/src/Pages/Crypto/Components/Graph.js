@@ -4,7 +4,7 @@ import axios from "axios";
 
 export default function Graph() {
     const [data, setData] = useState([]);
-    const [setPosts] = useState([]);
+    const [posts, setPosts] = useState([]);
 
     let date = [];
     let high = [];
