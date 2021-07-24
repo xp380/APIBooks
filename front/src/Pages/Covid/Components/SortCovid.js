@@ -25,7 +25,10 @@ const CovidSort = React.memo((props) => {
     const styles = {
         backgroundColor: randomColorGenerator(),
         width: 300,
-        margin: 10
+        margin: 10,
+        transition: "1s",
+        boxShadow: "0 8px 16px 0 black",
+        borderRadius: "60px"
     };
 
     const { id, Confirmed, Deaths, Recovered, Date, Country, Active } = props;

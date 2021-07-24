@@ -52,13 +52,15 @@ export default function HomePage() {
                                                 mode="horizontal"
                                                 defaultSelectedKeys={["2"]}
                                             >
-                                                <Menu.Item>
+                                                <Menu.Item
+                                                    style={{ width: 0 }}>
                                                     <Routes />
                                                 </Menu.Item>
                                                 <Menu.Item
                                                     style={{
                                                         marginLeft: 750,
-                                                        color: "black"
+                                                        color: "black",
+                                                        width: 0,
                                                     }}
                                                 >
                                                     <Search />
