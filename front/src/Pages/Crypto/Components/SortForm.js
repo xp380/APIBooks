@@ -5,6 +5,7 @@ import {
     SortAscendingOutlined,
     SortDescendingOutlined
 } from "@ant-design/icons";
+import "./SortForm.css";
 
 const Cryptos = () => {
     const { sortType, setSortType, cryptosData, setSortedCrypto } =
@@ -67,11 +68,13 @@ const Cryptos = () => {
                 <Button
                     onClick={sortByPrice}
                     size="middle"
+                    className="button-3d"
                     style={{
                         marginLeft: "80px",
                         color: "wheat",
                         backgroundColor: "darkslateblue",
-                        fontWeight: "bold"
+                        fontWeight: "bold",
+                        boxShadow: "0px 6px 0px #d35400"
                     }}
                 >
                     Prix
@@ -84,11 +87,13 @@ const Cryptos = () => {
                 <Button
                     onClick={sortByVolume}
                     size="middle"
+                    className="button-3d"
                     style={{
                         marginLeft: "50px",
                         color: "black",
                         backgroundColor: "tomato",
-                        fontWeight: "bold"
+                        fontWeight: "bold",
+                        boxShadow: "0px 6px 0px #d35400"
                     }}
                 >
                     Volume
@@ -101,11 +106,13 @@ const Cryptos = () => {
                 <Button
                     onClick={sortByRank}
                     size="middle"
+                    className="button-3d"
                     style={{
                         marginLeft: "50px",
                         color: "whitesmoke",
                         backgroundColor: "goldenrod",
-                        fontWeight: "bold"
+                        fontWeight: "bold",
+                        boxShadow: "0px 6px 0px #d35400"
                     }}
                 >
                     Rank
@@ -118,11 +125,13 @@ const Cryptos = () => {
                 <Button
                     onClick={sortByDate}
                     size="middle"
+                    className="button-3d"
                     style={{
                         marginLeft: "50px",
                         color: "black",
                         backgroundColor: "yellow",
-                        fontWeight: "bold"
+                        fontWeight: "bold",
+                        boxShadow: "0px 6px 0px #d35400"
                     }}
                 >
                     Date D'entrée

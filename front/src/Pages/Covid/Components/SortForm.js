@@ -5,6 +5,7 @@ import {
     SortAscendingOutlined,
     SortDescendingOutlined
 } from "@ant-design/icons";
+import "./SortForm.css";
 
 const Covids = () => {
     const { sortType, setSortType, covidData, setSortedCovid } =
@@ -53,10 +54,12 @@ const Covids = () => {
                 <Button
                     onClick={sortByDeaths}
                     size="middle"
+                    className="button-3d"
                     style={{
                         marginLeft: "80px",
                         color: "cornflowerblue",
-                        backgroundColor: "darkblue"
+                        backgroundColor: "darkblue",
+                        boxShadow: "0px 6px 0px #d35400"
                     }}
                 >
                     Morts
@@ -69,10 +72,12 @@ const Covids = () => {
                 <Button
                     onClick={sortByRecovered}
                     size="middle"
+                    className="button-3d"
                     style={{
                         marginLeft: "50px",
                         color: "floralwhite",
-                        backgroundColor: "darkorange"
+                        backgroundColor: "darkorange",
+                        boxShadow: "0px 6px 0px #d35400"
                     }}
                 >
                     Rétablis
@@ -85,10 +90,12 @@ const Covids = () => {
                 <Button
                     onClick={sortByConfirmed}
                     size="middle"
+                    className="button-3d"
                     style={{
                         marginLeft: "50px",
                         color: "black",
-                        backgroundColor: "greenyellow"
+                        backgroundColor: "greenyellow",
+                        boxShadow: "0px 6px 0px #d35400"
                     }}
                 >
                     Confirmés

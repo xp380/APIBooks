@@ -5,6 +5,7 @@ import {
     SortAscendingOutlined,
     SortDescendingOutlined
 } from "@ant-design/icons";
+import "./SortForm.css";
 
 const Mangas = () => {
     const { sortType, setSortType, popularManga, setSortedMangas } =
@@ -66,10 +67,11 @@ const Mangas = () => {
             <Button
                 onClick={sortByID}
                 size="middle"
+                className="button-3d"
                 style={{
                     marginLeft: "90px",
-                    color: "seashell",
-                    backgroundColor: "black"
+                    backgroundColor: "#e67e22",
+                    boxShadow: "0px 6px 0px #d35400"
                 }}
             >
                 ID
@@ -82,10 +84,11 @@ const Mangas = () => {
             <Button
                 onClick={sortByScore}
                 size="middle"
+                className="button-3d"
                 style={{
                     marginLeft: "50px",
-                    color: "rebeccapurple",
-                    backgroundColor: "white"
+                    backgroundColor: "#e67e22",
+                    boxShadow: "0px 6px 0px #d35400"
                 }}
             >
                 Score
@@ -98,10 +101,11 @@ const Mangas = () => {
             <Button
                 onClick={sortByEpisodes}
                 size="middle"
+                className="button-3d"
                 style={{
                     marginLeft: "50px",
-                    color: "silver",
-                    backgroundColor: "black"
+                    backgroundColor: "#e67e22",
+                    boxShadow: "0px 6px 0px #d35400"
                 }}
             >
                 NB Episodes
@@ -114,10 +118,11 @@ const Mangas = () => {
             <Button
                 onClick={sortByDate}
                 size="middle"
+                className="button-3d"
                 style={{
                     marginLeft: "50px",
-                    color: "revert",
-                    backgroundColor: "white"
+                    backgroundColor: "#e67e22",
+                    boxShadow: "0px 6px 0px #d35400"
                 }}
             >
                 Date

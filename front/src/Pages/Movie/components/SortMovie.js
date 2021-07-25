@@ -3,6 +3,7 @@ import { Card, Row } from "antd";
 import Details from "./Details";
 
 const Movies = React.memo((props) => {
+    const [isHovering, setIsHovering] = useState(false);
     const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
@@ -10,6 +11,50 @@ const Movies = React.memo((props) => {
     };
     const handleClose = () => {
         setOpen(false);
+    };
+
+    const HoverableDiv = ({ handleMouseOver, handleMouseOut }) => {
+        return (
+            <div
+                style={{ marginLeft: 25 }}
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
+            >
+                <img
+                    src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+                    alt="#"
+                    width="200"
+                    height="200"
+                />
+            </div>
+        );
+    };
+
+    const HoverText = () => {
+        return (
+            <div
+                className="test"
+                style={{
+                    width: 90,
+                    marginLeft: 80,
+                    marginTop: 10,
+                    fontWeight: "bolder",
+                    backgroundColor: "white",
+                    textAlign: "center",
+                    borderRadius: "10px"
+                }}
+            >
+                CLICK ME
+            </div>
+        );
+    };
+
+    const handleMouseOver = () => {
+        setIsHovering(true);
+    };
+
+    const handleMouseOut = () => {
+        setIsHovering(false);
     };
 
     const { poster_path, title, vote_average, popularity, id } = props;
@@ -62,14 +107,11 @@ const Movies = React.memo((props) => {
                         Popularité: {popularity}
                     </p>
                 </div>
-                <p style={{ marginLeft: 25 }}>
-                    <img
-                        src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-                        alt="#"
-                        width="200"
-                        height="200"
-                    />
-                </p>
+                <HoverableDiv
+                    handleMouseOver={handleMouseOver}
+                    handleMouseOut={handleMouseOut}
+                />
+                {isHovering && <HoverText />}
             </Card>
             <Details
                 open={open}

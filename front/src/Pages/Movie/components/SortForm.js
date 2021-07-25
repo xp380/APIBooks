@@ -5,6 +5,7 @@ import {
     SortAscendingOutlined,
     SortDescendingOutlined
 } from "@ant-design/icons";
+import "./SortForm.css";
 
 const Movies = () => {
     const { sortType, setSortType, popularMovie, setSortedMovies } =
@@ -53,10 +54,11 @@ const Movies = () => {
             <Button
                 onClick={sortByRated}
                 size="middle"
+                className="button-3d"
                 style={{
                     marginLeft: "90px",
-                    color: "black",
-                    backgroundColor: "red"
+                    backgroundColor: "#e67e22",
+                    boxShadow: "0px 6px 0px #d35400"
                 }}
             >
                 Note
@@ -69,10 +71,11 @@ const Movies = () => {
             <Button
                 onClick={sortByPop}
                 size="middle"
+                className="button-3d"
                 style={{
                     marginLeft: "50px",
-                    color: "whitesmoke",
-                    backgroundColor: "green"
+                    backgroundColor: "#e67e22",
+                    boxShadow: "0px 6px 0px #d35400"
                 }}
             >
                 Popularité
@@ -85,10 +88,11 @@ const Movies = () => {
             <Button
                 onClick={sortById}
                 size="middle"
+                className="button-3d"
                 style={{
                     marginLeft: "50px",
-                    color: "black",
-                    backgroundColor: "blueviolet"
+                    backgroundColor: "#e67e22",
+                    boxShadow: "0px 6px 0px #d35400"
                 }}
             >
                 ID

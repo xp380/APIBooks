@@ -5,6 +5,7 @@ import {
     SortAscendingOutlined,
     SortDescendingOutlined
 } from "@ant-design/icons";
+import "./SortForm.css";
 
 const Games = () => {
     const { sortType, setSortType, popularGame, setSortedGames } =
@@ -54,10 +55,11 @@ const Games = () => {
                 <Button
                     onClick={sortByGrade}
                     size="middle"
+                    className="button-3d"
                     style={{
                         marginLeft: "90px",
-                        color: "greenyellow",
-                        backgroundColor: "black"
+                        backgroundColor: "#e67e22",
+                        boxShadow: "0px 6px 0px #d35400"
                     }}
                 >
                     Notes
@@ -70,10 +72,11 @@ const Games = () => {
                 <Button
                     onClick={sortByTime}
                     size="middle"
+                    className="button-3d"
                     style={{
                         marginLeft: "50px",
-                        color: "red",
-                        backgroundColor: "whitesmoke"
+                        backgroundColor: "#e67e22",
+                        boxShadow: "0px 6px 0px #d35400"
                     }}
                 >
                     Temps d'une partie
@@ -86,10 +89,11 @@ const Games = () => {
                 <Button
                     onClick={sortByDate}
                     size="middle"
+                    className="button-3d"
                     style={{
                         marginLeft: "50px",
-                        color: "blue",
-                        backgroundColor: "black"
+                        backgroundColor: "#e67e22",
+                        boxShadow: "0px 6px 0px #d35400"
                     }}
                 >
                     Date
