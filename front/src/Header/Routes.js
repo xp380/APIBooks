@@ -3,6 +3,13 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Drawer, Button } from "antd";
 import { MenuFoldOutlined } from "@ant-design/icons";
 
+import Home from "../Pages/Logo/homepage.png";
+import Movie from "../Pages/Logo/clapperboard.png";
+import Crypto from "../Pages/Logo/bitcoin.png";
+import Games from "../Pages/Logo/game-controller.png";
+import Covid from "../Pages/Logo/coronavirus.png";
+import Manga from "../Pages/Logo/manga.png";
+
 export default function Routes() {
     const [visible, setVisible] = useState(false);
 
@@ -28,23 +35,55 @@ export default function Routes() {
                     onClose={onClose}
                     visible={visible}
                 >
-                    <p>
+                    <p style={{ marginLeft: 2 }}>
                         <a href="/">Home</a>
+                        <img
+                            style={{ width: 50, height: 50, marginLeft: 30 }}
+                            src={Home}
+                            alt="logo"
+                        ></img>
                     </p>
                     <p>
                         <a href="/covids">Covids</a>
+                        <img
+                            style={{ width: 50, height: 50, marginLeft: 30 }}
+                            src={Covid}
+                            alt="logo"
+                        ></img>
                     </p>
                     <p>
                         <a href="/cryptos">Cryptos</a>
+                        <img
+                            style={{ width: 50, height: 50, marginLeft: 30 }}
+                            src={Crypto}
+                            alt="logo"
+                        ></img>
                     </p>
+
                     <p>
                         <a href="/games">Games</a>
+                        <img
+                            style={{ width: 50, height: 50, marginLeft: 30 }}
+                            src={Games}
+                            alt="logo"
+                        ></img>
                     </p>
                     <p>
                         <a href="/mangas">Mangas</a>
+                        <img
+                            style={{ width: 50, height: 50, marginLeft: 30 }}
+                            src={Manga}
+                            alt="logo"
+                        ></img>
                     </p>
                     <p>
                         <a href="/movies">Movies</a>
+                        <img
+                            style={{ width: 50, height: 50, marginLeft: 30 }}
+                            src={Movie}
+                            alt="logo"
+                        ></img>
+                        {/* <Movie /> */}
                     </p>
                 </Drawer>
             </Router>
