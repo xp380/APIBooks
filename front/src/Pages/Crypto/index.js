@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Tabs, Row } from "antd";
+// import { useHistory } from "react-router";
 
 import Search from "./Components/SearchForm";
 import CryptoDemo from "./Components/CryptoDemo";
@@ -10,9 +11,12 @@ import SortForm from "./Components/SortForm";
 import { CryptoContext } from "./Context";
 
 const Home = React.memo(() => {
+    // const history = useHistory();
     const { TabPane } = Tabs;
     const { cryptoSearched, sortedCrypto } = useContext(CryptoContext);
-
+    // setTimeout(() => {
+    //     history.push("/covids");
+    // }, 2000);
     return (
         <>
             <Tabs

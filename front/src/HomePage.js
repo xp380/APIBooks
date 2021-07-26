@@ -20,6 +20,7 @@ import Crypto from "./Pages/Crypto/index";
 import Game from "./Pages/Game/index";
 import Manga from "./Pages/Manga/index";
 import Movies from "./Pages/Movie/index";
+import NewHome from "./Pages/NewHomePage/index"
 import Time from "./Footer/Time";
 
 import { Layout, BackTop, Menu } from "antd";
@@ -87,6 +88,9 @@ export default function HomePage() {
                                                 </Route>
                                                 <Route path="/movies" exact>
                                                     <Movies />
+                                                </Route>
+                                                <Route path="/newHome" exact>
+                                                    <NewHome />
                                                 </Route>
                                                 <Redirect to="/" />
                                             </Switch>

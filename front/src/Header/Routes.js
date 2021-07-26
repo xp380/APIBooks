@@ -83,7 +83,14 @@ export default function Routes() {
                             src={Movie}
                             alt="logo"
                         ></img>
-                        {/* <Movie /> */}
+                    </p>
+                    <p>
+                        <a href="/newHome">New HomePage</a>
+                        <img
+                            style={{ width: 50, height: 50, marginLeft: 30 }}
+                            src={Home}
+                            alt="logo"
+                        ></img>
                     </p>
                 </Drawer>
             </Router>
