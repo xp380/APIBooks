@@ -14,6 +14,7 @@ import { CovidProvider } from "./Pages/Covid/Context";
 import { GameProvider } from "./Pages/Game/Context";
 import { MangaProvider } from "./Pages/Manga/Context";
 import { MovieProvider } from "./Pages/Movie/Context";
+import { GlobalProvider } from "./Pages/NewHomePage/Context"
 
 import Covid from "./Pages/Covid/index";
 import Crypto from "./Pages/Crypto/index";
@@ -35,68 +36,70 @@ export default function HomePage() {
                         <GameProvider>
                             <MangaProvider>
                                 <MovieProvider>
-                                    <Layout>
-                                        <Header
-                                            style={{
-                                                position: "fixed",
-                                                width: "100%",
-                                                left: 0,
-                                                top: 0,
-                                                right: 0,
-                                                zIndex: 1000,
-                                                color: "white"
-                                            }}
-                                        >
-                                            <Menu
-                                                theme="dark"
-                                                style={{ height: 30 }}
-                                                mode="horizontal"
-                                                defaultSelectedKeys={["2"]}
+                                    <GlobalProvider>
+                                        <Layout>
+                                            <Header
+                                                style={{
+                                                    position: "fixed",
+                                                    width: "100%",
+                                                    left: 0,
+                                                    top: 0,
+                                                    right: 0,
+                                                    zIndex: 1000,
+                                                    color: "white"
+                                                }}
                                             >
-                                                <Menu.Item style={{ width: 0 }}>
-                                                    <Routes />
-                                                </Menu.Item>
-                                                <Menu.Item
-                                                    style={{
-                                                        marginLeft: 750,
-                                                        color: "black",
-                                                        width: 0
-                                                    }}
+                                                <Menu
+                                                    theme="dark"
+                                                    style={{ height: 30 }}
+                                                    mode="horizontal"
+                                                    defaultSelectedKeys={["2"]}
                                                 >
-                                                    <Search />
-                                                </Menu.Item>
-                                            </Menu>
-                                        </Header>
-                                        <Content
-                                            style={{
-                                                backgroundColor: "#FFB6C1"
-                                            }}
-                                        >
-                                            <Switch>
-                                                <Route path="/covids" exact>
-                                                    <Covid />
-                                                </Route>
+                                                    <Menu.Item style={{ width: 0 }}>
+                                                        <Routes />
+                                                    </Menu.Item>
+                                                    <Menu.Item
+                                                        style={{
+                                                            marginLeft: 750,
+                                                            color: "black",
+                                                            width: 0
+                                                        }}
+                                                    >
+                                                        <Search />
+                                                    </Menu.Item>
+                                                </Menu>
+                                            </Header>
+                                            <Content
+                                                style={{
+                                                    backgroundColor: "#FFB6C1"
+                                                }}
+                                            >
+                                                <Switch>
+                                                    <Route path="/covids" exact>
+                                                        <Covid />
+                                                    </Route>
 
-                                                <Route path="/cryptos" exact>
-                                                    <Crypto />
-                                                </Route>
-                                                <Route path="/games" exact>
-                                                    <Game />
-                                                </Route>
-                                                <Route path="/mangas" exact>
-                                                    <Manga />
-                                                </Route>
-                                                <Route path="/movies" exact>
-                                                    <Movies />
-                                                </Route>
-                                                <Route path="/newHome" exact>
-                                                    <NewHome />
-                                                </Route>
-                                                <Redirect to="/" />
-                                            </Switch>
-                                            <BackTop />
-                                        </Content>
-                                    </Layout>
+                                                    <Route path="/cryptos" exact>
+                                                        <Crypto />
+                                                    </Route>
+                                                    <Route path="/games" exact>
+                                                        <Game />
+                                                    </Route>
+                                                    <Route path="/mangas" exact>
+                                                        <Manga />
+                                                    </Route>
+                                                    <Route path="/movies" exact>
+                                                        <Movies />
+                                                    </Route>
+                                                    <Route path="/newHome" exact>
+                                                        <NewHome />
+                                                    </Route>
+                                                    <Redirect to="/" />
+                                                </Switch>
+                                                <BackTop />
+                                            </Content>
+                                        </Layout>
+                                    </GlobalProvider>
                                 </MovieProvider>
                             </MangaProvider>
                         </GameProvider>

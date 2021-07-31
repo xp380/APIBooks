@@ -5,6 +5,7 @@ import Game from "./Components/Game"
 import Manga from "./Components/Manga"
 import Movie from "./Components/Movie"
 
+
 export default function NewHome() {
     return (
         <>
