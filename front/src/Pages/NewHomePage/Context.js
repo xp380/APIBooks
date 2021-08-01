@@ -9,22 +9,58 @@ const GlobalProvider = ({ children }) => {
     const [mangaAnime, setMangaAnime] = useState([])
     const [movieWatch, setMovieWatch] = useState([])
 
+
     useEffect(() => {
-        const getMovies = async () => {
-            try {
-                const response = await axios.get(`https://api.themoviedb.org/3/movie/popular?&Lnguage=en-US&api_key=e944d64e45bd1927514acc391b971f4d`)
-                setMovieWatch(response.data.results);
-            } catch (err) {
-                console.log(err)
-            }
-        }
-        getMovies()
+        const fetchCovid = async () => {
+            const result = await axios(
+                "https://api.covid19api.com/total/country/france"
+            );
+            setCovidDelta(result.data);
+        };
+        fetchCovid();
+    }, []);
+
+    useEffect(() => {
+        const fetchCrypto = async () => {
+            const result = await axios("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur");
+            setCryptoMonney(result.data);
+        };
+        fetchCrypto()
     }, [])
 
+    useEffect(() => {
+        const fetchGame = async () => {
+            const response = await axios(`https://api.rawg.io/api/games?key=9b12083a67134bbdad6628f19da1e91a`);
+            setGamePlay(response.data.results)
+        }
+        fetchGame()
+    }, [])
+
+    const getManga = async () => {
+        const response = await axios.get(
+            "https://api.jikan.moe/v3/top/anime");
+        setMangaAnime(response.data.top);
+    };
+    useEffect(() => {
+        getManga();
+    }, []);
+
+    const getMovie = async () => {
+        const response = await axios.get(
+            "https://api.themoviedb.org/3/movie/upcoming?api_key=30582d63e1f78f53711360b533a5d861");
+        setMovieWatch(response.data.results);
+    };
+    useEffect(() => {
+        getMovie();
+    }, []);
 
     return (
         <GlobalContext.Provider
             value={{
+                covidDelta, setCovidDelta,
+                cryptoMoney, setCryptoMonney,
+                gamePlay, setGamePlay,
+                mangaAnime, setMangaAnime,
                 movieWatch, setMovieWatch
             }}
         >

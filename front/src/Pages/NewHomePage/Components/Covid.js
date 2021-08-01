@@ -1,9 +1,12 @@
-import React, { useState } from "react"
-import { Statistic } from "antd"
+import React, { useContext } from "react"
+import { Statistic, Card, Row, Col } from "antd"
+import { GlobalContext } from "../Context"
 import { useHistory } from "react-router";
+import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 
 
 export default function Covid() {
+    const { covidDelta } = useContext(GlobalContext)
     const history = useHistory();
 
     function HandleRoute() {
@@ -12,7 +15,19 @@ export default function Covid() {
 
     return (
         <>
+            <Row gutter={16}>
+                {covidDelta.map((id, item) => {
+                    return (
+                        <Card key={id}>
+                            <>
+                                Pays: {item.Country}
+                            </>
 
+                        </Card>
+                    )
+                })}
+
+            </Row>
         </>
     )
 }

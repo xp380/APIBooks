@@ -1,9 +1,14 @@
-import React from "react"
+import React, { useContext } from "react"
+import { GlobalContext } from "../Context"
+import { useHistory } from "react-router"
 import { Carousel } from "antd"
 
 export default function Manga() {
-    function onChange(a, b, c) {
-        console.log(a, b, c);
+    const { mangaAnime } = useContext(GlobalContext)
+    const history = useHistory()
+
+    function HandleRoute() {
+        history.push("/mangas")
     }
 
     const contentStyle = {
@@ -11,24 +16,23 @@ export default function Manga() {
         color: '#fff',
         lineHeight: '160px',
         textAlign: 'center',
-        background: '#364d79',
     };
     return (
         <>
-            <Carousel>
-                <div>
-                    <h3 style={contentStyle}>1</h3>
-                </div>
-                <div>
-                    <h3 style={contentStyle}>2</h3>
-                </div>
-                <div>
-                    <h3 style={contentStyle}>3</h3>
-                </div>
-                <div>
-                    <h3 style={contentStyle}>4</h3>
-                </div>
-            </Carousel>
+            {mangaAnime.map((item, id) => {
+                return (
+                    <Carousel>
+                        <div onClick={HandleRoute}>
+                            <h3 style={contentStyle}>{id}</h3>
+                            <img
+                                src={item.image_url}
+                            />
+                            {item.title}
+                        </div>
+
+                    </Carousel>
+                )
+            })}
         </>
     )
 }

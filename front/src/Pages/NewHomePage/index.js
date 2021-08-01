@@ -5,11 +5,14 @@ import Game from "./Components/Game"
 import Manga from "./Components/Manga"
 import Movie from "./Components/Movie"
 
+import { Row } from "antd"
 
 export default function NewHome() {
     return (
         <>
-            <Covid />
+            <Row>
+                <Covid />
+            </Row>
             <Crypto />
             <Game />
             <Manga />
