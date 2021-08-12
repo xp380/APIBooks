@@ -10,13 +10,13 @@ import { Row } from "antd"
 export default function NewHome() {
     return (
         <>
-            <Row>
+            {/* <Row>
                 <Covid />
             </Row>
             <Crypto />
             <Game />
             <Manga />
-            <Movie />
+            <Movie /> */}
         </>
     )
 }

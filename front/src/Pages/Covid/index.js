@@ -10,7 +10,7 @@ import SortForm from "./Components/SortForm";
 import { CovidContext } from "./Context";
 
 export default function Covid2020() {
-    const { sortedCovid, covidSearched } = useContext(CovidContext);
+    const { sortedCovid } = useContext(CovidContext);
     const { TabPane } = Tabs;
     return (
         <>
@@ -72,7 +72,7 @@ export default function Covid2020() {
                         Test changement de pays
                     </h3>
                     <Search />
-                    {covidSearched.slice(0, 1).map((covidTest) => {
+                    {sortedCovid.slice(0, 1).map((covidTest) => {
                         <h3>Représentation des Covids</h3>;
                         return <CovidDemo key={covidTest.id} {...covidTest} />;
                     })}

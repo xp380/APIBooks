@@ -19,7 +19,7 @@ const SearchForm = () => {
     return (
         <form onSubmit={handleSubmit}>
             <input
-                style={{ marginLeft: 20, lineHeight: 3, borderRadius: 25 }}
+                style={{ marginLeft: 20, lineHeight: 3, borderRadius: 25, color: "black" }}
                 type="text"
                 placeholder="search  ...."
                 ref={inputRef}

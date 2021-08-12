@@ -51,11 +51,17 @@ export default function HomePage() {
                                             >
                                                 <Menu
                                                     theme="dark"
-                                                    style={{ height: 30 }}
+                                                    style={{ height: 1 }}
                                                     mode="horizontal"
                                                     defaultSelectedKeys={["2"]}
                                                 >
-                                                    <Menu.Item style={{ width: 0 }}>
+                                                    <p>
+                                                        <Routes />
+                                                    </p>
+                                                    {/* <p style={{ marginLeft: 750 }}>
+                                                        <Search />
+                                                    </p> */}
+                                                    {/* <Menu.Item style={{ width: 0 }}>
                                                         <Routes />
                                                     </Menu.Item>
                                                     <Menu.Item
@@ -66,8 +72,11 @@ export default function HomePage() {
                                                         }}
                                                     >
                                                         <Search />
-                                                    </Menu.Item>
+                                                    </Menu.Item> */}
                                                 </Menu>
+                                                <div style={{ marginLeft: 750, }}>
+                                                    <Search />
+                                                </div>
                                             </Header>
                                             <Content
                                                 style={{

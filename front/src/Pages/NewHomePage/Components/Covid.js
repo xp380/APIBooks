@@ -2,7 +2,6 @@ import React, { useContext } from "react"
 import { Statistic, Card, Row, Col } from "antd"
 import { GlobalContext } from "../Context"
 import { useHistory } from "react-router";
-import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 
 
 export default function Covid() {
@@ -22,7 +21,6 @@ export default function Covid() {
                             <>
                                 Pays: {item.Country}
                             </>
-
                         </Card>
                     )
                 })}
