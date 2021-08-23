@@ -1,36 +1,26 @@
-import React, { useContext } from "react"
-import { Statistic, Card, Row } from "antd"
-import { GlobalContext } from "../Context"
-import { useHistory } from "react-router"
+import React, { useContext } from "react";
+import { Card, Tag } from "antd";
+import { GlobalContext } from "../Context";
+import { useHistory } from "react-router";
 
 export default function Crypto() {
-    const { cryptoMoney } = useContext(GlobalContext)
-    const history = useHistory()
+    const { cryptoMoney } = useContext(GlobalContext);
+    const history = useHistory();
     function HandleHistory() {
-        history.push('./cryptos')
+        history.push("./cryptos");
     }
 
     const styles = {
         width: 300,
-        margin: 10,
-    }
+        margin: 10
+    };
     return (
         <>
-            <Row gutter={16}>
-                {cryptoMoney.map((mal_id, item) => (
-                    <Card
-                        style={styles}
-                        key={mal_id}
-                        bordered={true}
-                        onClick={HandleHistory}
-                    >
-                        <p>
-                            Name: {item.name}
-                        </p>
-                    </Card>
-
-                ))}
-            </Row>
+            <Card bordered={true} onClick={HandleHistory}>
+                {cryptoMoney.map((data) => {
+                    return <Tag color="blue">{data.name} </Tag>;
+                })}
+            </Card>
         </>
-    )
+    );
 }

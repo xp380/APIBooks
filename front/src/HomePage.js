@@ -58,21 +58,6 @@ export default function HomePage() {
                                                     <p>
                                                         <Routes />
                                                     </p>
-                                                    {/* <p style={{ marginLeft: 750 }}>
-                                                        <Search />
-                                                    </p> */}
-                                                    {/* <Menu.Item style={{ width: 0 }}>
-                                                        <Routes />
-                                                    </Menu.Item>
-                                                    <Menu.Item
-                                                        style={{
-                                                            marginLeft: 750,
-                                                            color: "black",
-                                                            width: 0
-                                                        }}
-                                                    >
-                                                        <Search />
-                                                    </Menu.Item> */}
                                                 </Menu>
                                                 <div style={{ marginLeft: 750, }}>
                                                     <Search />
