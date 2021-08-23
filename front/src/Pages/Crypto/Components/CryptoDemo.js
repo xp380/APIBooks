@@ -21,7 +21,7 @@ const Covids = () => {
         margin: 10,
         marginLeft: "40%"
     };
-
+    const image = { marginLeft: 150 };
     return (
         <Row gutter={16}>
             {cryptoSearched.map((item, id) => (
@@ -37,7 +37,7 @@ const Covids = () => {
                             alt="Smiley face"
                             height="42"
                             width="42"
-                            style={{ marginLeft: 150 }}
+                            style={image}
                         ></img>
                         <Divider />
                         <p>Rank:{item.market_cap_rank}</p>

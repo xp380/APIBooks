@@ -33,6 +33,10 @@ const Main = React.memo((props) => {
         borderRadius: "60px"
     };
 
+    const tag = { textAlign: "left", fontWeight: "bold" };
+    const rate = { float: "right" };
+    const image = { marginLeft: 25 };
+    const genre = { fontWeight: "bold" };
     return (
         <>
             <Row>
@@ -43,12 +47,12 @@ const Main = React.memo((props) => {
                     onClick={handleClickOpen}
                 >
                     <div>
-                        <h3 style={{ textAlign: "left", fontWeight: "bold" }}>
+                        <h3 style={tag}>
                             {slug}
-                            <span style={{ float: "right" }}>{rating}</span>
+                            <span style={rate}>{rating}</span>
                         </h3>
                     </div>
-                    <p style={{ marginLeft: 25 }}>
+                    <p style={image}>
                         <img
                             src={background_image}
                             alt="#"
@@ -57,7 +61,7 @@ const Main = React.memo((props) => {
                         />
                     </p>
 
-                    <p style={{ fontWeight: "bold" }}>Genres: </p>
+                    <p style={genre}>Genres: </p>
                     {tags.map((data) => {
                         if (data.id === 31) {
                             return <Tag color="blue"> {data.name} </Tag>;

@@ -12,6 +12,25 @@ export default function Details({ handleClose, open, detailsData }) {
         genres,
         producers
     } = detailsData;
+
+    const modalmask = { backgroundColor: "inherit" };
+    const modalbody = {
+        backgroundColor: "#212121"
+    };
+    const titre = {
+        color: "white",
+        fontFamily: "Impact, fantasy"
+    };
+
+    const image = {
+        display: "flex",
+        alignItems: "center"
+    };
+    const styles = {
+        marginLeft: 50,
+        color: "white",
+        fontFamily: "Impact, fantasy"
+    };
     return (
         <>
             <Modal
@@ -19,35 +38,15 @@ export default function Details({ handleClose, open, detailsData }) {
                 onCancel={handleClose}
                 visible={open}
                 width={1000}
-                maskStyle={{ backgroundColor: "inherit" }}
+                maskStyle={modalmask}
                 footer={null}
-                bodyStyle={{
-                    backgroundColor: "#212121"
-                }}
+                bodyStyle={modalbody}
             >
-                <h3
-                    style={{
-                        color: "white",
-                        fontFamily: "Impact, fantasy"
-                    }}
-                >
-                    {title}
-                </h3>
-                <div
-                    style={{
-                        display: "flex",
-                        alignItems: "center"
-                    }}
-                >
+                <h3 style={titre}>{title}</h3>
+                <div style={image}>
                     <img src={image_url} alt="#" width="300" height="300" />
 
-                    <div
-                        style={{
-                            marginLeft: 50,
-                            color: "white",
-                            fontFamily: "Impact, fantasy"
-                        }}
-                    >
+                    <div style={styles}>
                         <p>NB Episodes:{episodes}</p>
                         <p>Score: {score}</p>
                         <p>Date début: {airing_start}</p>

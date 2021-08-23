@@ -22,6 +22,12 @@ export default function Routes() {
     };
 
     const style = { marginLeft: visible ? 210 : 0 };
+    const image = {
+        width: 50,
+        height: 50,
+        marginLeft: 30
+    };
+    const space = { marginLeft: 2 };
     return (
         <>
             <Router>
@@ -35,62 +41,34 @@ export default function Routes() {
                     onClose={onClose}
                     visible={visible}
                 >
-                    <p style={{ marginLeft: 2 }}>
+                    <p style={space}>
                         <a href="/">Home</a>
-                        <img
-                            style={{ width: 50, height: 50, marginLeft: 30 }}
-                            src={Home}
-                            alt="logo"
-                        ></img>
+                        <img style={image} src={Home} alt="logo"></img>
                     </p>
                     <p>
                         <a href="/covids">Covids</a>
-                        <img
-                            style={{ width: 50, height: 50, marginLeft: 30 }}
-                            src={Covid}
-                            alt="logo"
-                        ></img>
+                        <img style={image} src={Covid} alt="logo"></img>
                     </p>
                     <p>
                         <a href="/cryptos">Cryptos</a>
-                        <img
-                            style={{ width: 50, height: 50, marginLeft: 30 }}
-                            src={Crypto}
-                            alt="logo"
-                        ></img>
+                        <img style={image} src={Crypto} alt="logo"></img>
                     </p>
 
                     <p>
                         <a href="/games">Games</a>
-                        <img
-                            style={{ width: 50, height: 50, marginLeft: 30 }}
-                            src={Games}
-                            alt="logo"
-                        ></img>
+                        <img style={image} src={Games} alt="logo"></img>
                     </p>
                     <p>
                         <a href="/mangas">Mangas</a>
-                        <img
-                            style={{ width: 50, height: 50, marginLeft: 30 }}
-                            src={Manga}
-                            alt="logo"
-                        ></img>
+                        <img style={image} src={Manga} alt="logo"></img>
                     </p>
                     <p>
                         <a href="/movies">Movies</a>
-                        <img
-                            style={{ width: 50, height: 50, marginLeft: 30 }}
-                            src={Movie}
-                            alt="logo"
-                        ></img>
+                        <img style={image} src={Movie} alt="logo"></img>
                     </p>
                     <p>
                         <a href="/newHome">New HomePage</a>
-                        <img
-                            style={{ width: 50, height: 50, marginLeft: 30 }}
-                            src={Home}
-                            alt="logo"
-                        ></img>
+                        <img style={image} src={Home} alt="logo"></img>
                     </p>
                 </Drawer>
             </Router>

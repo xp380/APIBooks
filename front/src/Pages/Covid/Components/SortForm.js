@@ -48,6 +48,27 @@ const Covids = () => {
         });
         setSortedCovid(sortedList);
     };
+
+    const Morts = {
+        marginLeft: "80px",
+        color: "cornflowerblue",
+        backgroundColor: "darkblue",
+        boxShadow: "0px 6px 0px #d35400"
+    };
+
+    const Rétablis = {
+        marginLeft: "50px",
+        color: "floralwhite",
+        backgroundColor: "darkorange",
+        boxShadow: "0px 6px 0px #d35400"
+    };
+
+    const Confirmés = {
+        marginLeft: "50px",
+        color: "black",
+        backgroundColor: "greenyellow",
+        boxShadow: "0px 6px 0px #d35400"
+    };
     return (
         <>
             <div>
@@ -55,12 +76,7 @@ const Covids = () => {
                     onClick={sortByDeaths}
                     size="middle"
                     className="button-3d"
-                    style={{
-                        marginLeft: "80px",
-                        color: "cornflowerblue",
-                        backgroundColor: "darkblue",
-                        boxShadow: "0px 6px 0px #d35400"
-                    }}
+                    style={Morts}
                 >
                     Morts
                     {sortType === "asc" ? (
@@ -73,12 +89,7 @@ const Covids = () => {
                     onClick={sortByRecovered}
                     size="middle"
                     className="button-3d"
-                    style={{
-                        marginLeft: "50px",
-                        color: "floralwhite",
-                        backgroundColor: "darkorange",
-                        boxShadow: "0px 6px 0px #d35400"
-                    }}
+                    style={Rétablis}
                 >
                     Rétablis
                     {sortType === "asc" ? (
@@ -91,12 +102,7 @@ const Covids = () => {
                     onClick={sortByConfirmed}
                     size="middle"
                     className="button-3d"
-                    style={{
-                        marginLeft: "50px",
-                        color: "black",
-                        backgroundColor: "greenyellow",
-                        boxShadow: "0px 6px 0px #d35400"
-                    }}
+                    style={Confirmés}
                 >
                     Confirmés
                     {sortType === "asc" ? (

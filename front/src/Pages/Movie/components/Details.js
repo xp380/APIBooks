@@ -12,7 +12,20 @@ export default function Details({ handleClose, open, detailsData }) {
         popularity,
         vote_count
     } = detailsData;
-
+    const modalbody = {
+        backgroundColor: "#212121"
+    };
+    const modalmask = { backgroundColor: "inherit" };
+    const titre = {
+        color: "white",
+        fontFamily: "Impact, fantasy"
+    };
+    const image = {
+        display: "flex",
+        alignItems: "center",
+        fontFamily: "Impact, fantasy"
+    };
+    const styles = { marginLeft: 50, color: "white" };
     return (
         <>
             <Modal
@@ -21,33 +34,18 @@ export default function Details({ handleClose, open, detailsData }) {
                 visible={open}
                 width={1000}
                 footer={null}
-                bodyStyle={{
-                    backgroundColor: "#212121"
-                }}
-                maskStyle={{ backgroundColor: "inherit" }}
+                bodyStyle={modalbody}
+                maskStyle={modalmask}
             >
-                <h3
-                    style={{
-                        color: "white",
-                        fontFamily: "Impact, fantasy"
-                    }}
-                >
-                    {original_title}
-                </h3>
-                <div
-                    style={{
-                        display: "flex",
-                        alignItems: "center",
-                        fontFamily: "Impact, fantasy"
-                    }}
-                >
+                <h3 style={titre}>{original_title}</h3>
+                <div style={image}>
                     <img
                         src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
                         alt="#"
                         width="200"
                         height="200"
                     />
-                    <div style={{ marginLeft: 50, color: "white" }}>
+                    <div style={styles}>
                         <p>Langue originale: {original_language}</p>
                         <p>Date de sortie: {release_date}</p>
                         <p>Note moyenne: {vote_average}</p>

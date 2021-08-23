@@ -62,6 +62,37 @@ const Cryptos = () => {
         setSortedCrypto(sortedList);
     };
 
+    const price = {
+        marginLeft: "80px",
+        color: "wheat",
+        backgroundColor: "darkslateblue",
+        fontWeight: "bold",
+        boxShadow: "0px 6px 0px #d35400"
+    };
+
+    const volume = {
+        marginLeft: "50px",
+        color: "black",
+        backgroundColor: "tomato",
+        fontWeight: "bold",
+        boxShadow: "0px 6px 0px #d35400"
+    };
+
+    const rank = {
+        marginLeft: "50px",
+        color: "whitesmoke",
+        backgroundColor: "goldenrod",
+        fontWeight: "bold",
+        boxShadow: "0px 6px 0px #d35400"
+    };
+
+    const date = {
+        marginLeft: "50px",
+        color: "black",
+        backgroundColor: "yellow",
+        fontWeight: "bold",
+        boxShadow: "0px 6px 0px #d35400"
+    };
     return (
         <>
             <div>
@@ -69,13 +100,7 @@ const Cryptos = () => {
                     onClick={sortByPrice}
                     size="middle"
                     className="button-3d"
-                    style={{
-                        marginLeft: "80px",
-                        color: "wheat",
-                        backgroundColor: "darkslateblue",
-                        fontWeight: "bold",
-                        boxShadow: "0px 6px 0px #d35400"
-                    }}
+                    style={price}
                 >
                     Prix
                     {sortType === "asc" ? (
@@ -88,13 +113,7 @@ const Cryptos = () => {
                     onClick={sortByVolume}
                     size="middle"
                     className="button-3d"
-                    style={{
-                        marginLeft: "50px",
-                        color: "black",
-                        backgroundColor: "tomato",
-                        fontWeight: "bold",
-                        boxShadow: "0px 6px 0px #d35400"
-                    }}
+                    style={volume}
                 >
                     Volume
                     {sortType === "asc" ? (
@@ -107,13 +126,7 @@ const Cryptos = () => {
                     onClick={sortByRank}
                     size="middle"
                     className="button-3d"
-                    style={{
-                        marginLeft: "50px",
-                        color: "whitesmoke",
-                        backgroundColor: "goldenrod",
-                        fontWeight: "bold",
-                        boxShadow: "0px 6px 0px #d35400"
-                    }}
+                    style={rank}
                 >
                     Rank
                     {sortType === "asc" ? (
@@ -126,13 +139,7 @@ const Cryptos = () => {
                     onClick={sortByDate}
                     size="middle"
                     className="button-3d"
-                    style={{
-                        marginLeft: "50px",
-                        color: "black",
-                        backgroundColor: "yellow",
-                        fontWeight: "bold",
-                        boxShadow: "0px 6px 0px #d35400"
-                    }}
+                    style={date}
                 >
                     Date D'entrée
                     {sortType === "asc" ? (

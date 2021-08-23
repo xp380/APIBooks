@@ -6,11 +6,12 @@ const SearchForm = () => {
     const handleSubmit = (e) => e.preventDefault();
     const searchItems = (e) => setSearchCrypto(e.target.value);
 
+    const select = { width: 320 };
     return (
         <form onSubmit={handleSubmit}>
             <select
                 aria-label="Default select"
-                style={{ width: 320 }}
+                style={select}
                 onChange={searchItems}
             >
                 {cryptosData.map((item) => (

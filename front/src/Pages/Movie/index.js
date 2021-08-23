@@ -13,35 +13,41 @@ const Home = React.memo(() => {
     if (!movies) {
         return "error";
     }
+    const table = {
+        backgroundColor: "#235e96",
+        padding: 10,
+        position: "fixed",
+        width: "100%",
+        zIndex: 1000
+    };
+    const tablestyle = { marginTop: 60 };
 
+    const accueil = {
+        textAlign: "center",
+        fontWeight: "bold",
+        fontFamily: "number",
+        marginTop: 90
+    };
+    const row = { marginLeft: 80 };
+    const search = {
+        textAlign: "center",
+        fontWeight: "bold",
+        fontFamily: "number",
+        marginTop: 90
+    };
     return (
         <>
             <Tabs
                 defaultActiveKey="1"
                 type="card"
                 tabBarGutter={50}
-                tabBarStyle={{
-                    backgroundColor: "#235e96",
-                    padding: 10,
-                    position: "fixed",
-                    width: "100%",
-                    zIndex: 1000
-                }}
-                style={{ marginTop: 60 }}
+                tabBarStyle={table}
+                style={tablestyle}
             >
                 <TabPane tab="Accueil" key="1">
-                    <h3
-                        style={{
-                            textAlign: "center",
-                            fontWeight: "bold",
-                            fontFamily: "number",
-                            marginTop: 90
-                        }}
-                    >
-                        Liste des Films
-                    </h3>
+                    <h3 style={accueil}>Liste des Films</h3>
                     <SortForm />
-                    <Row style={{ marginLeft: 80 }}>
+                    <Row style={row}>
                         {sortedMovies.map((testModal) => {
                             return (
                                 <MovieSort key={testModal.id} {...testModal} />
@@ -50,16 +56,7 @@ const Home = React.memo(() => {
                     </Row>
                 </TabPane>
                 <TabPane tab="Card" key="2">
-                    <h3
-                        style={{
-                            textAlign: "center",
-                            fontWeight: "bold",
-                            fontFamily: "number",
-                            marginTop: 90
-                        }}
-                    >
-                        Recherche de film
-                    </h3>
+                    <h3 style={search}>Recherche de film</h3>
                     {/* <Search /> */}
                     {movies.slice(0, 1).map((moviesTest) => {
                         <h3>Représentation des Films</h3>;

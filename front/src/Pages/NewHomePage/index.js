@@ -5,24 +5,25 @@ import Game from "./Components/Game";
 import Manga from "./Components/Manga";
 import Movie from "./Components/Movie";
 
-import { Row } from "antd";
-
+const styles = {
+    marginTop: 80
+};
 export default function NewHome() {
     return (
         <>
             {/* <Row>
                 <Covid />
             </Row> */}
-            {/* <p style={{ marginTop: 80 }}>
+            {/* <p>
                 <Crypto />
             </p> */}
-            <p style={{ marginTop: 80 }}>
+            <p style={styles}>
                 <Game />
             </p>
-            <p style={{ marginTop: 80 }}>
+            <p style={styles}>
                 <Manga />
             </p>
-            <p style={{ marginTop: 80 }}>
+            <p style={styles}>
                 <Movie />
             </p>
         </>

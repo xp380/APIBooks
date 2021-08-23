@@ -4,16 +4,19 @@ import { Card, Row } from "antd";
 
 const Covids = () => {
     const { covidSearched } = useContext(CovidContext);
-    return (
-        <Row style={{ marginLeft: 70 }}>
-            {covidSearched.map((item, id) => (
-                <Card
-                    key={id}
-                    style={{ width: 300, margin: 10 }}
 
-                    bordered={true}
-                    loading={true}
-                >
+    const row = {
+        marginLeft: 70
+    };
+
+    const card = {
+        width: 300,
+        margin: 10
+    };
+    return (
+        <Row style={row}>
+            {covidSearched.map((item, id) => (
+                <Card key={id} style={card} bordered={true} loading={true}>
                     <p>
                         NB de Confirmés: {item.Confirmed}
                         <br />

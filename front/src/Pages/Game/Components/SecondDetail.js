@@ -1,13 +1,11 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 import { Modal } from "antd";
 
-
 export default function SecondDetail({ close, open, SecondDetailsData }) {
-    const {
-        id,
-        store
-    } = SecondDetailsData;
-
+    const { id, store } = SecondDetailsData;
+    const modal = {
+        backgroundColor: "#212121"
+    };
     return (
         <>
             <Modal
@@ -16,10 +14,8 @@ export default function SecondDetail({ close, open, SecondDetailsData }) {
                 visible={open}
                 width={1000}
                 footer={null}
-                bodyStyle={{
-                    backgroundColor: "#212121"
-                }}
+                bodyStyle={modal}
             ></Modal>
         </>
-    )
+    );
 }

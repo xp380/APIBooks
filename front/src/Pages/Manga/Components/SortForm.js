@@ -61,18 +61,23 @@ const Mangas = () => {
         });
         setSortedMangas(sortedList);
     };
-
+    const styles = {
+        marginLeft: "50px",
+        backgroundColor: "#e67e22",
+        boxShadow: "0px 6px 0px #d35400"
+    };
+    const id = {
+        marginLeft: "90px",
+        backgroundColor: "#e67e22",
+        boxShadow: "0px 6px 0px #d35400"
+    };
     return (
         <>
             <Button
                 onClick={sortByID}
                 size="middle"
                 className="button-3d"
-                style={{
-                    marginLeft: "90px",
-                    backgroundColor: "#e67e22",
-                    boxShadow: "0px 6px 0px #d35400"
-                }}
+                style={id}
             >
                 ID
                 {sortType === "asc" ? (
@@ -85,11 +90,7 @@ const Mangas = () => {
                 onClick={sortByScore}
                 size="middle"
                 className="button-3d"
-                style={{
-                    marginLeft: "50px",
-                    backgroundColor: "#e67e22",
-                    boxShadow: "0px 6px 0px #d35400"
-                }}
+                style={styles}
             >
                 Score
                 {sortType === "asc" ? (
@@ -102,11 +103,7 @@ const Mangas = () => {
                 onClick={sortByEpisodes}
                 size="middle"
                 className="button-3d"
-                style={{
-                    marginLeft: "50px",
-                    backgroundColor: "#e67e22",
-                    boxShadow: "0px 6px 0px #d35400"
-                }}
+                style={styles}
             >
                 NB Episodes
                 {sortType === "asc" ? (
@@ -119,11 +116,7 @@ const Mangas = () => {
                 onClick={sortByDate}
                 size="middle"
                 className="button-3d"
-                style={{
-                    marginLeft: "50px",
-                    backgroundColor: "#e67e22",
-                    boxShadow: "0px 6px 0px #d35400"
-                }}
+                style={styles}
             >
                 Date
                 {sortType === "asc" ? (

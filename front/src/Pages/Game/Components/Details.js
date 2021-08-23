@@ -17,6 +17,29 @@ export default function Details({ handleClose, open, detailsData }) {
         ratings_count
     } = detailsData;
 
+    const modal = {
+        backgroundColor: "#212121"
+    };
+    const styles = {
+        color: "white",
+        marginLeft: 30,
+        fontWeight: "bold",
+        fontFamily: "Impact, fantasy"
+    };
+    const image = {
+        display: "flex",
+        alignItems: "center"
+    };
+    const police = { color: "white", marginLeft: 50 };
+    const date = {
+        fontFamily: "Trebuchet MS, sans-serif",
+        fontWeight: "bold"
+    };
+    const time = {
+        fontFamily: "Trebuchet MS, sans-serif",
+        fontWeight: "bold"
+    };
+    const genre = { fontWeight: "bold" };
     return (
         <>
             <Modal
@@ -25,26 +48,10 @@ export default function Details({ handleClose, open, detailsData }) {
                 visible={open}
                 width={1000}
                 footer={null}
-                bodyStyle={{
-                    backgroundColor: "#212121"
-                }}
+                bodyStyle={modal}
             >
-                <h3
-                    style={{
-                        color: "white",
-                        marginLeft: 30,
-                        fontWeight: "bold",
-                        fontFamily: "Impact, fantasy"
-                    }}
-                >
-                    {name}
-                </h3>
-                <div
-                    style={{
-                        display: "flex",
-                        alignItems: "center"
-                    }}
-                >
+                <h3 style={styles}>{name}</h3>
+                <div style={image}>
                     <img
                         src={background_image}
                         alt="#"
@@ -52,27 +59,12 @@ export default function Details({ handleClose, open, detailsData }) {
                         height="200"
                     />
 
-                    <div style={{ color: "white", marginLeft: 50 }}>
-                        <p
-                            style={{
-                                fontFamily: "Trebuchet MS, sans-serif",
-                                fontWeight: "bold"
-                            }}
-                        >
-                            {" "}
-                            Date de sortie: {released}
-                        </p>
-                        <p
-                            style={{
-                                fontFamily: "Trebuchet MS, sans-serif",
-                                fontWeight: "bold"
-                            }}
-                        >
-                            Temps d'une partie: {playtime}
-                        </p>
+                    <div style={police}>
+                        <p style={date}> Date de sortie: {released}</p>
+                        <p style={time}>Temps d'une partie: {playtime}</p>
 
                         {/* <p>Plateforme: {slug}</p> */}
-                        <p style={{ fontWeight: "bold" }}>
+                        <p style={genre}>
                             {" "}
                             Genres:
                             {tags.map((data) => {
@@ -163,17 +155,13 @@ export default function Details({ handleClose, open, detailsData }) {
                                 }
                             })}
                         </p>
-                        <p style={{ fontWeight: "bold" }}>
-                            Classement: {rating_top}
-                        </p>
-                        <p style={{ fontWeight: "bold" }}>Note: {rating}</p>
+                        <p style={genre}>Classement: {rating_top}</p>
+                        <p style={genre}>Note: {rating}</p>
                     </div>
 
                     <div style={{ color: "white", marginLeft: 100 }}>
-                        <p style={{ fontWeight: "bold" }}>Plateforme:</p>
-                        <p style={{ fontWeight: "bold" }}>
-                            Nb de notes: {ratings_count}
-                        </p>
+                        <p style={genre}>Plateforme:</p>
+                        <p style={genre}>Nb de notes: {ratings_count}</p>
                     </div>
                 </div>
             </Modal>

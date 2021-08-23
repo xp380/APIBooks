@@ -11,40 +11,48 @@ import SortForm from "./Components/SortForm";
 import { CryptoContext } from "./Context";
 
 const Home = React.memo(() => {
-    // const history = useHistory();
     const { TabPane } = Tabs;
     const { cryptoSearched, sortedCrypto } = useContext(CryptoContext);
-    // setTimeout(() => {
-    //     history.push("/covids");
-    // }, 2000);
+
+    const card = { marginTop: 60 };
+    const table = {
+        backgroundColor: "#235e96",
+        padding: 10,
+        position: "fixed",
+        width: "100%",
+        zIndex: 1000
+    };
+    const accueil = {
+        textAlign: "center",
+        fontWeight: "bold",
+        fontFamily: "number",
+        marginTop: 90
+    };
+    const row = { marginLeft: 70 };
+    const card2 = {
+        textAlign: "center",
+        fontWeight: "bold",
+        fontFamily: "number",
+        marginTop: 70
+    };
+    const search = {
+        textAlign: "center",
+        fontWeight: "bold",
+        marginTop: 80
+    };
     return (
         <>
             <Tabs
                 defaultActiveKey="1"
                 type="card"
-                style={{ marginTop: 60 }}
+                style={card}
                 tabBarGutter={50}
-                tabBarStyle={{
-                    backgroundColor: "#235e96",
-                    padding: 10,
-                    position: "fixed",
-                    width: "100%",
-                    zIndex: 1000
-                }}
+                tabBarStyle={table}
             >
                 <TabPane tab="Accueil" key="1">
-                    <h3
-                        style={{
-                            textAlign: "center",
-                            fontWeight: "bold",
-                            fontFamily: "number",
-                            marginTop: 90
-                        }}
-                    >
-                        Liste des Cryptos
-                    </h3>
+                    <h3 style={accueil}>Liste des Cryptos</h3>
                     <SortForm />
-                    <Row style={{ marginLeft: 70 }}>
+                    <Row style={row}>
                         {sortedCrypto.map((testModal) => {
                             return (
                                 <SortCrypto key={testModal.id} {...testModal} />
@@ -53,28 +61,11 @@ const Home = React.memo(() => {
                     </Row>
                 </TabPane>
                 <TabPane tab="Card" key="2">
-                    <h3
-                        style={{
-                            textAlign: "center",
-                            fontWeight: "bold",
-                            fontFamily: "number",
-                            marginTop: 70
-                        }}
-                    >
-                        Liste des Cryptos en graphismes
-                    </h3>
+                    <h3 style={card2}>Liste des Cryptos en graphismes</h3>
                     <Graph />
                 </TabPane>
                 <TabPane tab="Search" key="3">
-                    <h3
-                        style={{
-                            textAlign: "center",
-                            fontWeight: "bold",
-                            marginTop: 80
-                        }}
-                    >
-                        Recherche
-                    </h3>
+                    <h3 style={search}>Recherche</h3>
                     <Search />
                     {cryptoSearched.map((cryptoTest) => {
                         <h3>Liste des Cryptos</h3>;

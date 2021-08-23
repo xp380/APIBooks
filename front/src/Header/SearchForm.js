@@ -15,11 +15,16 @@ const SearchForm = () => {
         setSearchAnime(inputRef.current.value);
         setSearchGame(inputRef.current.value);
     };
-
+    const form = {
+        marginLeft: 20,
+        lineHeight: 3,
+        borderRadius: 25,
+        color: "black"
+    };
     return (
         <form onSubmit={handleSubmit}>
             <input
-                style={{ marginLeft: 20, lineHeight: 3, borderRadius: 25, color: "black" }}
+                style={form}
                 type="text"
                 placeholder="search  ...."
                 ref={inputRef}

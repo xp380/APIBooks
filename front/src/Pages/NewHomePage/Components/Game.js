@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import { Carousel } from "antd";
+import { Carousel, Button } from "antd";
 import { GlobalContext } from "../Context";
 import { useHistory } from "react-router";
+import { LeftCircleOutlined, RightCircleOutlined } from "@ant-design/icons";
 
 export default function Game() {
     const { gamePlay } = useContext(GlobalContext);
@@ -10,10 +11,27 @@ export default function Game() {
     function HandleHistory() {
         history.push("./games");
     }
+    // const RightArrow = () => {
+    //     return (
+    //         <Button
+    //             style={{ padding: "1rem", height: "auto", width: "auto" }}
+    //             icon={<RightCircleOutlined style={{ fontSize: 60 }} />}
+    //         />
+    //     );
+    // };
 
+    // const LeftArrow = () => {
+    //     return <Button icon={<LeftCircleOutlined />} size="middle" />;
+    // };
     return (
         <>
-            <Carousel slidesToShow={5} dots={false}>
+            <Carousel
+                slidesToShow={5}
+                dots={false}
+                // arrows={true}
+                // prevArrow={LeftArrow()}
+                // nextArrow={RightArrow()}
+            >
                 {gamePlay.map((item, id) => {
                     return (
                         <>

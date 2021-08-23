@@ -4,23 +4,23 @@ import { Card, Row, Tag } from "antd";
 
 const Games = () => {
     const { games } = useContext(GameContext);
+
+    const row = { marginLeft: 70 };
+    const card = { width: 300, margin: 10 };
+    const slug = { textAlign: "left" };
+    const rating = { float: "right" };
+    const image = { marginLeft: 25 };
     return (
-        <Row style={{ marginLeft: 70 }}>
+        <Row style={row}>
             {games.slice(0, 9).map((item, id) => (
-                <Card
-                    key={id}
-                    style={{ width: 300, margin: 10 }}
-                    bordered={true}
-                >
+                <Card key={id} style={card} bordered={true}>
                     <div>
-                        <p style={{ textAlign: "left" }}>
+                        <p style={slug}>
                             {item.slug}{" "}
-                            <span style={{ float: "right" }}>
-                                {item.rating}
-                            </span>
+                            <span style={rating}>{item.rating}</span>
                         </p>
                     </div>
-                    <p style={{ marginLeft: 25 }}>
+                    <p style={image}>
                         <img
                             src={item.background_image}
                             alt="#"

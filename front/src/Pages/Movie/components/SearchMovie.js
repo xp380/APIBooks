@@ -4,24 +4,23 @@ import { Card, Row, Tag } from "antd";
 
 const Movies = () => {
     const { movies, genres } = useContext(MovieContext);
+    const row = { marginLeft: 80 };
+    const card = { width: 300, margin: 10 };
+    const titre = { textAlign: "left" };
+    const vote = { float: "right" };
+    const image = { marginLeft: 25 };
     return (
-        <Row style={{ marginLeft: 80 }}>
+        <Row style={row}>
             {movies.slice(0, 6).map((item, id) => {
                 return (
-                    <Card
-                        key={id}
-                        style={{ width: 300, margin: 10 }}
-                        bordered={true}
-                    >
+                    <Card key={id} style={card} bordered={true}>
                         <div>
-                            <p style={{ textAlign: "left" }}>
+                            <p style={titre}>
                                 {item.title}{" "}
-                                <span style={{ float: "right" }}>
-                                    {item.vote_average}
-                                </span>
+                                <span style={vote}>{item.vote_average}</span>
                             </p>
                         </div>
-                        <p style={{ marginLeft: 25 }}>
+                        <p style={image}>
                             <img
                                 src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
                                 alt="#"

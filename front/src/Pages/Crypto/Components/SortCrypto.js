@@ -41,6 +41,9 @@ const CryptoSort = React.memo((props) => {
         borderRadius: "60px"
     };
 
+    const picture = { marginLeft: 100 };
+
+    const content = { fontWeight: "bold", fontFamily: "monospace" };
     return (
         <Row>
             <Card
@@ -55,24 +58,14 @@ const CryptoSort = React.memo((props) => {
                         alt="Smiley face"
                         height="42"
                         width="42"
-                        style={{ marginLeft: 100 }}
+                        style={picture}
                     ></img>
                     <Divider />
-                    <p style={{ fontWeight: "bold", fontFamily: "monospace" }}>
-                        Rank:{market_cap_rank}
-                    </p>
-                    <p style={{ fontWeight: "bold", fontFamily: "monospace" }}>
-                        Nom:{name}
-                    </p>
-                    <p style={{ fontWeight: "bold", fontFamily: "monospace" }}>
-                        Prix actuel: {current_price}
-                    </p>
-                    <p style={{ fontWeight: "bold", fontFamily: "monospace" }}>
-                        Volume:{total_volume}
-                    </p>
-                    <p style={{ fontWeight: "bold", fontFamily: "monospace" }}>
-                        Date: {atl_date}
-                    </p>
+                    <p style={content}>Rank:{market_cap_rank}</p>
+                    <p style={content}>Nom:{name}</p>
+                    <p style={content}>Prix actuel: {current_price}</p>
+                    <p style={content}>Volume:{total_volume}</p>
+                    <p style={content}>Date: {atl_date}</p>
                 </div>
             </Card>
             <GraphSelected

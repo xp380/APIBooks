@@ -11,6 +11,7 @@ export default function Graph() {
     let low = [];
     let price = [];
 
+    const bar = { width: "85%", marginLeft: 80 };
     useEffect(() => {
         axios
             .get(
@@ -53,7 +54,7 @@ export default function Graph() {
     }, []);
 
     return (
-        <div style={{ width: "85%", marginLeft: 80 }}>
+        <div style={bar}>
             <Bar data={data.Data}></Bar>
         </div>
     );

@@ -48,18 +48,23 @@ const Movies = () => {
         });
         setSortedMovies(sortedList);
     };
-
+    const button = {
+        marginLeft: "90px",
+        backgroundColor: "#e67e22",
+        boxShadow: "0px 6px 0px #d35400"
+    };
+    const button2 = {
+        marginLeft: "50px",
+        backgroundColor: "#e67e22",
+        boxShadow: "0px 6px 0px #d35400"
+    };
     return (
         <>
             <Button
                 onClick={sortByRated}
                 size="middle"
                 className="button-3d"
-                style={{
-                    marginLeft: "90px",
-                    backgroundColor: "#e67e22",
-                    boxShadow: "0px 6px 0px #d35400"
-                }}
+                style={button}
             >
                 Note
                 {sortType === "asc" ? (
@@ -72,11 +77,7 @@ const Movies = () => {
                 onClick={sortByPop}
                 size="middle"
                 className="button-3d"
-                style={{
-                    marginLeft: "50px",
-                    backgroundColor: "#e67e22",
-                    boxShadow: "0px 6px 0px #d35400"
-                }}
+                style={button2}
             >
                 Popularité
                 {sortType === "asc" ? (
@@ -89,11 +90,7 @@ const Movies = () => {
                 onClick={sortById}
                 size="middle"
                 className="button-3d"
-                style={{
-                    marginLeft: "50px",
-                    backgroundColor: "#e67e22",
-                    boxShadow: "0px 6px 0px #d35400"
-                }}
+                style={button2}
             >
                 ID
                 {sortType === "asc" ? (

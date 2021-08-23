@@ -49,6 +49,16 @@ const Games = () => {
         setSortedGames(sortedList);
     };
 
+    const sort = {
+        marginLeft: "50px",
+        backgroundColor: "#e67e22",
+        boxShadow: "0px 6px 0px #d35400"
+    };
+    const sort2 = {
+        marginLeft: "90px",
+        backgroundColor: "#e67e22",
+        boxShadow: "0px 6px 0px #d35400"
+    };
     return (
         <>
             <div>
@@ -56,11 +66,7 @@ const Games = () => {
                     onClick={sortByGrade}
                     size="middle"
                     className="button-3d"
-                    style={{
-                        marginLeft: "90px",
-                        backgroundColor: "#e67e22",
-                        boxShadow: "0px 6px 0px #d35400"
-                    }}
+                    style={sort2}
                 >
                     Notes
                     {sortType === "asc" ? (
@@ -73,11 +79,7 @@ const Games = () => {
                     onClick={sortByTime}
                     size="middle"
                     className="button-3d"
-                    style={{
-                        marginLeft: "50px",
-                        backgroundColor: "#e67e22",
-                        boxShadow: "0px 6px 0px #d35400"
-                    }}
+                    style={sort}
                 >
                     Temps d'une partie
                     {sortType === "asc" ? (
@@ -90,11 +92,7 @@ const Games = () => {
                     onClick={sortByDate}
                     size="middle"
                     className="button-3d"
-                    style={{
-                        marginLeft: "50px",
-                        backgroundColor: "#e67e22",
-                        boxShadow: "0px 6px 0px #d35400"
-                    }}
+                    style={sort}
                 >
                     Date
                     {sortType === "asc" ? (

@@ -16,7 +16,7 @@ const Movies = React.memo((props) => {
     const HoverableDiv = ({ handleMouseOver, handleMouseOut }) => {
         return (
             <div
-                style={{ marginLeft: 25 }}
+                style={hov}
                 onMouseOver={handleMouseOver}
                 onMouseOut={handleMouseOut}
             >
@@ -32,18 +32,7 @@ const Movies = React.memo((props) => {
 
     const HoverText = () => {
         return (
-            <div
-                className="test"
-                style={{
-                    width: 90,
-                    marginLeft: 80,
-                    marginTop: 10,
-                    fontWeight: "bolder",
-                    backgroundColor: "white",
-                    textAlign: "center",
-                    borderRadius: "10px"
-                }}
-            >
+            <div className="test" style={test}>
                 CLICK ME
             </div>
         );
@@ -69,6 +58,17 @@ const Movies = React.memo((props) => {
         return color;
     };
 
+    const hov = { marginLeft: 25 };
+    const test = {
+        width: 90,
+        marginLeft: 80,
+        marginTop: 10,
+        fontWeight: "bolder",
+        backgroundColor: "white",
+        textAlign: "center",
+        borderRadius: "10px"
+    };
+
     const styles = {
         backgroundColor: randomColorGenerator(),
         width: 300,
@@ -78,6 +78,16 @@ const Movies = React.memo((props) => {
         borderRadius: "60px"
     };
 
+    const titre = {
+        textAlign: "left",
+        fontFamily: "Impact, fantasy"
+    };
+
+    const vote = {
+        float: "right",
+        fontFamily: "Impact, fantasy"
+    };
+    const pop = { fontFamily: "Impact, fantasy" };
     return (
         <Row>
             <Card
@@ -87,25 +97,10 @@ const Movies = React.memo((props) => {
                 onClick={handleClickOpen}
             >
                 <div>
-                    <p
-                        style={{
-                            textAlign: "left",
-                            fontFamily: "Impact, fantasy"
-                        }}
-                    >
-                        {title}{" "}
-                        <span
-                            style={{
-                                float: "right",
-                                fontFamily: "Impact, fantasy"
-                            }}
-                        >
-                            note:{vote_average}
-                        </span>
+                    <p style={titre}>
+                        {title} <span style={vote}>note:{vote_average}</span>
                     </p>
-                    <p style={{ fontFamily: "Impact, fantasy" }}>
-                        Popularité: {popularity}
-                    </p>
+                    <p style={pop}>Popularité: {popularity}</p>
                 </div>
                 <HoverableDiv
                     handleMouseOver={handleMouseOver}

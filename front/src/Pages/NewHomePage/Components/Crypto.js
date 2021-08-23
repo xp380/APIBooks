@@ -10,10 +10,6 @@ export default function Crypto() {
         history.push("./cryptos");
     }
 
-    const styles = {
-        width: 300,
-        margin: 10
-    };
     return (
         <>
             <Card bordered={true} onClick={HandleHistory}>

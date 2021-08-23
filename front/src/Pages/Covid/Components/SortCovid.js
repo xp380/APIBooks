@@ -30,7 +30,24 @@ const CovidSort = React.memo((props) => {
         boxShadow: "0 8px 16px 0 black",
         borderRadius: "60px"
     };
-
+    const country = { textAlign: "center", border: "solid" };
+    const date = { textAlign: "center", fontWeight: "bold" };
+    const active = {
+        fontFamily: "monospace",
+        fontWeight: "bold"
+    };
+    const deaths = {
+        fontFamily: "emoji",
+        fontWeight: "bold"
+    };
+    const recovered = {
+        fontFamily: "math",
+        fontWeight: "bold"
+    };
+    const confirmed = {
+        fontFamily: "fantasy",
+        fontWeight: "bold"
+    };
     const { id, Confirmed, Deaths, Recovered, Date, Country, Active } = props;
     return (
         <>
@@ -41,45 +58,12 @@ const CovidSort = React.memo((props) => {
                 onClick={handleClickOpen}
             >
                 <div>
-                    <h3 style={{ textAlign: "center", border: "solid" }}>
-                        {Country}
-                    </h3>
-                    <p style={{ textAlign: "center", fontWeight: "bold" }}>
-                        {Date}
-                    </p>
-
-                    <p
-                        style={{
-                            fontFamily: "monospace",
-                            fontWeight: "bold"
-                        }}
-                    >
-                        Active:{Active}
-                    </p>
-                    <p
-                        style={{
-                            fontFamily: "emoji",
-                            fontWeight: "bold"
-                        }}
-                    >
-                        Morts:{Deaths}
-                    </p>
-                    <p
-                        style={{
-                            fontFamily: "math",
-                            fontWeight: "bold"
-                        }}
-                    >
-                        Rétablis:{Recovered}
-                    </p>
-                    <p
-                        style={{
-                            fontFamily: "fantasy",
-                            fontWeight: "bold"
-                        }}
-                    >
-                        Confirmés:{Confirmed}
-                    </p>
+                    <h3 style={country}>{Country}</h3>
+                    <p style={date}>{Date}</p>
+                    <p style={active}>Active:{Active}</p>
+                    <p style={deaths}>Morts:{Deaths}</p>
+                    <p style={recovered}>Rétablis:{Recovered}</p>
+                    <p style={confirmed}>Confirmés:{Confirmed}</p>
                 </div>
             </Card>
             <GraphSelected
