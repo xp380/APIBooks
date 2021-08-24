@@ -3,7 +3,7 @@ import axios from "axios";
 const GlobalContext = createContext();
 
 const GlobalProvider = ({ children }) => {
-    const [covidDelta, setCovidDelta] = useState([]);
+    const [covidDelta, setCovidDelta] = useState("");
     const [cryptoMoney, setCryptoMonney] = useState([]);
     const [gamePlay, setGamePlay] = useState([]);
     const [mangaAnime, setMangaAnime] = useState([]);
@@ -11,9 +11,7 @@ const GlobalProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchCovid = async () => {
-            const result = await axios(
-                "https://api.covid19api.com/total/country/france"
-            );
+            const result = await axios("https://disease.sh/v3/covid-19/all");
             setCovidDelta(result.data);
         };
         fetchCovid();

@@ -1,3 +1,4 @@
+import { Row } from "antd";
 import React from "react";
 import Covid from "./Components/Covid";
 import Crypto from "./Components/Crypto";
@@ -11,12 +12,14 @@ const styles = {
 export default function NewHome() {
     return (
         <>
-            {/* <Row>
-                <Covid />
-            </Row> */}
-            <p>
-                <Crypto />
-            </p>
+            <Row>
+                {/* <p>
+                    <Covid />
+                </p> */}
+                <p style={{ marginTop: 80, marginLeft: 700 }}>
+                    <Crypto />
+                </p>
+            </Row>
             <p style={styles}>
                 <Game />
             </p>
