@@ -14,9 +14,9 @@ export default function NewHome() {
             {/* <Row>
                 <Covid />
             </Row> */}
-            {/* <p>
+            <p>
                 <Crypto />
-            </p> */}
+            </p>
             <p style={styles}>
                 <Game />
             </p>

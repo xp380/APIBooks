@@ -13,9 +13,11 @@ export default function Crypto() {
     return (
         <>
             <Card bordered={true} onClick={HandleHistory}>
-                {cryptoMoney.map((data) => {
-                    return <Tag color="blue">{data.name} </Tag>;
-                })}
+                {cryptoMoney.map((data) => (
+                    <>
+                        <p>{data.item.name}</p>
+                    </>
+                ))}
             </Card>
         </>
     );
