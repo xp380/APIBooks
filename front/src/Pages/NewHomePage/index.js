@@ -16,15 +16,17 @@ export default function NewHome() {
                 <p
                     style={{
                         marginTop: 80,
-                        marginLeft: 300,
+                        marginLeft: 150,
                         display: "flex",
                         borderSpacing: 5
                     }}
                 >
-                    <p style={{ marginRight: 100 }}>
+                    <p style={{ marginRight: 10 }}>
                         <Covid />
                     </p>
-                    <Crypto />
+                    <span style={{ marginLeft: 50 }}>
+                        <Crypto />
+                    </span>
                 </p>
             </Row>
             <p style={styles}>
