@@ -16,7 +16,7 @@ const SearchForm = () => {
         setSearchGame(inputRef.current.value);
     };
     const form = {
-        marginLeft: 20,
+        marginLeft: 200,
         lineHeight: 3,
         color: "black"
     };

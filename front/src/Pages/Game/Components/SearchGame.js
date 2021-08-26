@@ -12,7 +12,7 @@ const Games = () => {
     const image = { marginLeft: 25 };
     return (
         <Row style={row}>
-            {games.slice(0, 9).map((item, id) => (
+            {games.slice(0, 1).map((item, id) => (
                 <Card key={id} style={card} bordered={true}>
                     <div>
                         <p style={slug}>

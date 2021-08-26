@@ -13,10 +13,17 @@ export default function NewHome() {
     return (
         <>
             <Row>
-                {/* <p>
-                    <Covid />
-                </p> */}
-                <p style={{ marginTop: 80, marginLeft: 900 }}>
+                <p
+                    style={{
+                        marginTop: 80,
+                        marginLeft: 300,
+                        display: "flex",
+                        borderSpacing: 5
+                    }}
+                >
+                    <p style={{ marginRight: 100 }}>
+                        <Covid />
+                    </p>
                     <Crypto />
                 </p>
             </Row>
