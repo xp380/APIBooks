@@ -10,20 +10,28 @@ export default function Crypto() {
         history.push("./cryptos");
     }
 
-    const card = { width: 600 };
+    const card = { width: 400 };
     return (
         <>
             <Card bordered={true} onClick={HandleHistory} style={card}>
-                {cryptoMoney.map((data) => (
+                {cryptoMoney.slice(0, 3).map((data) => (
                     <>
-                        <ol>
+                        <p>
+                            <img alt="#" src={data.item.small}></img>
+                            {data.item.name}
+
+                            {data.item.price_btc}
+
+                            {data.item.market_cap_rank}
+                        </p>
+                        {/* <ol>
                             <li>
                                 <p>{data.item.name}</p>
                                 <img alt="#" src={data.item.small}></img>
                             </li>
                             <p>{data.item.price_btc}</p>
-                            {/* <li>{data.item.price_btc}</li> */}
-                        </ol>
+                            <p>{data.item.market_cap_rank}</p>
+                        </ol> */}
                     </>
                 ))}
             </Card>

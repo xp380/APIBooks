@@ -18,7 +18,6 @@ const SearchForm = () => {
     const form = {
         marginLeft: 20,
         lineHeight: 3,
-        borderRadius: 25,
         color: "black"
     };
     return (

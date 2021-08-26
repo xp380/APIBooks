@@ -4,6 +4,7 @@ import Details from "./Details";
 import { Card, Tag } from "antd";
 
 const Main = React.memo((props) => {
+    const [isHovering, setIsHovering] = useState(false);
     const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
@@ -11,6 +12,34 @@ const Main = React.memo((props) => {
     };
     const handleClose = () => {
         setOpen(false);
+    };
+
+    const HoverableDiv = ({ handleMouseOver, handleMouseOut }) => {
+        return (
+            <div
+                style={hov}
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
+            >
+                <img src={image_url} alt="#" width="200" height="200" />
+            </div>
+        );
+    };
+
+    const HoverText = () => {
+        return (
+            <div className="test" style={test}>
+                CLICK ME
+            </div>
+        );
+    };
+
+    const handleMouseOver = () => {
+        setIsHovering(true);
+    };
+
+    const handleMouseOut = () => {
+        setIsHovering(false);
     };
 
     const { image_url, mal_id, score, title, genres, episodes } = props;
@@ -23,6 +52,17 @@ const Main = React.memo((props) => {
             color += charChoices[randomIndex];
         }
         return color;
+    };
+
+    const hov = { marginLeft: 25 };
+    const test = {
+        width: 90,
+        marginLeft: 80,
+        marginTop: 10,
+        fontWeight: "bolder",
+        backgroundColor: "white",
+        textAlign: "center",
+        borderRadius: "10px"
     };
 
     const styles = {
@@ -69,9 +109,6 @@ const Main = React.memo((props) => {
                     <p style={episode}>NB episodes: {episodes}</p>
                 </div>
                 <p>
-                    <p style={image}>
-                        <img src={image_url} alt="#" width="200" height="200" />
-                    </p>
                     <p style={genre}>Genres: </p>
                     {genres.map((data) => {
                         if (data.mal_id === 1) {
@@ -167,6 +204,11 @@ const Main = React.memo((props) => {
                         }
                     })}
                 </p>
+                <HoverableDiv
+                    handleMouseOver={handleMouseOver}
+                    handleMouseOut={handleMouseOut}
+                />
+                {isHovering && <HoverText />}
             </Card>
             <Details
                 open={open}

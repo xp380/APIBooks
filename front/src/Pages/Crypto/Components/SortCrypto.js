@@ -3,6 +3,7 @@ import { Card, Row, Divider } from "antd";
 import GraphSelected from "./GraphSelected";
 
 const CryptoSort = React.memo((props) => {
+    const [isHovering, setIsHovering] = useState(false);
     const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
@@ -10,6 +11,40 @@ const CryptoSort = React.memo((props) => {
     };
     const handleClose = () => {
         setOpen(false);
+    };
+
+    const HoverableDiv = ({ handleMouseOver, handleMouseOut }) => {
+        return (
+            <div
+                style={hov}
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
+            >
+                <img
+                    src={image}
+                    alt="Smiley face"
+                    height="42"
+                    width="42"
+                    style={picture}
+                />
+            </div>
+        );
+    };
+
+    const HoverText = () => {
+        return (
+            <div className="test" style={test}>
+                CLICK ME
+            </div>
+        );
+    };
+
+    const handleMouseOver = () => {
+        setIsHovering(true);
+    };
+
+    const handleMouseOut = () => {
+        setIsHovering(false);
     };
 
     const {
@@ -32,6 +67,17 @@ const CryptoSort = React.memo((props) => {
         return color;
     };
 
+    const hov = { marginLeft: 25 };
+    const test = {
+        width: 90,
+        marginLeft: 80,
+        marginTop: 10,
+        fontWeight: "bolder",
+        backgroundColor: "white",
+        textAlign: "center",
+        borderRadius: "10px"
+    };
+
     const styles = {
         backgroundColor: randomColorGenerator(),
         width: 300,
@@ -41,7 +87,7 @@ const CryptoSort = React.memo((props) => {
         borderRadius: "60px"
     };
 
-    const picture = { marginLeft: 100 };
+    const picture = { marginLeft: 70 };
 
     const content = { fontWeight: "bold", fontFamily: "monospace" };
     return (
@@ -53,13 +99,6 @@ const CryptoSort = React.memo((props) => {
                 onClick={handleClickOpen}
             >
                 <div>
-                    <img
-                        src={image}
-                        alt="Smiley face"
-                        height="42"
-                        width="42"
-                        style={picture}
-                    ></img>
                     <Divider />
                     <p style={content}>Rank:{market_cap_rank}</p>
                     <p style={content}>Nom:{name}</p>
@@ -67,6 +106,11 @@ const CryptoSort = React.memo((props) => {
                     <p style={content}>Volume:{total_volume}</p>
                     <p style={content}>Date: {atl_date}</p>
                 </div>
+                <HoverableDiv
+                    handleMouseOver={handleMouseOver}
+                    handleMouseOut={handleMouseOut}
+                />
+                {isHovering && <HoverText />}
             </Card>
             <GraphSelected
                 open={open}

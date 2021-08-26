@@ -3,6 +3,7 @@ import { Card } from "antd";
 import GraphSelected from "./GraphSelected";
 
 const CovidSort = React.memo((props) => {
+    const [isHovering, setIsHovering] = useState(false);
     const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
@@ -10,6 +11,52 @@ const CovidSort = React.memo((props) => {
     };
     const handleClose = () => {
         setOpen(false);
+    };
+
+    const HoverableDiv = ({ handleMouseOver, handleMouseOut }) => {
+        return (
+            <div
+                style={hov}
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
+            >
+                <div>
+                    <h3 style={country}>{Country}</h3>
+                    <p style={date}>{Date}</p>
+                    <p style={active}>Active:{Active}</p>
+                    <p style={deaths}>Morts:{Deaths}</p>
+                    <p style={recovered}>Rétablis:{Recovered}</p>
+                    <p style={confirmed}>Confirmés:{Confirmed}</p>
+                </div>
+            </div>
+        );
+    };
+
+    const HoverText = () => {
+        return (
+            <div className="test" style={test}>
+                CLICK ME
+            </div>
+        );
+    };
+
+    const handleMouseOver = () => {
+        setIsHovering(true);
+    };
+
+    const handleMouseOut = () => {
+        setIsHovering(false);
+    };
+
+    const hov = { marginLeft: 25 };
+    const test = {
+        width: 90,
+        marginLeft: 80,
+        marginTop: 10,
+        fontWeight: "bolder",
+        backgroundColor: "white",
+        textAlign: "center",
+        borderRadius: "10px"
     };
 
     const randomColorGenerator = () => {
@@ -57,14 +104,11 @@ const CovidSort = React.memo((props) => {
                 bordered={true}
                 onClick={handleClickOpen}
             >
-                <div>
-                    <h3 style={country}>{Country}</h3>
-                    <p style={date}>{Date}</p>
-                    <p style={active}>Active:{Active}</p>
-                    <p style={deaths}>Morts:{Deaths}</p>
-                    <p style={recovered}>Rétablis:{Recovered}</p>
-                    <p style={confirmed}>Confirmés:{Confirmed}</p>
-                </div>
+                <HoverableDiv
+                    handleMouseOver={handleMouseOver}
+                    handleMouseOut={handleMouseOut}
+                />
+                {isHovering && <HoverText />}
             </Card>
             <GraphSelected
                 open={open}

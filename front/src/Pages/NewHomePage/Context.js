@@ -12,7 +12,7 @@ const GlobalProvider = ({ children }) => {
     useEffect(() => {
         const fetchCovid = async () => {
             const result = await axios("https://disease.sh/v3/covid-19/all");
-            setCovidDelta(result.data);
+            setCovidDelta(result);
         };
         fetchCovid();
     }, []);

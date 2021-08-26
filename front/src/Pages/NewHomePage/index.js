@@ -16,7 +16,7 @@ export default function NewHome() {
                 {/* <p>
                     <Covid />
                 </p> */}
-                <p style={{ marginTop: 80, marginLeft: 700 }}>
+                <p style={{ marginTop: 80, marginLeft: 900 }}>
                     <Crypto />
                 </p>
             </Row>
