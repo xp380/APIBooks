@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Card, Tag } from "antd";
+import { Card, Row, Col } from "antd";
 import { GlobalContext } from "../Context";
 import { useHistory } from "react-router";
 
@@ -10,30 +10,26 @@ export default function Crypto() {
         history.push("./cryptos");
     }
 
-    const card = { width: 400 };
+    const card = { width: 600 };
     return (
         <>
             <Card bordered={true} onClick={HandleHistory} style={card}>
-                {cryptoMoney.slice(0, 3).map((data) => (
-                    <>
-                        <p>
-                            <img alt="#" src={data.item.small}></img>
-                            {data.item.name}
-
-                            {data.item.price_btc}
-
-                            {data.item.market_cap_rank}
-                        </p>
-                        {/* <ol>
+                <h3 style={{ textAlign: "center" }}>
+                    Les crypto les plus recherchées depuis 24h
+                </h3>
+                <Row gutter={16}>
+                    <ol>
+                        {cryptoMoney.slice(0, 3).map((data) => (
                             <li>
-                                <p>{data.item.name}</p>
                                 <img alt="#" src={data.item.small}></img>
+                                {data.item.name}
+                                {/* {data.item.price_btc} */}
+                                {data.item.market_cap_rank}
+                                {/* </div> */}
                             </li>
-                            <p>{data.item.price_btc}</p>
-                            <p>{data.item.market_cap_rank}</p>
-                        </ol> */}
-                    </>
-                ))}
+                        ))}
+                    </ol>
+                </Row>
             </Card>
         </>
     );
