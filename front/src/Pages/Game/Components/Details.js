@@ -60,9 +60,13 @@ export default function Details({ handleClose, open, detailsData }) {
                     />
 
                     <div style={police}>
-                        <p style={date}> Date de sortie: {released}</p>
+                        toLocaleDateString
+                        <p style={date}>
+                            {" "}
+                            Date de sortie:{" "}
+                            {new Date(released).toLocaleDateString("en-GB")}
+                        </p>
                         <p style={time}>Temps d'une partie: {playtime}</p>
-
                         {/* <p>Plateforme: {slug}</p> */}
                         <p style={genre}>
                             {" "}

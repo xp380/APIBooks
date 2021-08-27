@@ -11,7 +11,7 @@ export default function Graph() {
     let low = [];
     let price = [];
 
-    const bar = { width: "85%", marginLeft: 80 };
+    const bar = { width: "80%", marginLeft: 80 };
     useEffect(() => {
         axios
             .get(
@@ -22,7 +22,11 @@ export default function Graph() {
                 setPosts(ipl);
 
                 ipl.forEach((record) => {
-                    date.push(record.last_updated);
+                    date.push(
+                        new Date(record.last_updated).toLocaleDateString(
+                            "en-GB"
+                        )
+                    );
                     high.push(record.high_24h);
                     low.push(record.low_24h);
                     price.push(record.current_price);

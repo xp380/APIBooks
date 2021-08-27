@@ -13,6 +13,7 @@ export default function Manga() {
 
     return (
         <>
+            <h3 style={{ textAlign: "center" }}>Les mangas les plus connus</h3>
             <Carousel slidesToShow={5} dots={false}>
                 {mangaAnime.map((item, id) => {
                     return (

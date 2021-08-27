@@ -47,7 +47,11 @@ export default function Details({ handleClose, open, detailsData }) {
                     />
                     <div style={styles}>
                         <p>Langue originale: {original_language}</p>
-                        <p>Date de sortie: {release_date}</p>
+                        {/* {new Date(airing_start).toLocaleDateString("en-GB")} */}
+                        <p>
+                            Date de sortie:{" "}
+                            {new Date(release_date).toLocaleDateString("en-GB")}
+                        </p>
                         <p>Note moyenne: {vote_average}</p>
                         <p>Nb de votes: {vote_count}</p>
                         <p>Popularité: {popularity}</p>

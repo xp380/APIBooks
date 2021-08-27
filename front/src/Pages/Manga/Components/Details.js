@@ -49,7 +49,11 @@ export default function Details({ handleClose, open, detailsData }) {
                     <div style={styles}>
                         <p>NB Episodes:{episodes}</p>
                         <p>Score: {score}</p>
-                        <p>Date début: {airing_start}</p>
+                        {/* Date: {new Date(atl_date).toDateString()} */}
+                        <p>
+                            Date début:{" "}
+                            {new Date(airing_start).toLocaleDateString("en-GB")}
+                        </p>
                         <p>
                             Genres:
                             {genres.map((data) => {

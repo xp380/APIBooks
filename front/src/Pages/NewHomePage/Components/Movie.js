@@ -14,6 +14,9 @@ export default function Movie() {
 
     return (
         <>
+            <h3 style={{ textAlign: "center" }}>
+                Sorties de la semaine en films
+            </h3>
             <Carousel slidesToShow={5} dots={false}>
                 {movieWatch.map((item, id) => {
                     return (

@@ -44,7 +44,13 @@ const Covids = () => {
                         <p>Nom:{item.name}</p>
                         <p>Prix actuel: {item.current_price}</p>
                         <p>Volume:{item.total_volume}</p>
-                        <p>Date: {item.atl_date}</p>
+                        {/* {new Date(airing_start).toLocaleDateString("en-GB")} */}
+                        <p>
+                            Date:{" "}
+                            {new Date(item.atl_date).toLocaleDateString(
+                                "en-GB"
+                            )}
+                        </p>
                     </div>
                 </Card>
             ))}

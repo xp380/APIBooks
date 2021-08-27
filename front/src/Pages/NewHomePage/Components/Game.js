@@ -25,6 +25,7 @@ export default function Game() {
     // };
     return (
         <>
+            <h3 style={{ textAlign: "center" }}>Les jeux les plus célèbres</h3>
             <Carousel
                 slidesToShow={5}
                 dots={false}

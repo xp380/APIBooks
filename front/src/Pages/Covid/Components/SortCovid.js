@@ -22,6 +22,7 @@ const CovidSort = React.memo((props) => {
             >
                 <div>
                     <h3 style={country}>{Country}</h3>
+                    {/* {new Date(airing_start).toLocaleDateString("en-GB")} */}
                     <p style={date}>{Date}</p>
                     <p style={active}>Active:{Active}</p>
                     <p style={deaths}>Morts:{Deaths}</p>

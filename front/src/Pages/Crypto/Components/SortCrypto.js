@@ -104,7 +104,9 @@ const CryptoSort = React.memo((props) => {
                     <p style={content}>Nom:{name}</p>
                     <p style={content}>Prix actuel: {current_price}</p>
                     <p style={content}>Volume:{total_volume}</p>
-                    <p style={content}>Date: {atl_date}</p>
+                    <p style={content}>
+                        Date: {new Date(atl_date).toLocaleDateString("en-GB")}
+                    </p>
                 </div>
                 <HoverableDiv
                     handleMouseOver={handleMouseOver}
