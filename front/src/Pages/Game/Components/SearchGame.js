@@ -6,13 +6,13 @@ const Games = () => {
     const { games } = useContext(GameContext);
 
     const row = { marginLeft: 70 };
-    const card = { width: 300, margin: 10 };
+    const card = { width: 400, margin: 10 };
     const slug = { textAlign: "left" };
     const rating = { float: "right" };
     const image = { marginLeft: 25 };
     return (
         <Row style={row}>
-            {games.slice(0, 1).map((item, id) => (
+            {games.slice(0, 3).map((item, id) => (
                 <Card key={id} style={card} bordered={true}>
                     <div>
                         <p style={slug}>
@@ -24,7 +24,7 @@ const Games = () => {
                         <img
                             src={item.background_image}
                             alt="#"
-                            width="200"
+                            width="300"
                             height="200"
                         />
                     </p>

@@ -12,7 +12,6 @@ const Movies = React.memo((props) => {
     const handleClose = () => {
         setOpen(false);
     };
-
     const HoverableDiv = ({ handleMouseOver, handleMouseOut }) => {
         return (
             <div

@@ -20,7 +20,7 @@ const Home = React.memo(() => {
     };
     const table = { marginTop: 60 };
     const accueil = {
-        textAlign: "left",
+        textAlign: "center",
         fontWeight: "bold",
         fontFamily: "monospace",
         marginTop: 90
@@ -42,6 +42,13 @@ const Home = React.memo(() => {
                 style={table}
             >
                 <TabPane tab="Accueil" key="1">
+                    <h3 style={search}>Recherche de Jeux Vidéos</h3>
+                    {games.slice(0, 1).map((gameTest) => {
+                        <h3>Liste des Jeux videos</h3>;
+                        return (
+                            <Games key={gameTest.mal_id} gameTest={gameTest} />
+                        );
+                    })}
                     <h3 style={accueil}>Liste des jeux vidéos</h3>
                     <SortForm />
                     <Row style={row}>

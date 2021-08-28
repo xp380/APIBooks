@@ -25,9 +25,9 @@ export default function Routes() {
     const image = {
         width: 50,
         height: 50,
-        marginLeft: 30
+        marginLeft: 20,
+        margin: 10
     };
-    const space = { marginLeft: 2 };
     return (
         <>
             <Router>
@@ -41,34 +41,56 @@ export default function Routes() {
                     onClose={onClose}
                     visible={visible}
                 >
-                    <p style={space}>
-                        <a href="/">Home</a>
-                        <img style={image} src={Home} alt="logo"></img>
+                    <p>
+                        <a href="/">
+                            <img style={image} src={Home} alt="logo"></img>
+                            HomePage
+                        </a>
+                        {/* <img style={image} src={Home} alt="logo"></img> */}
                     </p>
                     <p>
-                        <a href="/covids">Covids</a>
-                        <img style={image} src={Covid} alt="logo"></img>
+                        <a href="/covids">
+                            <img style={image} src={Covid} alt="logo"></img>
+                            Covid
+                        </a>
+                        {/* <img style={image} src={Covid} alt="logo"></img> */}
                     </p>
                     <p>
-                        <a href="/cryptos">Cryptos</a>
-                        <img style={image} src={Crypto} alt="logo"></img>
+                        <a href="/cryptos">
+                            <img style={image} src={Crypto} alt="logo"></img>
+                            Crypto
+                        </a>
+                        {/* <img style={image} src={Crypto} alt="logo"></img> */}
                     </p>
 
                     <p>
-                        <a href="/games">Games</a>
-                        <img style={image} src={Games} alt="logo"></img>
+                        <a href="/games">
+                            {" "}
+                            <img style={image} src={Games} alt="logo"></img>
+                            Game
+                        </a>
+                        {/* <img style={image} src={Games} alt="logo"></img> */}
                     </p>
                     <p>
-                        <a href="/mangas">Mangas</a>
-                        <img style={image} src={Manga} alt="logo"></img>
+                        <a href="/mangas">
+                            <img style={image} src={Manga} alt="logo"></img>
+                            Manga
+                        </a>
+                        {/* <img style={image} src={Manga} alt="logo"></img> */}
                     </p>
                     <p>
-                        <a href="/movies">Movies</a>
-                        <img style={image} src={Movie} alt="logo"></img>
+                        <a href="/movies">
+                            <img style={image} src={Movie} alt="logo"></img>
+                            Movie
+                        </a>
+                        {/* <img style={image} src={Movie} alt="logo"></img> */}
                     </p>
                     <p>
-                        <a href="/newHome">New HomePage</a>
-                        <img style={image} src={Home} alt="logo"></img>
+                        <a href="/newHome">
+                            <img style={image} src={Home} alt="logo"></img>
+                            NewHomePage
+                        </a>
+                        {/* <img style={image} src={Home} alt="logo"></img> */}
                     </p>
                 </Drawer>
             </Router>

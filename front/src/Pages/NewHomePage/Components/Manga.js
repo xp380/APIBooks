@@ -2,6 +2,7 @@ import React, { useState, useContext, useRef } from "react";
 import { GlobalContext } from "../Context";
 import { useHistory } from "react-router";
 import { Carousel } from "antd";
+import "./Manga.css";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 
 export default function Manga() {
@@ -16,8 +17,8 @@ export default function Manga() {
 
     return (
         <>
-            <h3 style={{ textAlign: "center" }}>Les mangas les plus connus</h3>
-            <LeftOutlined
+            <h4>Les mangas les plus connus</h4>
+            {/* <LeftOutlined
                 onClick={() => carousel.current.prev()}
                 style={{
                     top: 550,
@@ -32,13 +33,15 @@ export default function Manga() {
                     zIndex: "10",
                     color: "red"
                 }}
-            />
+            /> */}
             <Carousel
                 slidesToShow={5}
                 dots={false}
-                ref={carousel}
-                beforeChange={() => setTransition(true)}
-                afterChange={() => setTransition(false)}
+                autoplay={true}
+                speed={6000}
+                // ref={carousel}
+                // beforeChange={() => setTransition(true)}
+                // afterChange={() => setTransition(false)}
             >
                 {mangaAnime.map((item, id) => {
                     return (
@@ -59,7 +62,7 @@ export default function Manga() {
                     );
                 })}
             </Carousel>
-            <RightOutlined
+            {/* <RightOutlined
                 onClick={() => carousel.current.next()}
                 style={{
                     position: "absolute",
@@ -75,7 +78,7 @@ export default function Manga() {
                     fontWeight: "bold",
                     color: "blue"
                 }}
-            />
+            /> */}
         </>
     );
 }

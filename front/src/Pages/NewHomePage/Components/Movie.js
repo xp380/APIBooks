@@ -2,6 +2,7 @@ import React, { useState, useContext, useRef } from "react";
 import { Carousel } from "antd";
 import { GlobalContext } from "../Context";
 import { useHistory } from "react-router";
+import "./Movie.css";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 
 export default function Movie() {
@@ -17,10 +18,10 @@ export default function Movie() {
 
     return (
         <>
-            <h3 style={{ textAlign: "center" }}>
+            <h4 style={{ textAlign: "center" }}>
                 Sorties de la semaine en films
-            </h3>
-            <LeftOutlined
+            </h4>
+            {/* <LeftOutlined
                 onClick={() => carousel.current.prev()}
                 style={{
                     top: 950,
@@ -35,13 +36,15 @@ export default function Movie() {
                     zIndex: "10",
                     color: "red"
                 }}
-            />
+            /> */}
             <Carousel
                 slidesToShow={5}
                 dots={false}
-                ref={carousel}
-                beforeChange={() => setChange(true)}
-                afterChange={() => setChange(false)}
+                autoplay={true}
+                speed={6000}
+                // ref={carousel}
+                // beforeChange={() => setChange(true)}
+                // afterChange={() => setChange(false)}
             >
                 {movieWatch.map((item, id) => {
                     return (
@@ -60,7 +63,7 @@ export default function Movie() {
                     );
                 })}
             </Carousel>
-            <RightOutlined
+            {/* <RightOutlined
                 onClick={() => carousel.current.next()}
                 style={{
                     position: "absolute",
@@ -76,7 +79,7 @@ export default function Movie() {
                     fontWeight: "bold",
                     color: "blue"
                 }}
-            />
+            /> */}
         </>
     );
 }

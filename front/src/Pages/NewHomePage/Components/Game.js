@@ -13,7 +13,7 @@ export default function Game() {
 
     return (
         <>
-            <h3 style={{ textAlign: "center" }}>Les jeux les plus célèbres</h3>
+            <h4 style={{ textAlign: "center" }}>Les jeux les plus célèbres</h4>
             <Carousel
                 slidesToShow={5}
                 dots={false}
