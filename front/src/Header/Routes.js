@@ -42,25 +42,16 @@ export default function Routes() {
                     visible={visible}
                 >
                     <p>
-                        <a href="/">
-                            <img style={image} src={Home} alt="logo"></img>
-                            HomePage
-                        </a>
-                        {/* <img style={image} src={Home} alt="logo"></img> */}
-                    </p>
-                    <p>
                         <a href="/covids">
                             <img style={image} src={Covid} alt="logo"></img>
                             Covid
                         </a>
-                        {/* <img style={image} src={Covid} alt="logo"></img> */}
                     </p>
                     <p>
                         <a href="/cryptos">
                             <img style={image} src={Crypto} alt="logo"></img>
                             Crypto
                         </a>
-                        {/* <img style={image} src={Crypto} alt="logo"></img> */}
                     </p>
 
                     <p>
@@ -69,28 +60,24 @@ export default function Routes() {
                             <img style={image} src={Games} alt="logo"></img>
                             Game
                         </a>
-                        {/* <img style={image} src={Games} alt="logo"></img> */}
                     </p>
                     <p>
                         <a href="/mangas">
                             <img style={image} src={Manga} alt="logo"></img>
                             Manga
                         </a>
-                        {/* <img style={image} src={Manga} alt="logo"></img> */}
                     </p>
                     <p>
                         <a href="/movies">
                             <img style={image} src={Movie} alt="logo"></img>
                             Movie
                         </a>
-                        {/* <img style={image} src={Movie} alt="logo"></img> */}
                     </p>
                     <p>
                         <a href="/newHome">
                             <img style={image} src={Home} alt="logo"></img>
                             NewHomePage
                         </a>
-                        {/* <img style={image} src={Home} alt="logo"></img> */}
                     </p>
                 </Drawer>
             </Router>

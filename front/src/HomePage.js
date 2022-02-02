@@ -24,26 +24,11 @@ import Movies from "./Pages/Movie/index";
 import NewHome from "./Pages/NewHomePage/index";
 import Time from "./Footer/Time";
 
+import "./HomePage.css";
+
 import { Layout, BackTop, Menu } from "antd";
 const { Header, Footer, Content } = Layout;
 
-const head = {
-    position: "fixed",
-    width: "100%",
-    left: 0,
-    top: 0,
-    right: 0,
-    zIndex: 1000,
-    color: "white"
-};
-const menu = {
-    height: 1
-};
-const search = {
-    marginLeft: 750
-};
-
-const content = { backgroundColor: "#FFB6C1" };
 const foot = {
     borderTop: "1px solid #e8e8e8",
     position: "fixed",
@@ -66,10 +51,10 @@ export default function HomePage() {
                                 <MovieProvider>
                                     <GlobalProvider>
                                         <Layout>
-                                            <Header style={head}>
+                                            <Header className="head">
                                                 <Menu
                                                     theme="dark"
-                                                    style={menu}
+                                                    className="menu"
                                                     mode="horizontal"
                                                     defaultSelectedKeys={["2"]}
                                                 >
@@ -77,11 +62,11 @@ export default function HomePage() {
                                                         <Routes />
                                                     </p>
                                                 </Menu>
-                                                <div style={search}>
+                                                <div className="search">
                                                     <Search />
                                                 </div>
                                             </Header>
-                                            <Content style={content}>
+                                            <Content className="content">
                                                 <Switch>
                                                     <Route path="/covids" exact>
                                                         <Covid />
@@ -108,7 +93,7 @@ export default function HomePage() {
                                                     >
                                                         <NewHome />
                                                     </Route>
-                                                    <Redirect to="/" />
+                                                    <Redirect to="/newHome" />
                                                 </Switch>
                                                 <BackTop />
                                             </Content>
